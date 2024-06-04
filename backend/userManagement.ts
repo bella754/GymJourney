@@ -9,7 +9,7 @@ type LoginData = {
 type User = {
     id: number;
     name: string;
-    gender: string;
+    gender: 'male'|'female'|'other';
     age: number;
     height: number;
     weight: number;
