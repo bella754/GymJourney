@@ -2,14 +2,8 @@ import { Component } from "uix/components/Component.ts";
 
 @template<Props>((props) => (
 	<div>
-	<form>
-		<div class="question">is your identity? </div>
-		<select id="gender" name="gender">
-		<option value="male">male</option>
-		<option value="female">female</option>
-		<option value="other">other</option>
-		</select>
-	</form>
+		<div class="question">is your Gym? </div>
+		<input type="text" id="Gym" name="Gym" placeholder="Gym"></input>
 	</div>
 ))
 
@@ -25,7 +19,7 @@ import { Component } from "uix/components/Component.ts";
 	padding-bottom: 4px;
 }
 
-select{
+input{
 	width: 350px;
 	height: 20px;
 	font-size: 16px;
@@ -35,11 +29,11 @@ select{
 	background-color: transparent;
 }
 
-select:focus {
+input[type=text]:focus {
 	outline: none;
   }
 
 `)
 
 
-export class Selectfield extends Component <Props>{}
+export class Textfieldlabel extends Component <Props>{}
