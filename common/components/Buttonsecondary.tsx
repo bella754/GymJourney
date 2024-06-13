@@ -2,7 +2,7 @@ import { Component } from "uix/components/Component.ts";
 
 @template<Props>((props) => (
 	<div>
-	<button uix-title={'but'}>Sign In</button>
+	<button uix-title={'but'}>Log In</button>
 	</div>
 ))
 
@@ -12,20 +12,20 @@ button{
 	height: 63px;
 	font-size: 22px;
 	border-radius: 8px;
-	border: white; /* Green */
+	border: #F0F0F0;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	color: white;
-	background-color: #0891B2;
+	color: black;
+	background-color: #F0F0F0;
 }
 
-button:hover {background-color: #0891A5}
+button:hover {background-color: #F0F0E8}
 
 button:active {
-	background-color: #0891B2;
+	background-color: #F0F0F0;
 	box-shadow: 0 3px lightgrey;
 	transform: translateY(4px);
 }
 `)
 
 
-export class Button extends Component <Props>{}
+export class Buttonsecondary extends Component <Props>{}
