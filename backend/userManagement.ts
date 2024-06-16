@@ -19,7 +19,7 @@ type User = {
     progress: Progress;
     level: number; 
     levelbar: number; 
-    trainings: Training[];
+    trainings: TrainingSession[];
     achievements: Achievement[];
     friends: User[];
     ethnicity: Ethnicity; 
