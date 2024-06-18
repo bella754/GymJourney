@@ -27,4 +27,4 @@ import { Component } from "uix/components/Component.ts";
     }
 `)
 
-export class Settingsbutton extends Component<Props> {}
+export class Settingsbuttonpressed extends Component<Props> {}
