@@ -20,7 +20,7 @@ import { Component } from "uix/components/Component.ts";
 
 
 	.progress-bar {
-    width: 350px;
+    width: 350px;		//Total width of Progressbar
     height: 30px;
     background-color: black;
     border-radius: 5px;
@@ -31,7 +31,7 @@ import { Component } from "uix/components/Component.ts";
   }
 
   .progress {
-	width: 10%;
+	width: 10%;		//Progress anzeige
     height: 100%;
     background-color: #0D9D9D;
     transition: width 0.3s ease-in-out;
