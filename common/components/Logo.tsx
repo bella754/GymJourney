@@ -1,8 +1,8 @@
 import { Component } from "uix/components/Component.ts";
 
-@template<Props>((props) => (
+@template((props) => (
 	<div class="image">
-	<img src={("common/res/Logo.jpg")}/>
+	<img src="/@uix/src/common/res/Logo.jpg" />
 	</div>
 ))
 
@@ -18,4 +18,4 @@ img{
 `)
 
 
-export class Logo extends Component <Props>{}
+export class Logo extends Component {}
