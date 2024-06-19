@@ -1,5 +1,14 @@
 import { UIX } from "uix";
 import { datexVersion, denoVersion, uixVersion } from "../backend/data.ts";
+import { Clockbutton } from "../common/components/Clockbutton.tsx";
+import { Clockbuttonpressed } from "common/components/Clockbuttonpressed.tsx";
+import { Homebutton } from "common/components/Homebutton.tsx";
+import { Homebuttonpressed } from "common/components/Homebuttonpressed.tsx";
+import { Settingsbutton } from "common/components/Settingsbutton.tsx";
+import { Settingsbuttonpressed } from "common/components/Settingsbuttonpressed.tsx";
+import { Socialbutton } from "common/components/Socialbutton.tsx";
+import { Socialbuttonpressed } from "common/components/Socialbuttonpressed.tsx";
+import { Logo } from "common/components/Logo.tsx";
 
 export default 
 	<main class="hello-container">

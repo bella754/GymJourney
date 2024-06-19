@@ -25,6 +25,11 @@ import { Component } from "uix/components/Component.ts";
         border-radius: 8px;
         background-color: white;
     }
+          svg {
+        width: 42px;
+        height: 42px;
+        stroke: #0891B2; 
+    }
 `)
 
 export class Settingsbuttonpressed extends Component<Props> {}
