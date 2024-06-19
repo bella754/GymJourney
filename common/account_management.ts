@@ -187,3 +187,10 @@ export function deleteUser(idInput) {
     const index = userData.findIndex(user => user.id === idInput);
     userData.splice(index, 1);
 }
+
+/*
+    Funktion, um alle Daten eines Nutzers zu bekommen
+*/
+export function getSingleUserData(id) {
+    return userData.find(user => user.id === id);
+}

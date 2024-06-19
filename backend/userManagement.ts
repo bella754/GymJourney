@@ -16,6 +16,7 @@ type User = {
     ethnicity: Ethnicity; 
     expierence: 'Beginner'|'Intermediate'|'Expert';
     gymName: string;
+    goal: number;
     avatarUrl: string;
     progress: Progress;
     level: number; 
