@@ -19,7 +19,8 @@ type User = {
     progress: Progress;
     level: number; 
     levelbar: number; 
-    trainings: TrainingSession[];
+    workouts: Workout[]; 
+    trainingsHistory: TrainingSession[];       // trainings history
     achievements: Achievement[];
     friends: User[];
     ethnicity: Ethnicity; 
@@ -47,7 +48,7 @@ type TrainingSession = {
     start: Date;
     end: Date;
     duration: number;
-    training: Workout;
+    training: Workout;          // wollen nur den Namen von der Übung speichern  
     difficulty: number;
 }
 
@@ -59,7 +60,7 @@ type Workout = {
 // Übung Daten
 type Exercise = {
     name: string;
-    type: string;
+    muscleGroup: string;
     synonyms: string[];
     imageUrl: string;
     videoUrl: string;
@@ -67,7 +68,16 @@ type Exercise = {
     sets: number;
     repetitions: number;
     weight: number;
+}
+
+// Übung in Datenbank
+type ExerciseDatabase = {
+    name: string;
     muscleGroup: string;
+    synonyms: string[];
+    imageUrl: string;
+    videoUrl: string;
+    description: string;
 }
 
 // Achievement Daten
