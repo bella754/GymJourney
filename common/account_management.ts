@@ -1,4 +1,4 @@
-import { userdata } from "../backend/data.ts";
+import { loginData } from "../backend/data.ts";
 
 
 
@@ -7,7 +7,7 @@ import { userdata } from "../backend/data.ts";
 //       hier ja nie gesetzt. ich hätte die werte eher als input // 
 //       params mit reingegeben                                  //
 // TODO_2: userDatabase anpassen, dass auch personalisierung     //
-//         drinnen ist                                           //
+//         drinnen ist (+ trainingssession...)                   //
 ///////////////////////////////////////////////////////////////////
 
 export const currentName = $$("");
@@ -34,7 +34,7 @@ export function createUser() {
         alert("Benutzername darf nur Buchstaben und Zahlen enthalten.");
         return;
     }
-    if (userdata.some(user => user.user === currentName.val)) {
+    if (loginData.some(user => user.user === currentName.val)) {
         alert("Benutzername ist bereits vergeben.");
         return;
     }
@@ -43,13 +43,17 @@ export function createUser() {
         return;
     }
 
-    const newId = userdata.length > 0 ? userdata[userdata.length - 1].id + 1 : 1;
+    const newId = loginData.length > 0 ? loginData[loginData.length - 1].id + 1 : 1;
     alert("Registrierung erfolgreich");
-    userdata.push({
-        user: currentName.val,
-        password: currentPass.val,
+    loginData.push({
         id: newId,
+        user: currentName.val,
+        password: currentPass.val
     });
+    userData.push({
+        id: newId,
+        name: ...
+    })
 }
 
 ///////////////////////////////////////////////////////
@@ -81,9 +85,9 @@ export function createUser2(currentPass, repeatPass, currentName) {
     const newId = userdata.length > 0 ? userdata[userdata.length - 1].id + 1 : 1;
     alert("Registrierung erfolgreich");
     userdata.push({
-        user: currentName,
-        password: currentPass,
         id: newId,
+        user: currentName,
+        password: currentPass
     });
 }
 
