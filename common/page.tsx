@@ -1,6 +1,6 @@
 import { UIX } from "uix";
 import { datexVersion, denoVersion, uixVersion } from "../backend/data.ts";
-import { Logo } from "common/components/Logo.tsx";
+
 
 export default 
 	<main class="hello-container">
@@ -14,5 +14,4 @@ export default
 			</ul>
 			<p>To get started, take a look at our <a href="https://docs.unyt.org/manual/uix/getting-started" target="_blank">documentation</a>.</p>
 		</section>
-		<Logo></Logo>
 	</main>;
