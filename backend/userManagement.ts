@@ -13,8 +13,10 @@ type User = {
     age: number;
     height: number;
     weight: number;
+    ethnicity: Ethnicity; 
     expierence: 'Beginner'|'Intermediate'|'Expert';
     gymName: string;
+    goal: number;
     avatarUrl: string;
     progress: Progress;
     level: number; 
@@ -23,7 +25,6 @@ type User = {
     trainingsHistory: TrainingSession[];       // trainings history
     achievements: Achievement[];
     friends: User[];
-    ethnicity: Ethnicity; 
 }
 
 enum Ethnicity {
@@ -39,7 +40,6 @@ type Progress = {
     endurance: number;
     consistency: number;
     strength: number;
-    flexibility: number;
 }
 
 // Training Daten

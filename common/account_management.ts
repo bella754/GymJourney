@@ -1,4 +1,4 @@
-import { loginData } from "../backend/data.ts";
+import { loginData, userData } from "../backend/data.ts";
 
 
 
@@ -50,45 +50,67 @@ export function createUser() {
         user: currentName.val,
         password: currentPass.val
     });
-    userData.push({
-        id: newId,
-        name: ...
-    })
 }
 
 ///////////////////////////////////////////////////////
 // falls frontend funktionen über Import ziehen will //
 ///////////////////////////////////////////////////////
 
-export function createUser2(currentPass, repeatPass, currentName) {
-    if (currentPass !== repeatPass) {
+export function createUser2(inputPassword, repeatPass, inputUsername, inputName, inputGender, inputAge, inputHeight, inputWeight, inputEthnicity, inputExperience, inputGymName) {
+    if (inputPassword !== repeatPass) {
         alert("Passwörter stimmen nicht überein!");
         return;
     }
-    if (currentName.length < 6 || currentName.length > 20) {
+    if (inputUsername.length < 6 || inputUsername.length > 20) {
         alert("Benutzername muss zwischen 6 und 20 Zeichen lang sein.");
         return;
     }
-    if (!/^[a-zA-Z0-9]+$/.test(currentName)) {
+    if (!/^[a-zA-Z0-9]+$/.test(inputUsername)) {
         alert("Benutzername darf nur Buchstaben und Zahlen enthalten.");
         return;
     }
-    if (userdata.some(user => user.user === currentName)) {
+    if (loginData.some(user => user.user === inputUsername)) {
         alert("Benutzername ist bereits vergeben.");
         return;
     }
-    if (currentPass.length < 8 || currentPass.length > 20) {
+    if (inputPassword
+.length < 8 || inputPassword
+.length > 20) {
         alert("Passwort muss zwischen 8 und 20 Zeichen lang sein.");
         return;
     }
 
-    const newId = userdata.length > 0 ? userdata[userdata.length - 1].id + 1 : 1;
+    const newId = loginData.length > 0 ? loginData[loginData.length - 1].id + 1 : 1;
     alert("Registrierung erfolgreich");
-    userdata.push({
+    loginData.push({
         id: newId,
-        user: currentName,
-        password: currentPass
+        user: inputUsername,
+        password: inputPassword
+
     });
+    userData.push({
+        "id": newId,
+        "name": inputName,
+        "gender": inputGender,
+        "age": inputAge,
+        "height": inputHeight,
+        "weight": inputWeight,
+        "ethnicity": inputEthnicity,
+        "experience": inputExperience,
+        "gymName": inputGymName,
+        "avatarUrl": "",
+        "progress": {
+            "endurance": 0,
+            "consistancy": 0,
+            "strength": 0
+        },
+        "level": 1,
+        "levelbar": 0,
+        "workouts": [],
+        "trainingsHistory": [],
+        "achievements": [],
+        "friends": []
+    })
 }
 
 /*
@@ -97,7 +119,7 @@ export function createUser2(currentPass, repeatPass, currentName) {
 */
 
 export function loginUser() {
-    const user = userdata.find(u => u.user === currentName.val && u.password === currentPass.val);
+    const user = loginData.find(u => u.user === currentName.val && u.password === currentPass.val);
     if (user) {
         alert("Anmeldung erfolgreich!");
     } else {
@@ -110,7 +132,7 @@ export function loginUser() {
 ///////////////////////////////////////////////////////
 
 export function loginUser2(currentName, currentPass) {
-    const user = userdata.find(u => u.user === currentName && u.password === currentPass);
+    const user = loginData.find(u => u.user === currentName && u.password === currentPass);
     if (user) {
         alert("Anmeldung erfolgreich!");
     } else {
@@ -124,12 +146,12 @@ export function loginUser2(currentName, currentPass) {
     (keine Trainingspläne, Achievments, Progress, Level ...)
 */
 
-export function updateUser(idInput, nameInput, genderInput, ageInput, heightInput, weightInput, expierenceInput, gymNameInput) {
+export function updateUser(idInput, nameInput, genderInput, ageInput, heightInput, weightInput, ethnicityInput, expierenceInput, gymNameInput) {
     if (!idInput) {
         alert("keine Id mitgegeben");
         return;
     }
-    let userToUpdate = userdata.find(user => user.id === idInput);
+    let userToUpdate = userData.find(user => user.id === idInput);
 
     if (nameInput) {
         userToUpdate.name = nameInput;
@@ -146,6 +168,9 @@ export function updateUser(idInput, nameInput, genderInput, ageInput, heightInpu
     if (weightInput) {
         userToUpdate.weight = weightInput;
     }
+    if (ethnicityInput) {
+        userToUpdate.ethnicity = ethnicityInput;
+    }
     if (expierenceInput) {
         userToUpdate.expierence = expierenceInput;
     }
@@ -159,6 +184,13 @@ export function updateUser(idInput, nameInput, genderInput, ageInput, heightInpu
 */
 
 export function deleteUser(idInput) {
-    const index = userdata.findIndex(user => user.id === idInput);
-    userdata.splice(index, 1);
+    const index = userData.findIndex(user => user.id === idInput);
+    userData.splice(index, 1);
+}
+
+/*
+    Funktion, um alle Daten eines Nutzers zu bekommen
+*/
+export function getSingleUserData(id) {
+    return userData.find(user => user.id === id);
 }
