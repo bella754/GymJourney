@@ -16,7 +16,7 @@ UIX.Theme.useThemes("blank");
 
 export default {
   // show backend (hybrid) rendered page on /backend
-  "/backend": import("../common/page.tsx"),
+  "/backend": import("../common/routes/index.tsx"),
 
   // redirect / to /backend
   "/": provideRedirect("/backend"),

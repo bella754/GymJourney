@@ -1,4 +1,4 @@
-import { AppBar } from "./components/appbar/AppBar.tsx";
+import { AppBar } from "../components/appbar/AppBar.tsx";
 
 export const page = () => {
   return <AppBar />;
