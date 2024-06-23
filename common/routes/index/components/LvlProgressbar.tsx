@@ -1,16 +1,16 @@
 import { Component } from "uix/components/Component.ts";
 
-@template<Props>((props) => (
-	<div class="progress-bar-container">
-		<div class="progress-bar">
-      		<div class="progress">
-			  <span class="progress-text">15.LVL</span>
-			</div>
-		</div>
+type Props = {};
 
-	</div>
+@template<Props>(() => (
+  <div class="progress-bar-container">
+    <div class="progress-bar">
+      <div class="progress">
+        <span class="progress-text">15.LVL</span>
+      </div>
+    </div>
+  </div>
 ))
-
 @style(css`
 	.progress-bar-container {
     display: flex;
@@ -20,7 +20,7 @@ import { Component } from "uix/components/Component.ts";
 
 
 	.progress-bar {
-    width: 350px;		//Total width of Progressbar
+    width: 350px;
     height: 30px;
     background-color: black;
     border-radius: 5px;
@@ -52,6 +52,4 @@ import { Component } from "uix/components/Component.ts";
   }
   }
 `)
-
-
-export class Progressbarlvl extends Component <Props>{}
+export class LvlProgressbar extends Component<Props> {}

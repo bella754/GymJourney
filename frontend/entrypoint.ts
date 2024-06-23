@@ -16,5 +16,5 @@ UIX.Theme.useThemes("blank");
 
 export default {
   // show frontend-rendered page on /frontend
-  "/frontend": import("../common/routes/index.tsx"),
+  "/frontend": import("../common/routes/index/Index.tsx"),
 };
