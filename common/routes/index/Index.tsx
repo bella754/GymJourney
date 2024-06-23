@@ -28,4 +28,4 @@ type Props = {};
   </div>
 ))
 @style(css``)
-export class Page extends Component<Props> {}
+export class IndexPage extends Component<Props> {}

@@ -1,10 +1,12 @@
 import { Component } from "uix/components/Component.ts";
 
 @template(() => (
-  <div class="container">
-    <img src="/@uix/src/common/public/Logowithtitle.jpg" />
-    <p>GymJourney</p>
-  </div>
+  <a href="/">
+    <div class="container">
+      <img src="/@uix/src/common/public/Logowithtitle.jpg" />
+      <span>GymJourney</span>
+    </div>
+  </a>
 ))
 @style(css`
   .container {

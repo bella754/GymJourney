@@ -5,7 +5,10 @@
  */
 /* import { provideRedirect } from "uix/html/entrypoint-providers.tsx"; */
 import { UIX } from "uix";
-import { Page } from "common/routes/index/index.tsx";
+import { LoginPage } from "../common/routes/login/Index.tsx";
+import { IndexPage } from "common/routes/index/Index.tsx";
+import { WorkoutsPage } from "common/routes/workout/Index.tsx";
+import { HistoryPage } from "common/routes/history/Index.tsx";
 
 UIX.Theme.registerTheme({
   name: "blank",
@@ -17,8 +20,10 @@ UIX.Theme.useThemes("blank");
 
 export default {
   // show backend (hybrid) rendered page on /backend
-  "/": <Page />,
-
+  "/": <IndexPage />,
+  "/login": <LoginPage />,
+  "/history": <HistoryPage />,
+  "/workouts": <WorkoutsPage />,
   // redirect / to /backend
   /* "/": provideRedirect("/backend"), */
 };
