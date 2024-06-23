@@ -2,7 +2,7 @@ import { Component } from "uix/components/Component.ts";
 
 @template(() => (
   <div class="container">
-    <img src="/@uix/src/common/res/Logowithtitle.jpg" />
+    <img src="/@uix/src/common/public/Logowithtitle.jpg" />
     <p>GymJourney</p>
   </div>
 ))
