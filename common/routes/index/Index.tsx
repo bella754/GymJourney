@@ -2,6 +2,7 @@ import { AppBar } from "../../components/appbar/AppBar.tsx";
 import { LvlProgressbar } from "common/routes/index/components/LvlProgressbar.tsx";
 import { Achievements } from "common/routes/index/components/Achievements.tsx";
 import { Component } from "uix/components/Component.ts";
+import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
 
 type Props = {};
 
@@ -25,6 +26,7 @@ type Props = {};
         <Achievements />
       </div>
     </div>
+    <BottomBar />
   </div>
 ))
 @style(css``)

@@ -1,5 +1,6 @@
 import { AppBar } from "../../components/appbar/AppBar.tsx";
 import { Component } from "uix/components/Component.ts";
+import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
 
 type Props = {};
 
@@ -11,6 +12,7 @@ type Props = {};
         <h2>Login</h2>
       </div>
     </div>
+    <BottomBar />
   </div>
 ))
 @style(css``)
