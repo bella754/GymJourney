@@ -14,12 +14,12 @@ type Props = {};
         <h2>My Stats</h2>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; flex-direction: row; gap: 10px">
-            <LvlProgressbar />
-            <LvlProgressbar />
+            <LvlProgressbar max={100} value={20} />
+            <LvlProgressbar max={100} value={30} />
           </div>
           <div style="display: flex; flex-direction: row; gap: 10px">
-            <LvlProgressbar />
-            <LvlProgressbar />
+            <LvlProgressbar max={100} value={100} />
+            <LvlProgressbar max={100} value={50} />
           </div>
         </div>
         <h2>Achievements</h2>

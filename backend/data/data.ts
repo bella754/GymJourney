@@ -1,6 +1,6 @@
 import { Datex } from "datex-core-legacy/datex.ts";
 import { UIX } from "uix";
-import { LoginData } from "../backend/userManagement.ts";
+import { LoginData } from "../userManagement.ts";
 
 /**
  * Version information on the backend
@@ -35,7 +35,7 @@ export const loginData: LoginData[] = eternal ?? $$([
     },
 ]);
 
-export const userData: LoginData[] = eternal ?? $$([    // type user
+export const userData = eternal ?? $$([    // type user
   {
     id: 1,
     name: "Alice Mustermann",

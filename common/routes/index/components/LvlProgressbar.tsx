@@ -1,55 +1,42 @@
 import { Component } from "uix/components/Component.ts";
 
-type Props = {};
+type Props = {
+  max: number;
+  value: number;
+};
 
-@template<Props>(() => (
-  <div class="progress-bar-container">
-    <div class="progress-bar">
-      <div class="progress">
-        <span class="progress-text">15.LVL</span>
-      </div>
-    </div>
+/* https://verpex.com/blog/website-tips/how-to-style-a-progress-bar-using-css */
+
+@template<Props>(({ max, value }) => (
+  <div>
+    <progress max={max} value={value}></progress>
   </div>
 ))
 @style(css`
-	.progress-bar-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
+  progress[value] {
+    --color: blue;
+    --background: lightgrey;
 
-
-	.progress-bar {
-    width: 350px;
-    height: 30px;
-    background-color: black;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 200px;
+    margin: 0 10px;
+    border-radius: 10em;
+    background: var(--background);
   }
-
-  .progress {
-	width: 10%;		//Progress anzeige
-    height: 100%;
-    background-color: #0D9D9D;
-    transition: width 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
+  progress[value]::-webkit-progress-bar {
+    border-radius: 10em;
+    background: var(--background);
   }
-
-	.progress-text {
-    color: white;
-    margin-left: 10px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
+  progress[value]::-webkit-progress-value {
+    border-radius: 10em;
+    background: var(--color);
   }
+  progress[value]::-moz-progress-bar {
+    border-radius: 10em;
+    background: var(--color);
   }
 `)
 export class LvlProgressbar extends Component<Props> {}
