@@ -1,6 +1,6 @@
 import { Datex } from "datex-core-legacy/datex.ts";
 import { UIX } from "uix";
-import { LoginData } from "../backend/userManagement.ts";
+import { LoginData } from "../userManagement.ts";
 
 /**
  * Version information on the backend

@@ -1,4 +1,4 @@
-import { userData } from "../backend/data.ts";
+import { userData } from "./data.ts";
 
 
 /*
