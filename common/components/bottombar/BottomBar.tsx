@@ -1,4 +1,5 @@
 import { Component } from "uix/components/Component.ts";
+import { Button } from "common/components/Button.tsx";
 
 type Props = {};
 
@@ -13,7 +14,7 @@ const items = [
   <ul class="container">
     {items.map((item) => (
       <a href={item.href}>
-        <li>{item.name}</li>
+        <Button>{item.name}</Button>
       </a>
     ))}
   </ul>
@@ -28,14 +29,6 @@ const items = [
     width: 100%;
     list-style: none;
     padding: 10px 0;
-    margin: 0;
-  }
-
-  li {
-    cursor: pointer;
-    background-color: #0d9d9d;
-    padding: 10px;
-    border-radius: 5px;
     margin: 0;
   }
 `)
