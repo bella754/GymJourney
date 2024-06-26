@@ -35,69 +35,69 @@ export const loginData: LoginData[] = eternal ?? $$([
     },
 ]);
 
-export const userData: LoginData[] = eternal ?? $$([    // type user
+export const userData = eternal ?? $$([    // type user
   {
-    id: 1,
-    name: "Alice Mustermann",
-    gender: "female",
-    age: 20,
-    height: 173,
-    weight: 60,
-    ethnicity: "Asian",
-    experience: "Beginner",
-    gymName: "FitX",
-    avatarUrl: "",
-    progress: "",
-    level: 1,
-    levelbar: 0,
-    workouts: [{
-                name: "PPL",
-                exercises: [
+    "id": 1,
+    "name": "Alice Mustermann",
+    "gender": "female",
+    "age": 20,
+    "height": 173,
+    "weight": 60,
+    "ethnicity": "Asian",
+    "experience": "Beginner",
+    "gymName": "FitX",
+    "avatarUrl": "",
+    "progress": "",
+    "level": 1,
+    "levelbar": 0,
+    "workouts": [{
+                "name": "PPL",
+                "exercises": [
                   {
-                    name: "bench press",
-                    muscleGroup: "chest",
-                    synonyms: "",
-                    imageUrl: "",
-                    videoUrl: "",
-                    description: "...",
-                    sets: 3,
-                    repetitions: 10,
-                    weight: 25,
+                    "name": "bench press",
+                    "muscleGroup": "chest",
+                    "synonyms": "",
+                    "imageUrl": "",
+                    "videoUrl": "",
+                    "description": "...",
+                    "sets": 3,
+                    "repetitions": 10,
+                    "weight": 25,
                   },
                   {
-                    name: "Lat pull down",
-                    muscleGroup: "back",
-                    synonyms: "",
-                    imageUrl: "",
-                    videoUrl: "",
-                    description: "...",
-                    sets: 3,
-                    repetitions: 10,
-                    weight: 50,
+                    "name": "Lat pull down",
+                    "muscleGroup": "back",
+                    "synonyms": "",
+                    "imageUrl": "",
+                    "videoUrl": "",
+                    "description": "...",
+                    "sets": 3,
+                    "repetitions": 10,
+                    "weight": 50,
                   },
                   {
-                    name: "glute bridges",
-                    muscleGroup: "legs",
-                    synonyms: "",
-                    imageUrl: "",
-                    videoUrl: "",
-                    description: "...",
-                    sets: 3,
-                    repetitions: 10,
-                    weight: 80,
+                    "name": "glute bridges",
+                    "muscleGroup": "legs",
+                    "synonyms": "",
+                    "imageUrl": "",
+                    "videoUrl": "",
+                    "description": "...",
+                    "sets": 3,
+                    "repetitions": 10,
+                    "weight": 80,
                   }
                 ]
     }],
-    trainingsHistory: [{
-                        date: "2011-10-10",
-                        start: "14:48:00",   // nochmal prüfen
-                        end: "16:00:00",
-                        duration: "01:12",
-                        training: "PPL",
-                        difficulty: "easy"
+    "trainingsHistory": [{
+                        "date": "2011-10-10",
+                        "start": "14:48:00",   // nochmal prüfen
+                        "end": "16:00:00",
+                        "duration": "01:12",
+                        "training": "PPL",
+                        "difficulty": "easy"
     }],
-    achievements: [],
-    friends: []
+    "achievements": [],
+    "friends": []
 
   }
 ]);
