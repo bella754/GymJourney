@@ -10,12 +10,12 @@ await Datex.Supranet.connect();
 
 type Props = {};
 
-@template<Props>(() => (
+@template<Props>(async () => (
   <div>
     <AppBar />
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
       <div style="display: flex; flex-direction: column; align-items: center;">
-        {/* <h1>Hey, { await endpoint.main.getAlias() }</h1> */}
+        <h1>Hey, { await endpoint.getAlias() }</h1>
         <h2>My Stats</h2>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; flex-direction: row; gap: 10px">
