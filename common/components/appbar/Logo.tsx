@@ -4,7 +4,6 @@ import { Component } from "uix/components/Component.ts";
   <a href="/">
     <div class="container">
       <img src="/@uix/src/common/public/Logowithtitle.jpg" />
-      <span>GymJourney</span>
     </div>
   </a>
 ))
