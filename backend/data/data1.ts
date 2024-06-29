@@ -136,7 +136,13 @@ export const userData = eternal ?? $$([    // type user
                         training: "PPL",
                         difficulty: "easy"
     }],
-    achievements: [],
+    achievements: [
+      {
+        title: "First Achievement",
+        description: "You have reached level 1",
+        icon: "🎉",
+      }
+    ],
     friends: []
 
   }

@@ -1,4 +1,4 @@
-import { userData } from "../backend/data.ts";
+import { userData } from "./data.ts";
 
 /*
     Funktion, um insg. Trainingsdauer zu berechnen 
