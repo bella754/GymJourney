@@ -1,7 +1,7 @@
 import { AppBar } from "../../components/appbar/AppBar.tsx";
 import { Component } from "uix/components/Component.ts";
 import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
-import { getUser, updateUser } from "../../../backend/data/user.model.ts";
+import { getUser, updateUser } from "../../../backend/api/user/user.crud.ts";
 import { Button } from "common/components/Button.tsx";
 
 type Props = {};

@@ -1,29 +1,4 @@
-import { Datex } from "unyt_core/mod.ts";
-/* Datex.Runtime.OPTIONS.PROTECT_POINTERS = true; // Privatize pointers to their users */
-
-interface IUser {
-  name: string;
-  gender: "m" | "f" | "d" | "not specified";
-  age: number;
-  height: number;
-  weight: number;
-  ethnicity:
-    | "Asian"
-    | "Black"
-    | "Hispanic"
-    | "White"
-    | "Native American"
-    | "Other"
-    | "not specified";
-  experience:
-    | "beginner"
-    | "intermediate"
-    | "advanced"
-    | "expert"
-    | "not specified";
-  gym: string;
-  //avatarUrl: string
-}
+import { IUser } from "backend/api/user/user.interface.ts";
 
 const users = $$({} as Record<string, IUser[]>);
 
