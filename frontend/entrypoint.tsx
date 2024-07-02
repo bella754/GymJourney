@@ -20,11 +20,9 @@ UIX.Theme.useThemes("blank"); */
 
 export default {
   // show backend (hybrid) rendered page on /backend
-  "/": <IndexPage />,
-  "/login": <LoginPage />,
-  "/history": <HistoryPage />,
-  "/workouts": <WorkoutsPage />,
-  "/settings": <SettingsPage />,
-  // redirect / to /backend
-  /* "/": provideRedirect("/backend"), */
+  "/": () => <IndexPage />,
+  "/login": () => <LoginPage />,
+  "/history":() =>  <HistoryPage />,
+  "/workouts": () => <WorkoutsPage />,
+  "/settings": () => <SettingsPage />
 };
