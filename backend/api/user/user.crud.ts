@@ -1,42 +1,48 @@
-import { IUser } from "backend/api/user/user.interface.ts";
+import { IUser } from 'backend/api/user/user.interface.ts'
 
-const users = $$({} as Record<string, IUser[]>);
+const users = $$({} as Record<string, IUser>)
 
 // create
 export function createUser() {
-  const user = datex.meta.caller.main.toString();
-  console.log(`Creating databse entry for ${user}.`);
-  users[user] = [
-    {
-      name: "Anonymous",
-      gender: "not specified",
-      age: 0,
-      height: 0,
-      weight: 0,
-      ethnicity: "not specified",
-      experience: "not specified",
-      gym: "not specified",
-    },
-  ];
+  const user = datex.meta.caller.main.toString()
+  console.log(`Creating databse entry for ${user}.`)
+  users[user] = {
+    name: 'Anonymous',
+    gender: 'not specified',
+    age: 0,
+    height: 0,
+    weight: 0,
+    ethnicity: 'not specified',
+    experience: 'not specified',
+    gym: 'not specified',
+  }
 
-  return users[user];
+  return users[user]
 }
 
 // read
 export function getUser() {
-  const user = datex.meta.caller.main.toString();
+  const user = datex.meta.caller.main.toString()
+
+  console.log(JSON.stringify(users))
 
   if (!(user in users)) {
-    return createUser();
+    return createUser()
   }
 
-  return users[user];
+  return users[user]
+}
+
+export function getUsers() {
+  return users
 }
 
 // update
 export function updateUser(data: Partial<IUser>) {
-  const user = datex.meta.caller.main.toString();
-  console.log(`Updating databse entry for ${user}.`);
-  users[user] = users[user].map((u) => ({ ...u, ...data }));
-  return users[user];
+  const user = datex.meta.caller.main.toString()
+  console.log(`Updating databse entry for ${user}.`)
+
+  Object.assign(users[user], data)
+
+  return users[user]
 }
