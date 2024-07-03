@@ -19,17 +19,11 @@ import {Component} from "uix/components/Component.ts";
         align-items: center;
         justify-content: center;
         text-align: center;
-        
-        
-
     }
     button::before {
         content: "+";
         position: absolute;
-        
         font-weight: 600;
-        
-
     }
 `)
 

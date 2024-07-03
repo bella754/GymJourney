@@ -1,7 +1,7 @@
 import { AppBar } from "../../components/appbar/AppBar.tsx";
 import { Component } from "uix/components/Component.ts";
 import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
-import { Card } from "common/components/card/Card.tsx";
+import { Card } from "../../components/card/HistoryCard.tsx";
 
 type Props = {};
 
