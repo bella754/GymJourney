@@ -11,6 +11,7 @@ import { WorkoutsPage } from '../common/routes/workout/Index.tsx'
 import { HistoryPage } from '../common/routes/history/Index.tsx'
 import { SettingsPage } from '../common/routes/settings/Index.tsx'
 import { AdminPage } from 'common/routes/admin/Index.tsx'
+import { HistoryDetailPage } from 'common/routes/history/HistoryDetailPage.tsx'
 
 UIX.Theme.registerTheme({
   name: 'blank',
@@ -29,6 +30,7 @@ export default {
   '/': () => <IndexPage />,
   '/login': () => <LoginPage />,
   '/history': () => <HistoryPage />,
+  '/history/:id': (_, { id }: { _: any; id: string }) => <HistoryDetailPage id={id} />,
   '/workouts': () => <WorkoutsPage />,
   '/settings': () => <SettingsPage />,
   '/admin': () => <AdminPage />,
