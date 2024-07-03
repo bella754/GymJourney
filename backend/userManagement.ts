@@ -14,7 +14,7 @@ type User = {
     height: number;
     weight: number;
     ethnicity: Ethnicity; 
-    expierence: 'Beginner'|'Intermediate'|'Expert';
+    experience: 'Beginner'|'Intermediate'|'Expert';
     gymName: string;
     goal: number;
     avatarUrl: string;

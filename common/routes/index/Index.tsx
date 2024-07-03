@@ -1,16 +1,20 @@
-import { AppBar } from "../../components/appbar/AppBar.tsx";
-import { LvlProgressbar } from "common/routes/index/components/LvlProgressbar.tsx";
-import { Achievements } from "common/routes/index/components/Achievements.tsx";
-import { Component } from "uix/components/Component.ts";
-import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
+import { AppBar } from '../../components/appbar/AppBar.tsx'
+import { LvlProgressbar } from 'common/routes/index/components/LvlProgressbar.tsx'
+import { Achievements } from 'common/routes/index/components/Achievements.tsx'
+import { Component } from 'uix/components/Component.ts'
+import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
+import { getUser } from 'backend/api/user/user.crud.ts'
 
-type Props = {};
+const user = await getUser()
 
-@template<Props>(() => (
+type Props = {}
+
+@template<Props>(async () => (
   <div>
     <AppBar />
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
       <div style="display: flex; flex-direction: column; align-items: center;">
+        <h1>Hey, {user.$.name}!</h1>
         <h2>My Stats</h2>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <div style="display: flex; flex-direction: row; gap: 10px">
