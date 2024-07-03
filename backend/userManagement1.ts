@@ -48,8 +48,13 @@ export type TrainingSession = {
     start: Date;
     end: Date;
     duration: number;
-    training: Workout;          // wollen nur den Namen von der Übung speichern  
+    //training: Workout["name"];
+    training: Workout;         
     difficulty: number;
+}
+
+export function getSessionsByDifficulty(sessions: TrainingSession[], difficulty: number): TrainingSession[] {
+    return sessions.filter(session => session.difficulty === difficulty);
 }
 
 export type Workout = {
@@ -57,6 +62,14 @@ export type Workout = {
     name: string;
     category: string;
     exercises: Exercise[];
+}
+
+export function getName(workout: Workout): string {
+    return workout.name;
+}
+
+export function getId(workout: Workout): number {
+    return workout.id;
 }
 
 // Übung Daten
@@ -70,6 +83,10 @@ export type Exercise = {
     sets: number;
     repetitions: number;
     weight: number;
+}
+
+export function getExerciseName(exercise: Exercise): string {
+    return exercise.name;
 }
 
 // Übung in Datenbank
