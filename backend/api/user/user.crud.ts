@@ -1,6 +1,6 @@
 import { IUser } from 'backend/api/user/user.interface.ts'
 
-const users = $$({} as Record<string, IUser>)
+const users = eternalVar('users') ?? $$({} as Record<string, IUser>)
 
 // create
 export function createUser() {
