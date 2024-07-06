@@ -1,11 +1,11 @@
 import { Component } from "uix/components/Component.ts";
 
 @template<Props>((props) => (
-	<div class="progress-bar-container">
-		<div class="progress-label">Strength</div>
-    <div class="progress-bar">
-      		<div class="progress">
-			  <span class="progress-text">15%</span>
+	<div class="progress-bar-container" style={`width: ${props.width || '200px'};margin-left: ${props.marginLeft || '10px'}`}>
+		<div class="progress-label">{props.label}</div>
+    <div class="progress-bar" style={`border-radius: ${props.borderRadius || '15px'}`}>
+      <div class="progress" style={`width: ${props.progress}%`}>
+        <span class="progress-text">{props.text || ''}</span>
 			</div>
 		</div>
 	</div>
@@ -18,11 +18,13 @@ import { Component } from "uix/components/Component.ts";
     align items: center;
     width: 100%;
     margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    
   }
 
 
 	.progress-bar {
-    width: 200px;
     height: 20px;
     background-color: black;
     border-radius: 15px;
@@ -31,6 +33,8 @@ import { Component } from "uix/components/Component.ts";
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    
+
   }
 
   .progress {
@@ -52,12 +56,15 @@ import { Component } from "uix/components/Component.ts";
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
+    font-size: 13px;
   }
 
   .progress-label {
+    margin-top: 10px;
+    margin-bottom: 8px;
     margin-right: 10px;
     color: #555;
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 5px;
 
   }

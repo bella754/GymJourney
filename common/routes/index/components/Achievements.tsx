@@ -1,5 +1,5 @@
 import { Component } from "uix/components/Component.ts";
-import { userData } from "../../../../backend/data/data";
+import { userData } from "../../../../backend/data/data.ts";
 
 type Props = {
   id: string
