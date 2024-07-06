@@ -1,13 +1,17 @@
 import { Component } from "uix/components/Component.ts";
 import { Button } from "common/components/Button.tsx";
+import {Homebutton} from "common/components/unused/Homebutton.tsx";
+import { Workoutnavigation } from "common/components/unused/Workoutnavigation.tsx";
+import { Clockbutton } from "common/components/unused/Clockbutton.tsx";
+import { Settingsbutton } from "common/components/unused/Settingsbutton.tsx";
 
 type Props = {};
 
 const items = [
-  { name: "Home", href: "/" },
-  { name: "History", href: "/history" },
-  { name: "Workouts", href: "/workouts" },
-  { name: "Settings", href: "/settings" },
+  { name: "Home", href: "/", icon: <Homebutton/>},
+  { name: "History", href: "/history" , icon: <Clockbutton/>},
+  { name: "Workouts", href: "/workouts" , icon: <Workoutnavigation/> },
+  { name: "Settings", href: "/settings" , icon: <Settingsbutton/>},
 ];
 
 @template<Props>(() => (
@@ -30,6 +34,16 @@ const items = [
     list-style: none;
     padding: 10px 0;
     margin: 0;
+  }
+  button {
+    width: 48px; 
+    height: 48px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
   }
 `)
 export class BottomBar extends Component<Props> {}
