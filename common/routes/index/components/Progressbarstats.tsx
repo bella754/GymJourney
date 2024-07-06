@@ -14,7 +14,7 @@ import { Component } from "uix/components/Component.ts";
 @style(css`
 	.progress-bar-container {
     display: flex;
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column;
     align items: center;
     width: 100%;
     margin-bottom: 10px;

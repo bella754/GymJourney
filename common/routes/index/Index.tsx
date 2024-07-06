@@ -23,18 +23,25 @@ type Props = {};
 @template<Props>(() => (
   <div>
     <AppBar />
-    <img 
-      className="character" 
-      src="common/routes/index/components/Character.png"
-      style={{ 
+    
+    <div class="container">
+      <h1 class="box">Max</h1>
+      <img class="box"
+        src="common/routes/index/components/Character.png"
+        style={{ 
         width: '150px', 
-        height: '150px', 
-        marginLeft: '80%' 
+        height: '180px', 
+        marginLeft: '70%' 
       }} />
-    <h1>Max</h1>
+      </div>
     <div className="container">
       <div className="content">
-        <div><Progressbarstats width="100%" borderRadius='0' marginLeft='0px' text='Lvl.100' progress={20} /></div>
+        <div><Progressbarstats 
+          width="100%" 
+          borderRadius='0' 
+          marginLeft='0px' 
+          text='Lvl.100' 
+          progress={20} /></div>
         <h2>My Stats</h2>
         <span className="stat-row">
           <Progressbarstats label="Strength" progress={20} />
@@ -52,7 +59,9 @@ type Props = {};
   </div>
 ))
 @style(css`
-  
+  container{
+
+  }
   .content {
     display: flex;
     flex-direction: column;
@@ -79,6 +88,10 @@ type Props = {};
     display: flex;
     justify-content: center;
    
+  }
+  img{
+    margin-left: 10%;
+    margin-right: 10%;
   }
   
   
