@@ -9,10 +9,10 @@ export function updateEndurance(id) {
     let user = userData.find(user => user.id === id);
     let milestone = user.progress.enduranceMilestone
     let lastTrainingDuration = user.trainingsHistory[user.trainingsHistory.length - 1].duration;
-    console.log("duration of last training: ", lastTrainingDuration);
+    //console.log("duration of last training: ", lastTrainingDuration);
 
     user.progress.endurance += lastTrainingDuration;
-    console.log("endurance after update: ", user.progress.endurance);
+    //console.log("endurance after update: ", user.progress.endurance);
 
     if (user.progress.endurance > milestone) {
         user.progress.enduranceMilestone *= 2;
@@ -32,9 +32,9 @@ export function updateEndurance(id) {
 export function updateConsistency(id) {
     let user = userData.find(user => user.id === id);
     let milestone = user.progress.consistencyMilestone
-    console.log("consistency before: ", user.progress.consistency);
+    // console.log("consistency before: ", user.progress.consistency);
     user.progress.consistency += 1;
-    console.log("user consistency after: ", user.progress.consistency);
+    // console.log("user consistency after: ", user.progress.consistency);
 
 
     if (user.progress.consistancy > milestone) {
@@ -55,10 +55,10 @@ export function updateStrength(id) {
     let user = userData.find(user => user.id === id);
     let milestone = user.progress.strengthMilestone;
     let lastTrainingName = user.trainingsHistory[user.trainingsHistory.length - 1].training;
-    console.log("name of last training: ", lastTrainingName);
+    // console.log("name of last training: ", lastTrainingName);
 
     let lastTraining = user.workouts.find(w => w.name === lastTrainingName);
-    console.log("workout with right name: ", lastTraining);
+    // console.log("workout with right name: ", lastTraining);
 
     let lastTrainingStrength = 0; // TODO: for each für jedes set, damit gesamt gewicht ermittelt wird
 
@@ -73,7 +73,7 @@ export function updateStrength(id) {
 
 
     user.progress.strength += (lastTrainingStrength / 1000);        // damit das gewicht dann in tonnen gehandhabt wird
-    console.log("strength after update: ", user.progress.strength);
+    // console.log("strength after update: ", user.progress.strength);
 
     if (user.progress.strength > milestone) {
         user.progress.strengthMilestone *= 2;
@@ -95,7 +95,7 @@ export function updateLevel(id, weight) {
     let milestone = user.levelMilestone;
 
     user.xp += weight * 10; // weight ist in tonnen angegeben
-    console.log("user xp: ", user.xp);
+    // console.log("user xp: ", user.xp);
 
     if (user.xp > milestone) {
         user.levelMilestone *= 2;
