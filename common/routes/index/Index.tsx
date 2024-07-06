@@ -1,9 +1,10 @@
 import { AppBar } from "../../components/appbar/AppBar.tsx";
-import { LvlProgressbar } from "common/routes/index/components/LvlProgressbar.tsx";
+import { Progressbarstats } from "common/routes/index/components/Progressbarstats.tsx";
 import { Achievements } from "common/routes/index/components/Achievements.tsx";
 import { Component } from "uix/components/Component.ts";
 import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
 import { getEndurance, getConsistency, getStrength } from "../../../backend/data/bar_management.ts";
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -12,9 +13,9 @@ import { getEndurance, getConsistency, getStrength } from "../../../backend/data
 /////////////////////////////////////////////////////////////////////////////////////////////
 let id; 
 
-let userEndurance = getEndurance(id);
+/* let userEndurance = getEndurance(id);
 let userConsistency = getConsistency(id);
-let userStrength = getStrength(id);
+let userStrength = getStrength(id); */
 let userLevel; 
 
 type Props = {};
@@ -22,25 +23,51 @@ type Props = {};
 @template<Props>(() => (
   <div>
     <AppBar />
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
-      <div style="display: flex; flex-direction: column; align-items: center;">
+    <div className="container">
+      <div className="content">
         <h2>My Stats</h2>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <div style="display: flex; flex-direction: row; gap: 10px">
-            <LvlProgressbar max={100} value={20} />
-            <LvlProgressbar max={100} value={userStrength} />
-          </div>
-          <div style="display: flex; flex-direction: row; gap: 10px">
-            <LvlProgressbar max={100} value={userConsistency} />
-            <LvlProgressbar max={100} value={userEndurance} />
-          </div>
-        </div>
+        <span className="stat-row">
+          <Progressbarstats label="Strength" progress={20} />
+          <Progressbarstats label="Endurance" progress={20} />
+        </span>
+        <span className="stat-row">
+          <Progressbarstats label="Consistency" progress={20} />
+          <Progressbarstats label="Flexibility" progress={20} />
+        </span>
         <h2>Achievements</h2>
-        <Achievementsbackend id={id} />
+        {/* <Achievements id={id} /> */}
       </div>
     </div>
     <BottomBar />
   </div>
 ))
-@style(css``)
+@style(css`
+  .container{
+    display: flex;
+    justify-content: center;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+  h2{
+    display: flex;
+    justify-content: center;
+  }
+  .stat-row{
+    display: flex:
+    justify-content: center;
+  }
+  span{
+    display: flex;
+    justify-content: center;
+   
+  }
+  
+
+  
+`)
 export class IndexPage extends Component<Props> {}
