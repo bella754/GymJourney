@@ -3,20 +3,33 @@ import { Progressbarstats } from "common/routes/index/components/Progressbarstat
 import { Achievements } from "common/routes/index/components/Achievements.tsx";
 import { Component } from "uix/components/Component.ts";
 import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
-import { getEndurance, getConsistency, getStrength } from "../../../backend/data/bar_management.ts";
-
+import { getEndurance, getConsistency, getStrength, getUserXp, getConsistencyMilestone, getEnduranceMilestone, getLevelMilestone, getStrengthMilestone } from "../../../backend/data/bar_management.ts";
+import { LvlProgressbar } from "common/routes/index/components/LvlProgressbar.tsx";
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // TODO: id von eingeloggten user in route params an nächste component übergeben           //
 // TODO: Levelbar einfügen, aber ich bin lost, wie ich die Funktionen aus der Klasse nutze //
 /////////////////////////////////////////////////////////////////////////////////////////////
-let id; 
+// let id = datex.meta.caller.main.toString(); 
+let id = 1;
+// console.log("user id: ", id);
 
-/* let userEndurance = getEndurance(id);
+let userEndurance = getEndurance(id);
+let userEnduranceMilestone = getEnduranceMilestone(id);
+// console.log("userEndurance: ", userEndurance);
+
 let userConsistency = getConsistency(id);
-let userStrength = getStrength(id); */
-let userLevel; 
+let userConsistencyMilestone = getConsistencyMilestone(id);
+// console.log("userConsistency: ", userConsistency);
+
+let userStrength = getStrength(id);
+let userStrengthMilestone = getStrengthMilestone(id);
+// console.log("userStrength: ", userStrength);
+
+let userXP = getUserXp(id); 
+let userLevelMilestone = getLevelMilestone(id);
+// console.log("userLevel: ", userLevel);
 
 type Props = {};
 
@@ -34,22 +47,25 @@ type Props = {};
         marginLeft: '70%' 
       }} />
       </div>
-    <div className="container">
-      <div className="content">
-        <div><Progressbarstats 
+    <div class="container">
+      <div class="content">
+      <div><Progressbarstats 
           width="100%" 
           borderRadius='0' 
           marginLeft='0px' 
           text='Lvl.100' 
-          progress={20} /></div>
+          progress={userXP} /></div> 
         <h2>My Stats</h2>
-        <span className="stat-row">
-          <Progressbarstats label="Strength" progress={20} />
-          <Progressbarstats label="Endurance" progress={20} />
-        </span>
-        <span className="stat-row">
-          <Progressbarstats label="Consistency" progress={20} />
-          <Progressbarstats label="Flexibility" progress={20} />
+        <span class="stat-row">
+          {/* <Progressbarstats label="Strength" progress={userStrength} />
+          <Progressbarstats label="Endurance" progress={userEndurance} />*/}
+          <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar>
+          <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar>
+        </span> 
+        <span class="stat-row">
+        <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar>
+          {/* <Progressbarstats label="Consistency" progress={userConsistency} /> */}
+          {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
         <h2>Achievements</h2>
         {/* <Achievements id={id} /> */}

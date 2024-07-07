@@ -87,9 +87,17 @@ export const userData = eternal ?? $$([    // type user
     experience: "Beginner",
     gymName: "FitX",
     avatarUrl: "",
-    progress: "",
+    progress: {
+      endurance: 0,             
+      enduranceMilestone: 100,  // in minuten
+      consistency: 1,           
+      consistencyMilestone: 3,  // === wie oft will ich in der woche trainieren?
+      strength: 0,              
+      strengthMilestone: 4      //in tonnen
+    },
     level: 1,
-    levelbar: 0,
+    xp: 25,
+    levelMilestone: 100,
     workouts: [{
                 name: "PPL",
                 exercises: [
@@ -132,7 +140,7 @@ export const userData = eternal ?? $$([    // type user
                         date: "2011-10-10",
                         start: "14:48:00",   // nochmal prüfen
                         end: "16:00:00",
-                        duration: "01:12",
+                        duration: 72,
                         training: "PPL",
                         difficulty: "easy"
     }],

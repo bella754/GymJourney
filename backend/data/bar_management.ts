@@ -116,15 +116,57 @@ export function updateLevel(id, weight) {
 
 export function getEndurance(id) {
     let user = userData.find(user => user.id === id);
+    // console.log("user: ", user);
+    // console.log("user endurance: ", user.progress.endurance);
+    
     return user.progress.endurance;
 }
 
 export function getConsistency(id) {
     let user = userData.find(user => user.id === id);
-    return user.progress.consistancy;
+    // console.log("user endurance: ", user.progress.consistency);
+    return user.progress.consistency;
 }
 
 export function getStrength(id) {
     let user = userData.find(user => user.id === id);
+    // console.log("user endurance: ", user.progress.strength);
     return user.progress.strength;
+}
+
+export function getLevel(id) {
+    let user = userData.find(user => user.id === id);
+    // console.log("user endurance: ", user.level);
+    return user.level;
+}
+
+export function getUserXp(id) {
+    let user = userData.find(user => user.id === id);
+    // console.log("user endurance: ", user.level);
+    return user.xp;
+}
+
+
+
+export function getEnduranceMilestone(id) {
+    let user = userData.find(user => user.id === id);    
+    return user.progress.enduranceMilestone;
+}
+
+export function getConsistencyMilestone(id) {
+    let user = userData.find(user => user.id === id);
+    // console.log("user endurance: ", user.progress.consistency);
+    return user.progress.consistencyMilestone;
+}
+
+export function getStrengthMilestone(id) {
+    let user = userData.find(user => user.id === id);
+    // console.log("user endurance: ", user.progress.strength);
+    return user.progress.strengthMilestone;
+}
+
+export function getLevelMilestone(id) {
+    let user = userData.find(user => user.id === id);
+    // console.log("user endurance: ", user.level);
+    return user?.levelMilestone;
 }
