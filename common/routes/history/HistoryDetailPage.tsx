@@ -4,13 +4,30 @@ import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Backarrow } from './components/Backarrow.tsx'
 import { getTrainingById } from 'backend/api/training/training.crud.ts'
+import { IExercise } from 'backend/api/training/training.interface.ts'
+import { Trophy } from './components/Trophy.tsx'
+import { Weight } from './components/Weight.tsx'
 
 type Props = {
   id: string
 }
 
+const calculateTotalWeight = (exercises: IExercise[]) => {
+  return exercises.reduce((total, exercise) => {
+    return total + exercise.sets * exercise.repetitions * exercise.weight;
+  }, 0);
+};
+
+const formatWeight = (weight: number) => {
+  if (weight >= 1000) {
+    return (weight / 1000).toFixed(1) + ' t';
+  }
+  return weight + ' kg';
+};
+
 @template<Props>(async (_, { id }) => {
   const training = await getTrainingById(id)
+  const totalWeight = formatWeight(calculateTotalWeight(training?.training.exercises));
   return (
     <div>
       <AppBar />
@@ -23,15 +40,16 @@ type Props = {
               {/* @ts-ignore */}
               <p>{new Date(training?.date).toLocaleDateString()}</p>
             </div>
-            {/*  <div class={'trophyweightcontainer'}>
-              <div class="trophy-container">
+            <div class={'trophyweightcontainer'}>
+            <div class="trophy-container">
                 <p class="trophy-number">4 Prs</p>
                 <Trophy />
               </div>
-              <div class="weight-container">
-                <p class="weight-number">123 kg</p>
+            <div class="weight-container">
+                <p class="weight-number">{totalWeight}</p>
                 <Weight />
-              </div>*/}
+              </div>
+            </div>
           </div>
           {training?.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>

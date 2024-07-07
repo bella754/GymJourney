@@ -21,16 +21,6 @@ const items = [
     title: "Legs",
     description: "Legs workout",
   },
-  {
-    id: 4,
-    title: "Shoulders",
-    description: "Shoulders workout",
-  },
-  {
-    id: 5,
-    title: "Arms",
-    description: "Arms workout",
-  },
 ];
 
 @template<Props>(() => (
@@ -46,6 +36,9 @@ const items = [
           </Card>
         ))}
       </div>
+      <a href="/createWorkout">
+        <button style="padding: 5px 10px;"> + </button>
+      </a>
     </div>
     <BottomBar />
   </div>
