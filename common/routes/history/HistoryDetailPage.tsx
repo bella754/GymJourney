@@ -14,20 +14,20 @@ type Props = {
 
 const calculateTotalWeight = (exercises: IExercise[]) => {
   return exercises.reduce((total, exercise) => {
-    return total + exercise.sets * exercise.repetitions * exercise.weight;
-  }, 0);
-};
+    return total + exercise.sets * exercise.repetitions * exercise.weight
+  }, 0)
+}
 
 const formatWeight = (weight: number) => {
   if (weight >= 1000) {
-    return (weight / 1000).toFixed(1) + ' t';
+    return (weight / 1000).toFixed(1) + ' t'
   }
-  return weight + ' kg';
-};
+  return weight + ' kg'
+}
 
 @template<Props>(async (_, { id }) => {
   const training = await getTrainingById(id)
-  const totalWeight = formatWeight(calculateTotalWeight(training?.training.exercises));
+  const totalWeight = formatWeight(calculateTotalWeight(training?.training.exercises))
   return (
     <div>
       <AppBar />
@@ -38,14 +38,14 @@ const formatWeight = (weight: number) => {
             <div class={'namedate-container'}>
               <h2>{training?.training.name}</h2>
               {/* @ts-ignore */}
-              <p>{new Date(training?.date).toLocaleDateString()}</p>
+              <p>{new Date(training?.start).toLocaleDateString()}</p>
             </div>
             <div class={'trophyweightcontainer'}>
-            <div class="trophy-container">
+              <div class="trophy-container">
                 <p class="trophy-number">4 Prs</p>
                 <Trophy />
               </div>
-            <div class="weight-container">
+              <div class="weight-container">
                 <p class="weight-number">{totalWeight}</p>
                 <Weight />
               </div>

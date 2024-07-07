@@ -12,16 +12,16 @@ type Props = {}
 
 const calculateTotalWeight = (exercises: IExercise[]) => {
   return exercises.reduce((total, exercise) => {
-    return total + exercise.sets * exercise.repetitions * exercise.weight;
-  }, 0);
-};
+    return total + exercise.sets * exercise.repetitions * exercise.weight
+  }, 0)
+}
 
 const formatWeight = (weight: number) => {
   if (weight >= 1000) {
-    return (weight / 1000).toFixed(1) + ' t';
+    return (weight / 1000).toFixed(1) + ' t'
   }
-  return weight + ' kg';
-};
+  return weight + ' kg'
+}
 
 const userTrainings = await getTrainings()
 
@@ -31,13 +31,13 @@ const userTrainings = await getTrainings()
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Workout History</h2>
-        {/* @ts-ignore */}        <Button onclick={createExampleTraining}>Create example</Button>
+        {/* @ts-ignore */} <Button onclick={createExampleTraining}>Create example</Button>
         {userTrainings.$.map((session: any) => {
           // Berechnung des Gesamtgewichts für die aktuelle Trainingssession
-          const totalWeight = formatWeight(calculateTotalWeight(session.training.exercises));
-           
+          const totalWeight = formatWeight(calculateTotalWeight(session.training.exercises))
+
           return (
-            <div class={'wholecard'}>
+            <div class={session.end ? 'wholecard' : 'wholecard active'}>
               <Card>
                 <a href={`/history/${session.id}`}>
                   <div>
@@ -51,10 +51,10 @@ const userTrainings = await getTrainings()
                     </div>
                     <p class={'duration'}>{session.duration}h</p>
                     <div class={'bottomcard'}>
-                      <p class={'date'}>{session.date.toLocaleDateString()}</p>
+                      <p class={'date'}>{session.start.toLocaleDateString()}</p>
                       <p class={'difficulty'}>difficulty:{session.difficulty}</p>
                       <div class="weight-container">
-                      <p class="weight-number">{totalWeight}</p>
+                        <p class="weight-number">{totalWeight}</p>
                         <Weight />
                       </div>
                     </div>
@@ -62,7 +62,7 @@ const userTrainings = await getTrainings()
                 </a>
               </Card>
             </div>
-          );
+          )
         })}
       </div>
     </div>
@@ -118,6 +118,9 @@ const userTrainings = await getTrainings()
   .weight-container {
     display: flex;
     align-items: center;
+  }
+  .wholecard.active {
+    background-color: #f0f0f0;
   }
 `)
 export class HistoryPage extends Component<Props> {}

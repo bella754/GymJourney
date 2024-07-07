@@ -14,6 +14,7 @@ import { HistoryPage } from '../common/routes/history/Index.tsx'
 import { SettingsPage } from '../common/routes/settings/Index.tsx'
 import { AdminPage } from 'common/routes/admin/Index.tsx'
 import { HistoryDetailPage } from 'common/routes/history/HistoryDetailPage.tsx'
+import { StartSession } from 'common/routes/workout/StartSession.tsx'
 
 UIX.Theme.registerTheme({
   name: 'blank',
@@ -28,12 +29,16 @@ UIX.Theme.registerTheme({
 UIX.Theme.useThemes('blank')
 
 export default {
-  // show backend (hybrid) rendered page on /backend
+  // show backend (hybrid) rendered page on /backenddd
   '/': () => <IndexPage />,
   '/login': () => <LoginPage />,
   '/history': () => <HistoryPage />,
   '/history/:id': (_, { id }: { _: any; id: string }) => <HistoryDetailPage id={id} />,
   '/workouts': () => <WorkoutsPage />,
+  '/workouts/:id':
+    () =>
+    (_, { id }: { _: any; id: string }) =>
+      <StartSession id={id} />,
   '/createWorkout': () => <CreateWorkoutPage />,
   '/selectExercise': () => <SelectExercisePage />,
   '/settings': () => <SettingsPage />,

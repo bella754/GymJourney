@@ -1,14 +1,13 @@
 export interface ITrainingSession {
   id: string
-  date: Date
   start: Date
-  end: Date
-  duration: number
+  end: Date | undefined
   training: IWorkout
-  difficulty: number
+  difficulty: number | undefined
 }
 
 export interface IWorkout {
+  id: string
   name: string
   category: string
   exercises: IExercise[]
