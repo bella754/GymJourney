@@ -50,21 +50,21 @@ type Props = {};
     <div class="container">
       <div class="content">
       <div><Progressbarstats 
-          width="100%" 
+          width="1000px" 
           borderRadius='0' 
           marginLeft='0px' 
           text='Lvl.100' 
-          progress={userXP} /></div> 
+          progress={userXP/userLevelMilestone*100} /></div> 
         <h2>My Stats</h2>
         <span class="stat-row">
-          {/* <Progressbarstats label="Strength" progress={userStrength} />
-          <Progressbarstats label="Endurance" progress={userEndurance} />*/}
-          <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar>
-          <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar>
+          <Progressbarstats label="Strength" progress={(userStrength/userStrengthMilestone)*100} />
+          <Progressbarstats label="Endurance" progress={(userEndurance/userEnduranceMilestone)*100} />
+          {/* <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar> */}
+          {/* <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar> */}
         </span> 
         <span class="stat-row">
-        <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar>
-          {/* <Progressbarstats label="Consistency" progress={userConsistency} /> */}
+        {/* <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar> */}
+          <Progressbarstats label="Consistency" progress={(userConsistency/userConsistencyMilestone)*100} />
           {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
         <h2>Achievements</h2>
@@ -75,9 +75,7 @@ type Props = {};
   </div>
 ))
 @style(css`
-  container{
-
-  }
+  
   .content {
     display: flex;
     flex-direction: column;
