@@ -8,6 +8,8 @@ import { UIX } from 'uix'
 import { LoginPage } from '../common/routes/login/Index.tsx'
 import { IndexPage } from '../common/routes/index/Index.tsx'
 import { WorkoutsPage } from '../common/routes/workout/Index.tsx'
+import { CreateWorkoutPage } from '../common/routes/workout/createWorkout.tsx'
+import { SelectExercisePage } from '../common/routes/workout/selectExercise.tsx'
 import { HistoryPage } from '../common/routes/history/Index.tsx'
 import { SettingsPage } from '../common/routes/settings/Index.tsx'
 import { AdminPage } from 'common/routes/admin/Index.tsx'
@@ -32,6 +34,8 @@ export default {
   '/history': () => <HistoryPage />,
   '/history/:id': (_, { id }: { _: any; id: string }) => <HistoryDetailPage id={id} />,
   '/workouts': () => <WorkoutsPage />,
+  '/createWorkout': () => <CreateWorkoutPage />,
+  '/selectExercise': () => <SelectExercisePage />,
   '/settings': () => <SettingsPage />,
   '/admin': () => <AdminPage />,
 }

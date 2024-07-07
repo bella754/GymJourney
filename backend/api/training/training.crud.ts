@@ -1,6 +1,36 @@
+import { Exercise } from "backend/userManagement1.ts";
 import { ITrainingSession } from './training.interface.ts'
 
 const trainings = eternalVar('trainings') ?? $$({} as Record<string, ITrainingSession[]>)
+
+const exercises = [
+  {
+    name: 'Bench Press',
+    muscleGroup: 'Chest',
+    synonyms: ['Chest Press'],
+    imageUrl: 'https://example.com/bench-press.jpg',
+    videoUrl: 'https://example.com/bench-press.mp4',
+    description: 'Lie on a flat bench with your feet flat on the floor.',
+    sets: 3,
+    repetitions: 10,
+    weight: 10,
+  },
+  {
+    name: 'Squats',
+    muscleGroup: 'Legs',
+    synonyms: ['Leg Squats'],
+    imageUrl: 'https://example.com/squats.jpg',
+    videoUrl: 'https://example.com/squats.mp4',
+    description: 'Stand with your feet shoulder-width apart.',
+    sets: 4,
+    repetitions: 8,
+    weight: 20,
+  },
+];
+
+export function getExercises() {
+  return exercises;
+}
 
 // create
 export function createExampleTraining() {
@@ -18,7 +48,7 @@ export function createExampleTraining() {
     end: new Date(),
     duration: 20,
     training: {
-      name: 'My Name',
+      name: 'Push',
       category: 'My Category',
       exercises: [
         {
@@ -30,7 +60,7 @@ export function createExampleTraining() {
           description: 'My Description',
           sets: 3,
           repetitions: 10,
-          weight: 10,
+          weight: 100,
         },
       ],
     },
@@ -58,6 +88,7 @@ export function getTrainingById(id: string) {
 
   return trainings[user].find((training) => training.id === id)
 }
+
 
 /* export function getUsers() {
   return users
