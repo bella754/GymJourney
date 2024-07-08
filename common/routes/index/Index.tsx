@@ -37,7 +37,7 @@ let userStrengthMilestone = getStrengthMilestone(id)
 // console.log("userStrength: ", userStrength);
 
 let userXP = getUserXp(id)
-let userLevelMilestone = getLevelMilestone(id)
+let userLevelMilestone = getLevelMilestone(id) || 100
 // console.log("userLevel: ", userLevel);
 
 type Props = {}
@@ -52,7 +52,7 @@ const user = await getUser()
       <h1 class="box">{user.name}</h1>
       <img
         class="box"
-        src="common/routes/index/components/Character.png"
+        src="/@uix/src/common/public/Character.png"
         style={{
           width: '150px',
           height: '180px',
@@ -68,8 +68,7 @@ const user = await getUser()
             borderRadius="0"
             marginLeft="0px"
             text="Lvl.100"
-            /* progress={(userXP / userLevelMilestone) * 100} */
-            progress={19}
+            progress={(userXP / userLevelMilestone) * 100}
           />
         </div>
       </div>
