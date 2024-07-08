@@ -1,9 +1,9 @@
-import { Component } from "uix/components/Component.ts";
+import { Component } from 'uix/components/Component.ts'
 
 type Props = {
-  max: number;
-  value: number;
-};
+  max: number
+  value: number
+}
 
 /* https://verpex.com/blog/website-tips/how-to-style-a-progress-bar-using-css */
 

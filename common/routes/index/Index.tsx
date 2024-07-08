@@ -1,30 +1,17 @@
-import { AppBar } from '../../components/appbar/AppBar.tsx'
-import { Progressbarstats } from 'common/routes/index/components/Progressbarstats.tsx'
-import { Achievements } from 'common/routes/index/components/Achievements.tsx'
 import { Component } from 'uix/components/Component.ts'
-import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
-import {
-  getEndurance,
-  getConsistency,
-  getStrength,
-  getUserXp,
-  getConsistencyMilestone,
-  getEnduranceMilestone,
-  getLevelMilestone,
-  getStrengthMilestone,
-} from '../../../backend/data/bar_management.ts'
-import { LvlProgressbar } from 'common/routes/index/components/LvlProgressbar.tsx'
-import { getUser } from 'backend/api/user/user.crud.ts'
+import { getUser } from '../../../backend/api/user/user.crud.ts'
+import { Progressbarstats } from './components/Progressbarstats.tsx'
+import { AppBar } from '../../components/appbar/AppBar.tsx'
+import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 // TODO: id von eingeloggten user in route params an nächste component übergeben           //
 // TODO: Levelbar einfügen, aber ich bin lost, wie ich die Funktionen aus der Klasse nutze //
 /////////////////////////////////////////////////////////////////////////////////////////////
 // let id = datex.meta.caller.main.toString();
-let id = 1
 // console.log("user id: ", id);
 
-let userEndurance = getEndurance(id)
+/* let userEndurance = getEndurance(id)
 let userEnduranceMilestone = getEnduranceMilestone(id)
 // console.log("userEndurance: ", userEndurance);
 
@@ -37,7 +24,7 @@ let userStrengthMilestone = getStrengthMilestone(id)
 // console.log("userStrength: ", userStrength);
 
 let userXP = getUserXp(id)
-let userLevelMilestone = getLevelMilestone(id) || 100
+let userLevelMilestone = getLevelMilestone(id) || 100 */
 // console.log("userLevel: ", userLevel);
 
 type Props = {}
@@ -68,7 +55,8 @@ const user = await getUser()
             borderRadius="0"
             marginLeft="0px"
             text="Lvl.100"
-            progress={(userXP / userLevelMilestone) * 100}
+            /* progress={(userXP / userLevelMilestone) * 100} */
+            progress={100}
           />
         </div>
       </div>
@@ -78,14 +66,25 @@ const user = await getUser()
         {/* <h1>Hey, {user.$.name}!</h1> */}
         <h2>My Stats</h2>
         <span class="stat-row">
-          <Progressbarstats label="Strength" progress={(userStrength / userStrengthMilestone) * 100} />
-          <Progressbarstats label="Endurance" progress={(userEndurance / userEnduranceMilestone) * 100} />
+          <Progressbarstats
+            label="Strength"
+            /* progress={(userStrength / userStrengthMilestone) * 100} */
+            progress={100}
+          />
+          <Progressbarstats
+            label="Endurance"
+            /* progress={(userEndurance / userEnduranceMilestone) * 100} */
+            progress={100}
+          />
           {/* <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar> */}
           {/* <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar> */}
         </span>
         <span class="stat-row">
           {/* <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar> */}
-          <Progressbarstats label="Consistency" progress={(userConsistency / userConsistencyMilestone) * 100} />
+          <Progressbarstats
+            label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */
+            progress={100}
+          />
           {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
         <h2>Achievements</h2>

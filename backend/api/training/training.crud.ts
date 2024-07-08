@@ -52,37 +52,37 @@ export function createExampleTraining() {
 }
 
 export function createWorkout() {
-  const newWorkoutId = crypto.randomUUID();
+  const newWorkoutId = crypto.randomUUID()
 
   workouts.push({
     id: newWorkoutId,
-    name: "", 
-    category: "",
-    exercises: [exercises[2]],
+    name: '',
+    category: '',
+    exercises: [],
   })
 
-  return newWorkoutId;
+  return newWorkoutId
 }
 
 export function updateWorkout(id: string, name: string, category: string) {
-  const index = workouts.findIndex(workout => workout.id === id);
+  const index = workouts.findIndex((workout) => workout.id === id)
   if (index === -1) {
-    throw new Error("Workout not found");
+    throw new Error('Workout not found')
   }
 
-  workouts[index].name = name;
-  workouts[index].category = category;
+  workouts[index].name = name
+  workouts[index].category = category
 
-  return workouts[index];
+  return workouts[index]
 }
 
 export function addExercisesToWorkout(workoutId: string, newExercises: IExercise[]) {
-  const workout = workouts.find(workout => workout.id === workoutId);
+  const workout = workouts.find((workout) => workout.id === workoutId)
   if (!workout) {
-    throw new Error("Workout not found");
+    throw new Error('Workout not found')
   }
 
-  workout.exercises.push(...newExercises);
+  workout.exercises.push(...newExercises)
 }
 
 export function createSession(workout: IWorkout) {
