@@ -2,35 +2,84 @@ import { AppBar } from "../../components/appbar/AppBar.tsx";
 import { Component } from "uix/components/Component.ts";
 import { BottomBar } from "common/components/bottombar/BottomBar.tsx";
 import { Button } from 'common/components/Button.tsx';
+import { getWorkoutById, updateWorkout } from 'backend/api/training/training.crud.ts'
+import { Card } from '../../components/card/HistoryCard.tsx'
 
-type Props = {};
+type Props = {
+  id: string
+};
 
-const navigateToSelectExercisesPage = () => {
-    window.location.href = "/selectExercise"; // Beispiel für eine einfache Umleitung
+@template<Props>(async (_, { id }) => {
+  const selectedWorkout = await getWorkoutById(id)
+
+  const name = $$("");
+  const category = $$("");
+
+  const saveWorkout = async () => {
+    await updateWorkout(id, name, category);
+    window.location.href = "/workouts";
   };
 
-@template<Props>(() => (
+  const navigateToSelectExercisesPage = () => {
+    window.location.href = `/selectExercise/${id}`;
+  };
+
+  return (
   <div>
-    <AppBar />
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
-        <h2>Workout erstellen</h2>
-        <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" />
-        <select style="margin-bottom: 20px; padding: 10px; width: 100%;">
-          <option value="" disabled selected>Kategorie auswählen</option>
-          <option value="PPL">PPL</option>
-          <option value="Bro Split">Bro Split</option>
-          <option value="Upper/Lower">Upper/Lower</option>
-          <option value="Full Body">Full Body</option>
-        </select>
-        <p>Es gibt keine Übungen. Fügen Sie die erste hinzu</p>
-        <Button onclick={navigateToSelectExercisesPage}>Übung hinzufügen</Button>
-        <Button onclick={() => window.history.back()}>Zurück</Button>
-      </div>
+      <AppBar />
+      <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
+          <h2>Workout erstellen</h2>
+          <p>Workout id: {selectedWorkout.id}</p>
+          <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" 
+            value={name} />
+          <select style="margin-bottom: 20px; padding: 10px; width: 100%;" 
+            value={category}>
+            <option value="" disabled>Kategorie auswählen</option>
+            <option value="PPL">PPL</option>
+            <option value="Bro Split">Bro Split</option>
+            <option value="Upper/Lower">Upper/Lower</option>
+            <option value="Full Body">Full Body</option>
+          </select>
+        </div>
     </div>
+    {selectedWorkout.exercises.map((exercise: any, index) => (
+            <div class={'tablecontainer'}>
+              <Card>
+                <div>
+                  <h3>
+                    {index + 1}. {exercise.name}
+                  </h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Set</th>
+                        <th>Reps</th>
+                        <th> </th>
+                        <th>Weight</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {Array.from({ length: exercise.sets }).map((_, setIndex) => (
+                        <tr>
+                          <td>{setIndex + 1}</td>
+                          <td>{exercise.repetitions}</td>
+                          <td class={'color'}>x</td>
+                          <td>{exercise.weight} kg</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+            </div>
+          ))}
+    <Button onclick={navigateToSelectExercisesPage}> + </Button>
+    <Button onclick={() => window.history.back()}>Zurück</Button>
+    <Button onclick={saveWorkout}>Speichern</Button>
     <BottomBar />
   </div>
-))
+)})
 @style(css`
   input, select {
     width: 100%;

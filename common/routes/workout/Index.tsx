@@ -1,8 +1,9 @@
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
+import { Button } from 'common/components/Button.tsx';
 import { Card } from '../../components/card/HistoryCard.tsx'
-import { createSession, getWorkouts } from 'backend/api/training/training.crud.ts'
+import { createSession, getWorkouts, createWorkout } from 'backend/api/training/training.crud.ts'
 import { IWorkout } from 'backend/api/training/training.interface.ts'
 
 type Props = {}
@@ -13,6 +14,12 @@ const handleCreateSession = async (workout: IWorkout) => {
   const sessionId = await createSession(workout)
 
   window.location.href = `/workouts/${sessionId}`
+}
+
+const handleCreateWorkout = async () => {
+  const workoutId = await createWorkout()
+
+  window.location.href = `/createWorkout/${workoutId}`
 }
 
 @template<Props>(() => (
@@ -36,9 +43,7 @@ const handleCreateSession = async (workout: IWorkout) => {
           </Card>
         ))}
       </div>
-      <a href="/createWorkout">
-        <button style="padding: 5px 10px;"> + </button>
-      </a>
+      <Button onclick={() => handleCreateWorkout()}> + </Button>
     </div>
     <BottomBar />
   </div>

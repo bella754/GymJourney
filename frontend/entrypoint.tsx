@@ -39,8 +39,14 @@ export default {
     () =>
     (_, { id }: { _: any; id: string }) =>
       <StartSession id={id} />,
-  '/createWorkout': () => <CreateWorkoutPage />,
-  '/selectExercise': () => <SelectExercisePage />,
+  '/createWorkout/:id':
+    () =>
+    (_, { id }: { _: any; id: string }) =>
+      <CreateWorkoutPage id={id} />,
+  '/selectExercise/:id': 
+  () =>
+    (_, { id }: { _: any; id: string }) =>
+      <SelectExercisePage id={id} />,
   '/settings': () => <SettingsPage />,
   '/admin': () => <AdminPage />,
 }
