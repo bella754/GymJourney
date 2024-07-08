@@ -1,6 +1,7 @@
 import { Component } from 'uix/components/Component.ts'
 import { getUser } from '../../../backend/api/user/user.crud.ts'
 import { Progressbarstats } from './components/Progressbarstats.tsx'
+import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
 
@@ -50,10 +51,8 @@ const user = await getUser()
     <div class="container">
       <div class="content">
         <div>
-          <Progressbarstats
-            width="1000px"
+          <LvlProgressbar
             borderRadius="0"
-            marginLeft="0px"
             text="Lvl.100"
             /* progress={(userXP / userLevelMilestone) * 100} */
             progress={100}
@@ -81,10 +80,7 @@ const user = await getUser()
         </span>
         <span class="stat-row">
           {/* <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar> */}
-          <Progressbarstats
-            label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */
-            progress={100}
-          />
+          <Progressbarstats label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */ progress={100} />
           {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
         <h2>Achievements</h2>

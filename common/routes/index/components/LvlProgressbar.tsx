@@ -1,42 +1,77 @@
 import { Component } from 'uix/components/Component.ts'
 
 type Props = {
-  max: number
-  value: number
+  progress: number
+  text?: string
+  borderRadius?: string
 }
 
-/* https://verpex.com/blog/website-tips/how-to-style-a-progress-bar-using-css */
-
-@template<Props>(({ max, value }) => (
-  <div>
-    <progress max={max} value={value}></progress>
+@template<Props>((props) => (
+  <div class="progress-bar-container">
+    <div class="progress-bar" style={`border-radius: ${props.borderRadius || '15px'}`}>
+      <div class="progress" style={`width: ${props.progress}%`}>
+        <span class="progress-text">{props.text || ''}</span>
+      </div>
+    </div>
   </div>
 ))
 @style(css`
-  progress[value] {
-    --color: blue;
-    --background: lightgrey;
+	.progress-bar-container {
+    display: flex;
+    flex-direction: column;
+    align items: center;
+    width: 100vw;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+  }
 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    width: 200px;
-    margin: 0 10px;
-    border-radius: 10em;
-    background: var(--background);
+
+	.progress-bar {
+    height: 20px;
+    background-color: black;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+
   }
-  progress[value]::-webkit-progress-bar {
-    border-radius: 10em;
-    background: var(--background);
+
+  .progress {
+	  width: 15%;
+    height: 100%;
+    background-color: #0D9D9D;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
   }
-  progress[value]::-webkit-progress-value {
-    border-radius: 10em;
-    background: var(--color);
+
+	.progress-text {
+    color: white;
+    margin-left: 10px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    font-size: 13px;
   }
-  progress[value]::-moz-progress-bar {
-    border-radius: 10em;
-    background: var(--color);
+
+  .progress-label {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    margin-right: 10px;
+    color: #555;
+    font-size: 13px;
+    padding-left: 5px;
+
   }
+
 `)
 export class LvlProgressbar extends Component<Props> {}

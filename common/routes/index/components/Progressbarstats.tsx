@@ -1,16 +1,22 @@
-import { Component } from "uix/components/Component.ts";
+import { Component } from 'uix/components/Component.ts'
+
+type Props = {
+  progress: number
+  text?: string
+  label: string
+  borderRadius?: string
+}
 
 @template<Props>((props) => (
-	<div class="progress-bar-container" style={`width: ${props.width || '200px'};margin-left: ${props.marginLeft || '10px'}`}>
-		<div class="progress-label">{props.label}</div>
+  <div class="progress-bar-container" style="width: 200px">
+    <div class="progress-label">{props.label}</div>
     <div class="progress-bar" style={`border-radius: ${props.borderRadius || '15px'}`}>
       <div class="progress" style={`width: ${props.progress}%`}>
         <span class="progress-text">{props.text || ''}</span>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
 ))
-
 @style(css`
 	.progress-bar-container {
     display: flex;
@@ -70,6 +76,4 @@ import { Component } from "uix/components/Component.ts";
   }
 
 `)
-
-
-export class Progressbarstats extends Component <Props>{}
+export class Progressbarstats extends Component<Props> {}
