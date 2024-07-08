@@ -1,3 +1,7 @@
+/////////////////////////////////////////////////////////////////////////////////////
+// TODO: rechnungn anpassen (weight*repitions + weihght*repetitions + weight*reps) //
+/////////////////////////////////////////////////////////////////////////////////////
+
 function calculateTotalStrength(workout: Workout): number {
     return workout.exercises.reduce((totalStrength, exercise) => {
         const exerciseStrength = exercise.weight * exercise.repetitions * exercise.sets;
