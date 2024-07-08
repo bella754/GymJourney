@@ -3,21 +3,15 @@
  * This module provides a default export that defines the UI that is returned from the backend
  * when a page is visited
  */
-/* import { provideRedirect } from "uix/html/entrypoint-providers.tsx"; */
-/* import { UIX } from "uix";
-import { LoginPage } from "../common/routes/login/Index.tsx";
-import { IndexPage } from "common/routes/index/Index.tsx";
-import { WorkoutsPage } from "common/routes/workout/Index.tsx";
-import { HistoryPage } from "../common/routes/history/index.tsx";
-import { SettingsPage } from "common/routes/settings/Index.tsx";
-import { WorkoutPage } from "common/routes/history/workout.tsx";
+
+import { UIX } from 'uix'
 
 UIX.Theme.registerTheme({
-  name: "blank",
+  name: 'blank',
   mode: undefined,
   stylesheets: [],
-});
+})
 
-UIX.Theme.useThemes("blank"); */
+UIX.Theme.useThemes('blank')
 
-export default {};
+export default {}
