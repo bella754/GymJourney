@@ -1,4 +1,3 @@
-import { Exercise } from 'backend/userManagement1.ts'
 import { IExercise, ITrainingSession, IWorkout } from './training.interface.ts'
 import { exercises, workouts } from 'backend/api/training/training.data.ts'
 
@@ -41,9 +40,7 @@ export function createExampleTraining() {
           imageUrl: 'My Image URL',
           videoUrl: 'My Video URL',
           description: 'My Description',
-          sets: 3,
-          repetitions: 10,
-          weight: 100,
+          sets: [{ repetitions: 10, weight: 100 }],
         },
       ],
     },
@@ -142,18 +139,3 @@ export function getTrainingById(id: string) {
 
   return trainings[user].find((training) => training.id === id)
 }
-
-/* export function getUsers() {
-  return users
-} */
-
-// update
-/* export function updateUser(data: Partial<IUser>) {
-  const user = datex.meta.caller.main.toString()
-  console.log(`Updating databse entry for ${user}.`)
-
-  Object.assign(users[user], data)
-
-  return users[user]
-}
- */

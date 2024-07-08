@@ -8,9 +8,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/ab-rollout.jpg',
     videoUrl: 'common/public/videos/ab-rollout.mp4',
     description: 'An exercise that targets the abdominals using a roller.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Bicycle Crunch',
@@ -19,9 +21,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bicycle-crunch.jpg',
     videoUrl: 'common/public/videos/bicycle-crunch.mp4',
     description: 'An exercise that targets the obliques and abdominals.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: "Captain's Chair",
@@ -30,9 +34,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/captains-chair.jpg',
     videoUrl: 'common/public/videos/captains-chair.mp4',
     description: "An exercise that targets the lower abs using a captain's chair.",
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Crunch',
@@ -41,9 +47,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/crunch.jpg',
     videoUrl: 'common/public/videos/crunch.mp4',
     description: 'An exercise that targets the abdominals.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Hanging Leg Raise',
@@ -52,9 +60,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/hanging-leg-raise.jpg',
     videoUrl: 'common/public/videos/hanging-leg-raise.mp4',
     description: 'An exercise that targets the lower abs and hip flexors using a hanging bar.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Hip Thrust',
@@ -63,9 +73,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/hip-thrust.jpg',
     videoUrl: 'common/public/videos/hip-thrust.mp4',
     description: 'An exercise that targets the glutes and hamstrings.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Kneeling Cable Crunch',
@@ -74,9 +86,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/kneeling-cable-crunch.jpg',
     videoUrl: 'common/public/videos/kneeling-cable-crunch.mp4',
     description: 'An exercise that targets the abdominals using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Leg Raise',
@@ -85,9 +99,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/leg-raise.jpg',
     videoUrl: 'common/public/videos/leg-raise.mp4',
     description: "An exercise that targets the lower abs using a captain's chair or lying leg raise station.",
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Plank',
@@ -96,9 +112,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/plank.jpg',
     videoUrl: 'common/public/videos/plank.mp4',
     description: 'An exercise that targets the core muscles and stabilizes the spine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Russian Twist',
@@ -107,9 +125,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/russian-twist.jpg',
     videoUrl: 'common/public/videos/russian-twist.mp4',
     description: 'An exercise that targets the obliques using a medicine ball or dumbbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Sit-Up',
@@ -118,9 +138,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/sit-up.jpg',
     videoUrl: 'common/public/videos/sit-up.mp4',
     description: 'An exercise that targets the abdominals using bodyweight.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Stability Ball Crunch',
@@ -129,9 +151,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/stability-ball-crunch.jpg',
     videoUrl: 'common/public/videos/stability-ball-crunch.mp4',
     description: 'An exercise that targets the abdominals using a stability ball.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Superman',
@@ -140,9 +164,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/superman.jpg',
     videoUrl: 'common/public/videos/superman.mp4',
     description: 'An exercise that targets the lower back muscles.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Toe Toucher',
@@ -151,9 +177,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/toe-toucher.jpg',
     videoUrl: 'common/public/videos/toe-toucher.mp4',
     description: 'An exercise that targets the abdominals and hip flexors.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
 
   // Arms exercises
@@ -164,9 +192,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bicep-curl-cable.jpg',
     videoUrl: 'common/public/videos/bicep-curl-cable.mp4',
     description: 'An exercise that targets the biceps using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Bicep Curl (Dumbbell)',
@@ -175,9 +205,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bicep-curl-dumbbell.jpg',
     videoUrl: 'common/public/videos/bicep-curl-dumbbell.mp4',
     description: 'An exercise that targets the biceps using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Bicep Curl (EZ Bar)',
@@ -186,9 +218,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bicep-curl-ez-bar.jpg',
     videoUrl: 'common/public/videos/bicep-curl-ez-bar.mp4',
     description: 'An exercise that targets the biceps using an EZ curl bar.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Chin Up',
@@ -197,9 +231,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/chin-up.jpg',
     videoUrl: 'common/public/videos/chin-up.mp4',
     description: 'An exercise that targets the lats and biceps using bodyweight.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Concentration Curl',
@@ -208,9 +244,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/concentration-curl.jpg',
     videoUrl: 'common/public/videos/concentration-curl.mp4',
     description: 'An exercise that targets the biceps using dumbbells or a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Dip',
@@ -219,9 +257,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/dip.jpg',
     videoUrl: 'common/public/videos/dip.mp4',
     description: 'An exercise that targets the triceps and chest using parallel bars.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Dip (Machine)',
@@ -230,9 +270,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/dip-machine.jpg',
     videoUrl: 'common/public/videos/dip-machine.mp4',
     description: 'An exercise that targets the triceps and chest using a dip machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Hammer Curl',
@@ -241,9 +283,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/hammer-curl.jpg',
     videoUrl: 'common/public/videos/hammer-curl.mp4',
     description: 'An exercise that targets the biceps and forearms using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Lying Tricep Extension (Dumbbell)',
@@ -252,9 +296,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/lying-tricep-extension-dumbbell.jpg',
     videoUrl: 'common/public/videos/lying-tricep-extension-dumbbell.mp4',
     description: 'An exercise that targets the triceps using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Overhead Tricep Extension',
@@ -263,9 +309,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/overhead-tricep-extension.jpg',
     videoUrl: 'common/public/videos/overhead-tricep-extension.mp4',
     description: 'An exercise that targets the triceps using a cable machine or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Preacher Curl',
@@ -274,9 +322,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/preacher-curl.jpg',
     videoUrl: 'common/public/videos/preacher-curl.mp4',
     description: 'An exercise that targets the biceps using a preacher curl bench and barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Reverse Curl',
@@ -285,9 +335,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/reverse-curl.jpg',
     videoUrl: 'common/public/videos/reverse-curl.mp4',
     description: 'An exercise that targets the forearms and brachialis using a barbell or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Rope Tricep Pushdown',
@@ -296,9 +348,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/rope-tricep-pushdown.jpg',
     videoUrl: 'common/public/videos/rope-tricep-pushdown.mp4',
     description: 'An exercise that targets the triceps using a cable machine and rope attachment.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Skull Crusher',
@@ -307,9 +361,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/skull-crusher.jpg',
     videoUrl: 'common/public/videos/skull-crusher.mp4',
     description: 'An exercise that targets the triceps using a barbell or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Wrist Curl',
@@ -318,9 +374,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/wrist-curl.jpg',
     videoUrl: 'common/public/videos/wrist-curl.mp4',
     description: 'An exercise that targets the forearms and wrist flexors using a barbell or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
 
   // Back exercises
@@ -331,9 +389,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/back-extension.jpg',
     videoUrl: 'common/public/videos/back-extension.mp4',
     description: 'An exercise that targets the lower back muscles.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Bent Over Barbell Row',
@@ -342,9 +402,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bent-over-barbell-row.jpg',
     videoUrl: 'common/public/videos/bent-over-barbell-row.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Bent Over Dumbbell Row',
@@ -353,9 +415,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bent-over-dumbbell-row.jpg',
     videoUrl: 'common/public/videos/bent-over-dumbbell-row.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Chin-Up',
@@ -364,9 +428,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/chin-up-back.jpg',
     videoUrl: 'common/public/videos/chin-up-back.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using bodyweight.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Close Grip Lat Pulldown',
@@ -375,9 +441,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/close-grip-lat-pulldown.jpg',
     videoUrl: 'common/public/videos/close-grip-lat-pulldown.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Deadlift',
@@ -386,9 +454,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/deadlift.jpg',
     videoUrl: 'common/public/videos/deadlift.mp4',
     description: 'A compound exercise that targets the lower back, glutes, and hamstrings using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Good Morning',
@@ -397,9 +467,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/good-morning.jpg',
     videoUrl: 'common/public/videos/good-morning.mp4',
     description: 'An exercise that targets the lower back, glutes, and hamstrings using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Inverted Row',
@@ -408,9 +480,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/inverted-row.jpg',
     videoUrl: 'common/public/videos/inverted-row.mp4',
     description: 'An exercise that targets the upper back muscles using a horizontal bar.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Lat Pulldown',
@@ -419,9 +493,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/lat-pulldown.jpg',
     videoUrl: 'common/public/videos/lat-pulldown.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Pull-Up',
@@ -430,9 +506,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/pull-up.jpg',
     videoUrl: 'common/public/videos/pull-up.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using bodyweight.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Seated Cable Row',
@@ -441,9 +519,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/seated-cable-row.jpg',
     videoUrl: 'common/public/videos/seated-cable-row.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'T-Bar Row',
@@ -452,9 +532,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/t-bar-row.jpg',
     videoUrl: 'common/public/videos/t-bar-row.mp4',
     description: 'An exercise that targets the upper back muscles and biceps using a T-bar row machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
 
   // Chest exercises
@@ -465,9 +547,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bench-press.jpg',
     videoUrl: 'common/public/videos/bench-press.mp4',
     description: 'A compound exercise that targets the chest using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Cable Crossover',
@@ -476,9 +560,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/cable-crossover.jpg',
     videoUrl: 'common/public/videos/cable-crossover.mp4',
     description: 'An exercise that targets the chest using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Chest Dip',
@@ -487,9 +573,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/chest-dip.jpg',
     videoUrl: 'common/public/videos/chest-dip.mp4',
     description: 'An exercise that targets the lower chest and triceps using parallel bars.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Chest Fly (Dumbbell)',
@@ -498,9 +586,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/chest-fly-dumbbell.jpg',
     videoUrl: 'common/public/videos/chest-fly-dumbbell.mp4',
     description: 'An exercise that targets the chest using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Incline Bench Press',
@@ -509,9 +599,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/incline-bench-press.jpg',
     videoUrl: 'common/public/videos/incline-bench-press.mp4',
     description: 'A variation of the bench press that targets the upper chest using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Decline Bench Press',
@@ -520,9 +612,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/decline-bench-press.jpg',
     videoUrl: 'common/public/videos/decline-bench-press.mp4',
     description: 'A variation of the bench press that targets the lower chest using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Push-Up',
@@ -531,9 +625,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/push-up.jpg',
     videoUrl: 'common/public/videos/push-up.mp4',
     description: 'An exercise that targets the chest and triceps using bodyweight.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
 
   // Legs exercises
@@ -544,9 +640,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/barbell-back-squat.jpg',
     videoUrl: 'common/public/videos/barbell-back-squat.mp4',
     description: 'A compound exercise that targets the quads, hamstrings, and glutes using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Barbell Deadlift',
@@ -555,9 +653,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/barbell-deadlift.jpg',
     videoUrl: 'common/public/videos/barbell-deadlift.mp4',
     description: 'A compound exercise that targets the lower back, glutes, and hamstrings using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Box Jump',
@@ -566,9 +666,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/box-jump.jpg',
     videoUrl: 'common/public/videos/box-jump.mp4',
     description: 'An explosive exercise that targets the leg muscles and improves power and agility.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Bulgarian Split Squat',
@@ -577,9 +679,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/bulgarian-split-squat.jpg',
     videoUrl: 'common/public/videos/bulgarian-split-squat.mp4',
     description: 'An exercise that targets the quads and glutes using a split stance.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Calf Raise',
@@ -588,9 +692,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/calf-raise.jpg',
     videoUrl: 'common/public/videos/calf-raise.mp4',
     description: 'An exercise that targets the calf muscles using a calf raise machine or bodyweight.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Glute Bridge',
@@ -599,9 +705,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/glute-bridge.jpg',
     videoUrl: 'common/public/videos/glute-bridge.mp4',
     description: 'An exercise that targets the glutes and hamstrings.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Leg Press',
@@ -610,9 +718,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/leg-press.jpg',
     videoUrl: 'common/public/videos/leg-press.mp4',
     description: 'An exercise that targets the quads, hamstrings, and glutes using a leg press machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Lunge',
@@ -621,9 +731,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/lunge.jpg',
     videoUrl: 'common/public/videos/lunge.mp4',
     description: 'An exercise that targets the quads, hamstrings, and glutes using bodyweight or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Romanian Deadlift',
@@ -632,9 +744,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/romanian-deadlift.jpg',
     videoUrl: 'common/public/videos/romanian-deadlift.mp4',
     description: 'An exercise that targets the hamstrings and glutes using a barbell or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Step-Up',
@@ -643,9 +757,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/step-up.jpg',
     videoUrl: 'common/public/videos/step-up.mp4',
     description: 'An exercise that targets the quads, hamstrings, and glutes using a step or box.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
 
   // Shoulders exercises
@@ -656,9 +772,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/arnold-press.jpg',
     videoUrl: 'common/public/videos/arnold-press.mp4',
     description: 'An exercise that targets the shoulders using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Barbell Overhead Press',
@@ -667,9 +785,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/barbell-overhead-press.jpg',
     videoUrl: 'common/public/videos/barbell-overhead-press.mp4',
     description: 'An exercise that targets the shoulders using a barbell.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Dumbbell Lateral Raise',
@@ -678,9 +798,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/dumbbell-lateral-raise.jpg',
     videoUrl: 'common/public/videos/dumbbell-lateral-raise.mp4',
     description: 'An exercise that targets the side delts using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Face Pull',
@@ -689,9 +811,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/face-pull.jpg',
     videoUrl: 'common/public/videos/face-pull.mp4',
     description: 'An exercise that targets the rear delts and upper back using a cable machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Front Dumbbell Raise',
@@ -700,9 +824,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/front-dumbbell-raise.jpg',
     videoUrl: 'common/public/videos/front-dumbbell-raise.mp4',
     description: 'An exercise that targets the front delts using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Lateral Dumbbell Raise',
@@ -711,9 +837,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/lateral-dumbbell-raise.jpg',
     videoUrl: 'common/public/videos/lateral-dumbbell-raise.mp4',
     description: 'An exercise that targets the side delts using dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Reverse Pec Deck Fly',
@@ -722,9 +850,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/reverse-pec-deck-fly.jpg',
     videoUrl: 'common/public/videos/reverse-pec-deck-fly.mp4',
     description: 'An exercise that targets the rear delts using a pec deck machine.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Seated Dumbbell Shoulder Press',
@@ -733,9 +863,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/seated-dumbbell-shoulder-press.jpg',
     videoUrl: 'common/public/videos/seated-dumbbell-shoulder-press.mp4',
     description: 'An exercise that targets the shoulders using dumbbells while seated.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Shrug',
@@ -744,9 +876,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/shrug.jpg',
     videoUrl: 'common/public/videos/shrug.mp4',
     description: 'An exercise that targets the trapezius muscles using a barbell or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
   {
     name: 'Upright Row',
@@ -755,9 +889,11 @@ export const exercises: IExercise[] = [
     imageUrl: 'common/public/images/upright-row.jpg',
     videoUrl: 'common/public/videos/upright-row.mp4',
     description: 'An exercise that targets the shoulders and upper traps using a barbell or dumbbells.',
-    weight: 20,
-    repetitions: 10,
-    sets: 3,
+    sets: [
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+      { repetitions: 10, weight: 20 },
+    ],
   },
 ]
 

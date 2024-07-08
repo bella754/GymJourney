@@ -12,9 +12,13 @@ type Props = {
   id: string
 }
 
-const calculateTotalWeight = (exercises: IExercise[]) => {
+const calculateTotalWeight = (exercises: IExercise[] | undefined) => {
+  if (!exercises) {
+    return 0
+  }
+
   return exercises.reduce((total, exercise) => {
-    return total + exercise.sets * exercise.repetitions * exercise.weight
+    return total + exercise.sets.reduce((total, set) => total + set.repetitions * set.weight, 0)
   }, 0)
 }
 
@@ -68,12 +72,12 @@ const formatWeight = (weight: number) => {
                       </tr>
                     </thead>
                     <tbody>
-                      {Array.from({ length: exercise.sets }).map((_, setIndex) => (
+                      {exercise.sets.map((set: any, setIndex: number) => (
                         <tr>
                           <td>{setIndex + 1}</td>
-                          <td>{exercise.repetitions}</td>
+                          <td>{set.repetitions}</td>
                           <td class={'color'}>x</td>
-                          <td>{exercise.weight} kg</td>
+                          <td>{set.weight} kg</td>
                         </tr>
                       ))}
                     </tbody>

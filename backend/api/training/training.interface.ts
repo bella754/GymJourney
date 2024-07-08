@@ -20,7 +20,10 @@ export interface IExercise {
   imageUrl: string
   videoUrl: string
   description: string
-  sets: number
+  sets: ISet[]
+}
+
+export interface ISet {
   repetitions: number
   weight: number
 }

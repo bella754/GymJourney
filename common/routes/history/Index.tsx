@@ -10,9 +10,13 @@ import { Button } from 'common/components/Button.tsx'
 
 type Props = {}
 
-const calculateTotalWeight = (exercises: IExercise[]) => {
+const calculateTotalWeight = (exercises: IExercise[] | undefined) => {
+  if (!exercises) {
+    return 0
+  }
+
   return exercises.reduce((total, exercise) => {
-    return total + exercise.sets * exercise.repetitions * exercise.weight
+    return total + exercise.sets.reduce((total, set) => total + set.repetitions * set.weight, 0)
   }, 0)
 }
 

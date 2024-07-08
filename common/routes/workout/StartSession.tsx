@@ -64,12 +64,12 @@ type Props = {
                       </tr>
                     </thead>
                     <tbody>
-                      {Array.from({ length: exercise.sets }).map((_, setIndex) => (
+                      {exercise.sets.map((set: any, setIndex: number) => (
                         <tr>
                           <td>{setIndex + 1}</td>
-                          <td>{exercise.repetitions}</td>
+                          <td>{set.repetitions}</td>
                           <td class={'color'}>x</td>
-                          <td>{exercise.weight} kg</td>
+                          <td>{set.weight} kg</td>
                         </tr>
                       ))}
                     </tbody>
