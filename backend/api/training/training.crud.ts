@@ -1,4 +1,4 @@
-import { IExercise, ITrainingSession, IWorkout } from './training.interface.ts'
+import { IExercise, ISet, ITrainingSession, IWorkout } from './training.interface.ts'
 import { exercises, workouts } from 'backend/api/training/training.data.ts'
 
 const trainings = eternalVar('trainings') ?? $$({} as Record<string, ITrainingSession[]>)
@@ -117,6 +117,38 @@ export function updateSession(id: string, data: Partial<ITrainingSession>) {
   Object.assign(session, data)
 
   return session
+}
+
+export function updateSet(workoutId: string, exerciseName: string, setNumber: number, field: 'repetitions' | 'weight', value: number) {
+  const workout = workouts.find((workout) => workout.id === workoutId)
+  if (!workout) {
+    throw new Error('Workout not found')
+  }
+
+  const exercise = workout.exercises.find((exercise) => exercise.name === exerciseName)
+  if (!exercise) {
+    throw new Error('Exercise not found')
+  }
+
+  exercise.sets[setNumber][field] = value
+}
+
+export function updateSetOfSession(sessionId: string, exerciseName: string, setIndex: number, field: 'repetitions' | 'weight', value: number) {
+  const user = datex.meta.caller.main.toString()
+  console.log(`Updating databse entry for ${user}.`)
+
+  const session = trainings[user].find((training) => training.id === sessionId)
+
+  if (!session) {
+    throw new Error(`Session with id ${sessionId} not found.`)
+  }
+
+  const exercise = session.training.exercises.find((exercise) => exercise.name === exerciseName)
+  if (!exercise) {
+    throw new Error('Exercise not found')
+  }
+
+  exercise.sets[setIndex][field] = value
 }
 
 // read

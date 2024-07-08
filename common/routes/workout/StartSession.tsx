@@ -1,5 +1,5 @@
 import { Component } from 'uix/components/Component.ts'
-import { getTrainingById, updateSession } from 'backend/api/training/training.crud.ts'
+import { getTrainingById, updateSession, updateSet, updateSetOfSession } from 'backend/api/training/training.crud.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Button } from 'common/components/Button.tsx'
 
@@ -37,6 +37,10 @@ type Props = {
     window.location.href = '/history'
   }
 
+  const handleSetChange = async (sessionId: string, exerciseIndex: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {
+    await updateSetOfSession(sessionId, exerciseIndex, setIndex, field, value)
+  }
+
   return (
     <div>
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
@@ -67,9 +71,22 @@ type Props = {
                       {exercise.sets.map((set: any, setIndex: number) => (
                         <tr>
                           <td>{setIndex + 1}</td>
-                          <td>{set.repetitions}</td>
+                          <input
+                            type="number"
+                            value={set.repetitions}
+                            /* @ts-ignore */
+                            onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                          />
                           <td class={'color'}>x</td>
-                          <td>{set.weight} kg</td>
+                          <div style="display: flex; align-items: center;">
+                            <input
+                              type="number"
+                              value={set.weight}
+                              /* @ts-ignore */
+                              onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
+                            />
+                            <span>kg</span>
+                          </div>
                         </tr>
                       ))}
                     </tbody>

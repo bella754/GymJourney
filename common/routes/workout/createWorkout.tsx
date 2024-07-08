@@ -2,7 +2,7 @@ import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Button } from 'common/components/Button.tsx'
-import { getWorkoutById, updateWorkout } from 'backend/api/training/training.crud.ts'
+import { getWorkoutById, updateSet, updateWorkout } from 'backend/api/training/training.crud.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 
 type Props = {
@@ -24,8 +24,8 @@ type Props = {
     window.location.href = `/selectExercise/${id}`
   }
 
-  if (!selectedWorkout) {
-    return <div>Loading...</div>
+  const handleSetChange = async (sessionId: string, exerciseIndex: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {
+    await updateSet(sessionId, exerciseIndex, setIndex, field, value)
   }
 
   return (
@@ -34,7 +34,7 @@ type Props = {
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
           <h2>Workout erstellen</h2>
-          <p>Workout id: {selectedWorkout.id}</p>
+          <p>Workout id: {selectedWorkout?.id}</p>
           <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
           <select style="margin-bottom: 20px; padding: 10px; width: 100%;" value={category}>
             <option value="" disabled>
@@ -47,7 +47,7 @@ type Props = {
           </select>
         </div>
       </div>
-      {selectedWorkout.exercises.map((exercise: any, index) => (
+      {selectedWorkout?.exercises.map((exercise: any, index) => (
         <div class={'tablecontainer'}>
           <Card>
             <div>
@@ -67,9 +67,22 @@ type Props = {
                   {exercise.sets.map((set: any, setIndex: number) => (
                     <tr>
                       <td>{setIndex + 1}</td>
-                      <td>{set.repetitions}</td>
+                      <input
+                        type="number"
+                        value={set.repetitions}
+                        /* @ts-ignore */
+                        onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                      />
                       <td class={'color'}>x</td>
-                      <td>{set.weight} kg</td>
+                      <div style="display: flex; align-items: center;">
+                        <input
+                          type="number"
+                          value={set.weight}
+                          /* @ts-ignore */
+                          onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
+                        />
+                        <span>kg</span>
+                      </div>
                     </tr>
                   ))}
                 </tbody>
@@ -90,7 +103,30 @@ type Props = {
   select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+  }
+
+  tr.firstrow td,
+  tr.firstrow th {
+    border-bottom: 2px solid lightgrey;
+  }
+
+  table {
+    width: 290px;
+    margin: auto;
+  }
+
+  .color {
+    color: #0891b2;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: center;
   }
 `)
 export class CreateWorkoutPage extends Component<Props> {}
