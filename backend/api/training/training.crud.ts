@@ -16,38 +16,6 @@ export function getWorkoutById(id: string) {
 }
 
 // create
-export function createExampleTraining() {
-  const user = datex.meta.caller.main.toString()
-  console.log(`Creating workout databse entry for ${user}.`)
-
-  if (!trainings[user]) {
-    trainings[user] = []
-  }
-
-  trainings[user].push({
-    id: crypto.randomUUID(),
-    start: new Date(),
-    end: new Date(),
-    training: {
-      id: crypto.randomUUID(),
-      name: 'Push',
-      category: 'My Category',
-      exercises: [
-        {
-          name: 'My Exercise',
-          muscleGroup: 'My Muscle Group',
-          synonyms: ['My Synonym'],
-          imageUrl: 'My Image URL',
-          videoUrl: 'My Video URL',
-          description: 'My Description',
-          sets: [{ repetitions: 10, weight: 100 }],
-        },
-      ],
-    },
-    difficulty: 20,
-  })
-}
-
 export function createWorkout() {
   const newWorkoutId = crypto.randomUUID()
 

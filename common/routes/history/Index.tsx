@@ -4,7 +4,7 @@ import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Trophy } from './components/Trophy.tsx'
 import { Weight } from './components/Weight.tsx'
-import { createExampleTraining, getTrainings } from 'backend/api/training/training.crud.ts'
+import { getTrainings } from 'backend/api/training/training.crud.ts'
 import { IExercise } from 'backend/api/training/training.interface.ts'
 import { Button } from 'common/components/Button.tsx'
 
@@ -35,7 +35,6 @@ const userTrainings = await getTrainings()
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Workout History</h2>
-        {/* @ts-ignore */} <Button onclick={createExampleTraining}>Create example</Button>
         {userTrainings.$.map((session: any) => {
           // Berechnung des Gesamtgewichts für die aktuelle Trainingssession
           const totalWeight = formatWeight(calculateTotalWeight(session.training.exercises))
