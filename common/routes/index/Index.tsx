@@ -31,9 +31,9 @@ let userXP = getUserXp(id);
 let userLevelMilestone = getLevelMilestone(id);
 // console.log("userLevel: ", userLevel);
 
-type Props = {};
+type Props = {}
 
-@template<Props>(() => (
+@template<Props>(async () => (
   <div>
     <AppBar />
     
@@ -55,6 +55,9 @@ type Props = {};
           marginLeft='0px' 
           text='Lvl.100' 
           progress={userXP/userLevelMilestone*100} /></div> 
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        {/* <h1>Hey, {user.$.name}!</h1> */}
         <h2>My Stats</h2>
         <span class="stat-row">
           <Progressbarstats label="Strength" progress={(userStrength/userStrengthMilestone)*100} />
@@ -107,9 +110,5 @@ type Props = {};
     margin-left: 10%;
     margin-right: 10%;
   }
-  
-  
-
-  
 `)
 export class IndexPage extends Component<Props> {}

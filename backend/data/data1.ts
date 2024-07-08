@@ -1,6 +1,6 @@
 import { Datex } from "datex-core-legacy/datex.ts";
 import { UIX } from "uix";
-import { LoginData, Exercise, Workout } from "../userManagement.ts";
+import { LoginData, Exercise, Workout, TrainingSession } from "../userManagement1.ts";
 
 /**
  * Version information on the backend
@@ -60,20 +60,47 @@ export const exerciseData: Exercise[] = [
   }
 ];
 
-export const workoutData: Workout[] = [
+export const workoutData: Workout[] = eternal ?? $$([
   {
     id: 1,
     name: "Morning Routine",
     category: "Chest",
-    exercises: [exerciseData[0]]  // Bench Press
+    exercises: [exerciseData[0], exerciseData[1]]  // Bench Press
   },
   {
     id: 2,
     name: "Evening Routine",
     category: "Legs",
     exercises: [exerciseData[1]]  // Squat
+  },
+  {
+    id: 3,
+    name: "Midnight Routine",
+    category: "Legs",
+    exercises: [exerciseData[0]]  // Squat
   }
-];
+]);
+
+export const trainingSessions: TrainingSession[] = eternal ?? $$([
+  {
+      date: new Date('2023-09-01'),
+      start: new Date('2023-09-01T09:00:00'),
+      end: new Date('2023-09-01T10:00:00'),
+      duration: 60,
+      //training: workoutData[0].name,
+      training: workoutData[0],
+      difficulty: 2
+  },
+  {
+      date: new Date('2023-09-01'),
+      start: new Date('2023-09-01T11:00:00'),
+      end: new Date('2023-09-01T12:30:00'),
+      duration: 90,
+      //training: workoutData[1].name,
+      training: workoutData[1],
+      difficulty: 4
+  }
+]);
 
 export const userData = eternal ?? $$([    // type user
   {
