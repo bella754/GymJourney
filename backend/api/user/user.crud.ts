@@ -24,8 +24,6 @@ export function createUser() {
 export function getUser() {
   const user = datex.meta.caller.main.toString()
 
-  console.log(JSON.stringify(users))
-
   if (!(user in users)) {
     return createUser()
   }

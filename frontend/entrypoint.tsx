@@ -6,7 +6,6 @@
 
 import { UIX } from 'uix'
 import { LoginPage } from '../common/routes/login/Index.tsx'
-import { IndexPage } from '../common/routes/index/Index.tsx'
 import { WorkoutsPage } from '../common/routes/workout/Index.tsx'
 import { CreateWorkoutPage } from '../common/routes/workout/createWorkout.tsx'
 import { SelectExercisePage } from '../common/routes/workout/selectExercise.tsx'
@@ -15,6 +14,7 @@ import { SettingsPage } from '../common/routes/settings/Index.tsx'
 import { AdminPage } from 'common/routes/admin/Index.tsx'
 import { HistoryDetailPage } from 'common/routes/history/HistoryDetailPage.tsx'
 import { StartSession } from 'common/routes/workout/StartSession.tsx'
+import { IndexPage } from 'common/routes/index/Index.tsx'
 
 UIX.Theme.registerTheme({
   name: 'blank',
