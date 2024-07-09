@@ -1,19 +1,10 @@
 import { Component } from "uix/components/Component.ts";
-import { userData } from "../../../../backend/data/data.ts";
+import { getUser } from "../../../../backend/api/user/user.crud.ts";
 
-type Props = {
-  id
-};
-// const achievements = [
-//   {
-//     title: "First Achievement",
-//     description: "You have reached level 1",
-//     icon: "🎉",
-//   },
-// ];
+type Props = {};
 
 @template<Props>(({ props }) => {
-  let achievements = userData.find(u => u.id === props.id).achievements;
+  let achievements = getUser().achievements;
 
   return (
     <ul>

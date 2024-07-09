@@ -1,3 +1,5 @@
+import { ITrainingSession, IWorkout } from "../training/training.interface.ts"
+
 export interface IUser {
   name: string
   gender: 'm' | 'f' | 'd' | 'not specified'
@@ -7,5 +9,25 @@ export interface IUser {
   ethnicity: 'Asian' | 'Black' | 'Hispanic' | 'White' | 'Native American' | 'Other' | 'not specified'
   experience: 'beginner' | 'intermediate' | 'advanced' | 'expert' | 'not specified'
   gym: string
+  progress: {
+    endurance: number,
+    enduranceMilestone: number,
+    consistency: number,
+    consistencyMilestone: number,
+    strength: number,
+    strengthMilestone: number
+  },
+  level: number,
+  xp: number,
+  xpMilestone: number,
+  trainingsHistory: ITrainingSession[],
+  workouts: IWorkout[],
+  achievements: IAchievement[]
   //avatarUrl: string
+}
+
+interface IAchievement {
+  title: string;
+  description: string;
+  icon: string; 
 }

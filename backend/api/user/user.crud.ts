@@ -15,6 +15,26 @@ export function createUser() {
     ethnicity: 'not specified',
     experience: 'not specified',
     gym: 'not specified',
+    progress: {
+      endurance: 0,
+      enduranceMilestone: 0,
+      consistency: 0,
+      consistencyMilestone: 0,
+      strength: 0,
+      strengthMilestone: 0
+    },
+    level: 1,
+    xp: 0,
+    xpMilestone: 100,
+    trainingsHistory: [],
+    workouts: [],
+    achievements: [
+      {
+        title: "First Achievement",
+        description: "You have reached level 1",
+        icon: "🎉"
+      }
+    ]
   }
 
   return users[user]
