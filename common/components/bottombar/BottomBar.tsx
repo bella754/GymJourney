@@ -64,6 +64,7 @@ const items = [
     list-style: none;
     padding: 10px 0;
     margin: 0;
+    background: white;
   }
 `)
 export class BottomBar extends Component<Props> {}

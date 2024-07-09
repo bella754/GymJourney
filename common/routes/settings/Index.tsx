@@ -20,11 +20,12 @@ const userGym = $$(user.gym)
 @template<Props>(() => (
   <div>
     <AppBar />
+    <div class={"Body"}>
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
       <div style="display: flex; flex-direction: column; gap: 20px;">
         <h1>Settings</h1>
 
-        <div>
+        <div class={"user-info"}>
           <h2>User Information</h2>
           <table>
             <tbody>
@@ -64,7 +65,7 @@ const userGym = $$(user.gym)
           </table>
         </div>
 
-        <div>
+        <div class={"edit-user-info"}>
           <h2>Edit User Information</h2>
           <div class="form">
             <div>
@@ -102,7 +103,7 @@ const userGym = $$(user.gym)
           </div>
         </div>
 
-        <Button
+        <Button class={"save-button"}
           onclick={() =>
             updateUser({
               name: userName,
@@ -120,33 +121,87 @@ const userGym = $$(user.gym)
         </Button>
       </div>
     </div>
+    </div>
     <BottomBar />
   </div>
 ))
 @style(css`
-  input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
-    margin: 4px;
+   h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
     color: #333;
   }
 
-  table {
-    border-collapse: collapse;
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #555;
+    border-bottom: 2px solid #0891b2;
+    padding-bottom: 5px;
+  }
+
+  .body {
+    display: flex;
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    min-width: 500px;
+    flex-direction: center;
   }
 
-  td {
-    padding: 8px;
-    border: 1px solid #ccc;
+  .user-info, .edit-user-info {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #0891b2;
   }
 
-  .form {
+  .user-info table, .edit-user-info .form {
+    width: 100%px;
+    min-width: 350px;
+  }
+
+
+  .user-info th, .user-info td {
+    padding: 12px;
+    text-align: left;
+  }
+
+  .edit-user-info .form {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .edit-user-info .form div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-user-info label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #666;
+  }
+
+  .edit-user-info input {
+    border: 1px solid #0891b2;
+    border-radius: 4px;
+    padding: 8px;
+    color: #333;
+    font-size: 16px;
+  }
+
+  .save-button {
+    background-color: #0891b2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:100px;
   }
 `)
 export class SettingsPage extends Component<Props> {}
