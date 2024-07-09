@@ -37,14 +37,14 @@ type Props = {
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
           <h2>Übungen auswählen</h2>
           <input type="text" placeholder="Suche" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={search} />
-          {allExercises
+          {always(() => allExercises
             .filter((exercise) => exercise.name.includes(search))
             .map((exercise) => (
               <div style="margin-bottom: 20px;">
                 <input type="checkbox" id={exercise.name} value={exercise.name} onchange={(e) => handleCheckboxChange(exercise, e.target.checked)} />
                 <label for={exercise.name}>{exercise.name}</label>
               </div>
-            ))}
+            )))}
           <Button onclick={() => window.history.back()}>Zurück</Button>
         </div>
         <Button onclick={saveExercises}>Speichern</Button>
