@@ -19,11 +19,13 @@ type Props = {}
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   svg {
-    width: 35px;
-    height: 35px;
-    stroke: black;
+    width: 30px;
+    height: 30px;
+    stroke: white;
+    background-color: transparent;
   }
 `)
 export class Homebutton extends Component<Props> {}
