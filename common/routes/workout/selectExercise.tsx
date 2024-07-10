@@ -38,7 +38,7 @@ type Props = {
           <h2>Übungen auswählen</h2>
           <input type="text" placeholder="Suche" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={search} />
           {always(() => allExercises
-            .filter((exercise) => exercise.name.includes(search))
+            .filter((exercise) => exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase()))
             .map((exercise) => (
               <div style="margin-bottom: 20px;">
                 <input type="checkbox" id={exercise.name} value={exercise.name} onchange={(e) => handleCheckboxChange(exercise, e.target.checked)} />
