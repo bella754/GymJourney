@@ -46,10 +46,11 @@ type Props = {
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
           <div style="display: flex; justify-content: space-between; width: 100%">
-            <h2>
-              {session.training.name} {elapsedTimeVal}
-            </h2>
-            <Button onclick={handleEndSession}>End session</Button>
+            <div class={"container"}>
+            <div class={"time"}> {elapsedTimeVal} </div>
+            <h2>{session.training.name}</h2>
+            <Button class={"endbutton"} onclick={handleEndSession}>End session</Button>
+            </div>
           </div>
           {session.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
@@ -63,30 +64,32 @@ type Props = {
                       <tr>
                         <th>Set</th>
                         <th>Reps</th>
-                        <th> </th>
+                        <th></th>
                         <th>Weight</th>
                       </tr>
                     </thead>
                     <tbody>
                       {exercise.sets.map((set: any, setIndex: number) => (
-                        <tr>
+                        <tr key={setIndex}>
                           <td>{setIndex + 1}</td>
-                          <input
-                            type="number"
-                            value={set.repetitions}
-                            /* @ts-ignore */
-                            onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
-                          />
+                          <td>
+                            <input
+                              type="number"
+                              value={set.repetitions}
+                              /* @ts-ignore */
+                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                            />
+                          </td>
                           <td class={'color'}>x</td>
-                          <div style="display: flex; align-items: center;">
+                          <td>
                             <input
                               type="number"
                               value={set.weight}
                               /* @ts-ignore */
-                              onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
+                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
                             />
-                            <span>kg</span>
-                          </div>
+                            <span> kg</span>
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -95,16 +98,40 @@ type Props = {
               </Card>
             </div>
           ))}
-          <details>
-            <summary>Session</summary>
-            <main>{JSON.stringify(session)}</main>
-          </details>
         </div>
       </div>
     </div>
   )
 })
 @style(css`
+  .container{
+   margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 300px;
+    max-width: 600px;
+    justify-content: space-between;
+  }
+  .endbutton{
+  cursor: pointer;
+  }
+  h2{
+  font-size: 36px;
+  }
+  .time {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  border: 1px solid #0891b2; /* Example border style */
+  border-radius: 4px;
+  width: 100px;
+  height: 36px;
+ 
+  text-align: center; /* Center text inside div */
+}
+
   tr.firstrow td,
   tr.firstrow th {
     border-bottom: 2px solid lightgrey;
@@ -123,8 +150,7 @@ type Props = {
     text-align: center;
   }
 
-  th,
-  td {
+  th,td {
     padding: 8px;
     text-align: center;
   }
@@ -151,6 +177,14 @@ type Props = {
   details:not([open]) summary:focus {
     background: #f6f6f6;
     color: #454545;
+  }
+  .tablecontainer input[type='number'] {
+    width: 40px;
+    padding: 6px 8px;
+    text-align: center;
+    border: 1px solid #0891b2;
+    border-radius: 4px;
+    color: #333; /* Dark gray text */
   }
 
   details[open] summary {

@@ -103,6 +103,7 @@ const formatWeight = (weight: number) => {
     align-items: center;
     width: 100%;
     min-width: 300px;
+    max-width: 600px;
     justify-content: space-between;
   }
   .namedate-container {

@@ -31,21 +31,20 @@ type Props = {
   return (
     <div>
       <AppBar />
-      <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
-          <h2>Workout erstellen</h2>
-          <p>Workout id: {selectedWorkout?.id}</p>
-          <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
-          <select style="margin-bottom: 20px; padding: 10px; width: 100%;" value={category}>
-            <option value="" disabled>
-              Kategorie auswählen
-            </option>
-            <option value="PPL">PPL</option>
-            <option value="Bro Split">Bro Split</option>
-            <option value="Upper/Lower">Upper/Lower</option>
-            <option value="Full Body">Full Body</option>
-          </select>
-        </div>
+      <div class={"bodycontainer"}>
+      <div>
+      <div class={"topcontainer"}>
+        <h2>Workout erstellen</h2>
+        <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
+        <select  value={category}>
+          <option value="" disabled>
+            Kategorie auswählen
+          </option>
+          <option value="PPL">PPL</option>
+          <option value="Bro Split">Bro Split</option>
+          <option value="Upper/Lower">Upper/Lower</option>
+          <option value="Full Body">Full Body</option>
+        </select>
       </div>
       {selectedWorkout?.exercises.map((exercise: any, index) => (
         <div class={'tablecontainer'}>
@@ -91,22 +90,58 @@ type Props = {
           </Card>
         </div>
       ))}
-      <Button onclick={navigateToSelectExercisesPage}> + </Button>
-      <Button onclick={() => window.history.back()}>Zurück</Button>
-      <Button onclick={saveWorkout}>Speichern</Button>
-      <BottomBar />
+        <div class={"container"}>
+          <Button onclick={() => window.history.back()}>Zurück</Button>
+          <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
+          <Button onclick={saveWorkout}>Speichern</Button>
+        </div>
+      <p class={"workoutid"}>Workout id: {selectedWorkout?.id}</p>
+      </div>
+    </div>
+    <BottomBar/>
     </div>
   )
 })
 @style(css`
-  input,
-  select {
+  h2{
+  font-size: 20px;
+  margin-bottom: 10px;
+  }
+  .topcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .tablecontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .bodycontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 600px;
+  }
+
+  .workoutid{
+  font-size: 10px;
+  }
+  input,select {
     width: 100%;
     padding: 10px;
   }
 
-  tr.firstrow td,
-  tr.firstrow th {
+  tr.firstrow td, tr.firstrow th {
     border-bottom: 2px solid lightgrey;
   }
 
@@ -123,8 +158,7 @@ type Props = {
     text-align: center;
   }
 
-  th,
-  td {
+  th, td {
     padding: 8px;
     text-align: center;
   }

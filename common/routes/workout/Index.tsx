@@ -25,8 +25,8 @@ const handleCreateWorkout = async () => {
 @template<Props>(() => (
   <div>
     <AppBar />
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
+    <div class="container">
+      <div class="content">
         <h2>Workouts</h2>
         {workouts.map((workout: any) => (
           <Card class="card" onclick={() => handleCreateSession(workout)}>
@@ -42,15 +42,34 @@ const handleCreateWorkout = async () => {
             ))}
           </Card>
         ))}
+        <Button class="button" onclick={() => handleCreateWorkout()}> New Workout </Button>
       </div>
-      <Button onclick={() => handleCreateWorkout()}> + </Button>
     </div>
     <BottomBar />
   </div>
 ))
 @style(css`
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 600px;
+    width: 100%;
+  }
+  h2 {
+    font-size: 20px;
+  }
   .card:hover {
-    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  .button {
+    margin-bottom: 100px;
   }
 `)
 export class WorkoutsPage extends Component<Props> {}

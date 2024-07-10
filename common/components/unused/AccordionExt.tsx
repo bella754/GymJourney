@@ -40,7 +40,6 @@ import {Component} from "uix/components/Component.ts";
     .accordion-text {
         position: relative;
         left: 118.75px;
-        
     }
 
     .arrowdown {
@@ -51,8 +50,6 @@ import {Component} from "uix/components/Component.ts";
         transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
     }
-  
-  
 
 
 .panel {
@@ -73,7 +70,6 @@ import {Component} from "uix/components/Component.ts";
     border-right: 2px solid #D9D9D9;
     border-radius: 4px;
     text-align: center;
-    
     font-size: 15px;
     transition: 0.4s;
 }
@@ -89,7 +85,6 @@ import {Component} from "uix/components/Component.ts";
     border-right: 2px solid #D9D9D9;
     border-radius: 4px;
     text-align: center;
-    
     font-size: 15px;
     transition: 0.4s;
 }
@@ -105,7 +100,6 @@ import {Component} from "uix/components/Component.ts";
     border-right: 2px solid #D9D9D9;
     border-radius: 4px;
     text-align: center;
-    
     font-size: 15px;
     transition: 0.4s;
 }
