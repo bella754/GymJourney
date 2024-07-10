@@ -13,6 +13,8 @@ const strength = await getStrengthStats()
 
 const endurance = await getEnduranceStats()
 
+const xp = await getXpStats()
+
 type Props = {}
 
 // const user = await getUser()
@@ -43,40 +45,10 @@ type Props = {}
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Stats</h2>
-        <span class="stat-row">
-          
-          <Progressbarstats
-            class={"tooltipstrength"}
-            label="Strength"
-            /* progress={(userStrength / userStrengthMilestone) * 100} */
-            progress={strengthVal}>
-            <span class={"tooltipstrengttxt"}>this is strength</span>
-          </Progressbarstats>
-          
-          
-          <Progressbarstats class={"tooltipstrength"}
-            label="Endurance"
-            /* progress={(userEndurance / userEnduranceMilestone) * 100} */
-            progress={enduranceVal}>
-            <span class={"tooltipstrengttxt"}>this is endurance</span>
-            </Progressbarstats>
-
-          {/* <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar> */}
-          {/* <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar> */}
-        </span>
-        <span class="stat-row">
-          {/* <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar> */}
-          
-          <Progressbarstats class={"tooltipstrength"} label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */ progress={consistencyVal} >
-          <span class={"tooltipstrengttxt"}>this is consistency</span>
-          </Progressbarstats>
-          
-          {/* <Progressbarstats label="Level" progress={userLevel} /> */}
-        </span>
         <Progressbarstats label="Strength" progress={strength.progress} text={strength.level.toString()} />
         <Progressbarstats label="Endurance" progress={endurance.progress} text={endurance.level.toString()} />
         <h2>Achievements</h2>
-        <Achievements/>
+        <Achievements />
       </div>
     </div>
     <BottomBar />
