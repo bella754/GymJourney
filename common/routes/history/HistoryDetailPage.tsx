@@ -36,7 +36,7 @@ const formatWeight = (weight: number) => {
     <div>
       <AppBar />
       <div>
-        <div style="display: flex; flex-direction: column; align-items: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20%">
           <div class="headercontainer">
             <Backarrow />
             <div class={'namedate-container'}>
