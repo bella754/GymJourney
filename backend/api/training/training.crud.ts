@@ -1,4 +1,5 @@
-import { IExercise, ISet, ITrainingSession, IWorkout } from './training.interface.ts'
+import { addTrainingDuration, addTrainingVolume, addXp } from 'backend/api/lvl/lvl.crud.ts'
+import { IExercise, ITrainingSession, IWorkout } from './training.interface.ts'
 import { exercises, workouts } from 'backend/api/training/training.data.ts'
 
 const trainings = eternalVar('trainings') ?? $$({} as Record<string, ITrainingSession[]>)
@@ -83,6 +84,19 @@ export function updateSession(id: string, data: Partial<ITrainingSession>) {
   }
 
   Object.assign(session, data)
+
+  // when passing in end, update lvl stats
+  if (data.end) {
+    const trainingVolume = session.training.exercises.reduce((acc, exercise) => {
+      return acc + exercise.sets.reduce((acc, set) => acc + set.repetitions * set.weight, 0)
+    }, 0)
+
+    const trainingDuration = Math.round((data.end.getTime() - session.start.getTime()) / 1000)
+
+    addTrainingVolume(trainingVolume)
+    addTrainingDuration(trainingDuration)
+    addXp(trainingVolume)
+  }
 
   return session
 }
