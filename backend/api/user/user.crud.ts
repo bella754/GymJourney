@@ -17,11 +17,11 @@ export function createUser() {
     gym: 'not specified',
     progress: {
       endurance: 0,
-      enduranceMilestone: 0,
+      enduranceMilestone: 100,
       consistency: 0,
-      consistencyMilestone: 0,
+      consistencyMilestone: 1,    // mind. 1x die woche muss man ja gehen
       strength: 0,
-      strengthMilestone: 0
+      strengthMilestone: 4
     },
     level: 1,
     xp: 0,

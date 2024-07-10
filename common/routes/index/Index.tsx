@@ -4,25 +4,37 @@ import { Progressbarstats } from './components/Progressbarstats.tsx'
 import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
-import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone } from "../../../backend/data/bar_management.ts"
+import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone, getLevel } from "../../../backend/data/bar_management.ts"
+import { Achievements } from "./components/Achievements.tsx"
 
-let userEndurance = getEndurance()
-let userEnduranceMilestone = getEnduranceMilestone()
+let userEndurance = await getEndurance()
+let userEnduranceMilestone = await getEnduranceMilestone()
 let enduranceVal = (userEndurance / userEnduranceMilestone) * 100;
+// console.log("user endurance: ", userEndurance);
+// console.log("enduranceVal: ", enduranceVal);
 
-let userConsistency = getConsistency()
-let userConsistencyMilestone = getConsistencyMilestone()
+
+let userConsistency = await getConsistency()
+let userConsistencyMilestone = await getConsistencyMilestone()
 let consistencyVal = (userConsistency / userConsistencyMilestone) * 100;
+// console.log("user consistency Milestone: ", userConsistencyMilestone);
+// console.log("consistencyVal: ", consistencyVal);
 
-
-let userStrength = getStrength()
-let userStrengthMilestone = getStrengthMilestone()
+let userStrength = await getStrength()
+let userStrengthMilestone = await getStrengthMilestone()
 let strengthVal = (userStrength / userStrengthMilestone) * 100;
+// console.log("user strength: ", userStrength);
+// console.log("strengthVal: ", strengthVal);
 
+let userLevel = await getLevel();
+let newLevel = userLevel + 1;
+// console.log("new level: ", newLevel);
 
-let userXP = getUserXp()
-let userLevelMilestone = getLevelMilestone()
+let userXP = await getUserXp()
+let userLevelMilestone = await getLevelMilestone()
 let levelVal = (userXP / userLevelMilestone) * 100;
+
+let text = "Lvl." + newLevel
 
 type Props = {}
 
@@ -49,7 +61,7 @@ const user = await getUser()
         <div>
           <LvlProgressbar
             borderRadius="0"
-            text="Lvl.100"
+            text={text}
             /* progress={(userXP / userLevelMilestone) * 100} */
             progress={levelVal}
           />

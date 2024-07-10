@@ -123,6 +123,8 @@ export function getEndurance() {
   // console.log("user: ", user);
   // console.log("user endurance: ", user.progress.endurance);
   let user = getUser();
+  // console.log("in bar management endurance: ", user.progress.endurance);
+  
   return user.progress.endurance
 }
 
