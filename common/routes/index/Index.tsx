@@ -87,6 +87,7 @@ type Props = {}
               <h3>{exercise.name}</h3>
               <p>{exercise.description}</p>
               <img src={exercise.imageUrl} alt="" />
+              <iframe src={exercise.videoUrl} frameborder="0"></iframe>
             </li>
           ))}
         </ul> */}

@@ -394,13 +394,12 @@ export const exercises: IExercise[] = [
       { repetitions: 10, weight: 20 },
     ],
   },
-  
   {
     name: 'Bent Over Dumbbell Row',
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/bent-over-one-arm-dumbbell-row-resized.png',
-    videoUrl: 'common/public/videos/bent-over-dumbbell-row.mp4',
+    videoUrl: 'https://www.youtube.com/embed/DhewkuU_95s',
     description: 'An exercise that targets the upper back muscles and biceps using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -408,12 +407,12 @@ export const exercises: IExercise[] = [
       { repetitions: 10, weight: 20 },
     ],
   },
-  {
+  { 
     name: 'Chin-Up',
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/09/Chin-up.png',
-    videoUrl: 'common/public/videos/chin-up-back.mp4',
+    videoUrl: 'https://www.youtube.com/embed/1EJ3A3rEtlo',
     description: 'An exercise that targets the upper back muscles and biceps using bodyweight.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -426,7 +425,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Cable-close-grip-pull-down-resized.png',
-    videoUrl: 'common/public/videos/close-grip-lat-pulldown.mp4',
+    videoUrl: 'https://www.youtube.com/embed/uAyrz5GTEHg',
     description: 'An exercise that targets the upper back muscles and biceps using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -439,7 +438,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Barbell-Deadlift-1.png',
-    videoUrl: 'common/public/videos/deadlift.mp4',
+    videoUrl: 'https://www.youtube.com/embed/wjsu6ceEkAQ',
     description: 'A compound exercise that targets the lower back, glutes, and hamstrings using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -452,7 +451,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/03/Barbell-good-morning.png',
-    videoUrl: 'common/public/videos/good-morning.mp4',
+    videoUrl: 'https://www.youtube.com/embed/nWyx81AfTos',
     description: 'An exercise that targets the lower back, glutes, and hamstrings using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -465,7 +464,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/11/Inverted-row.png',
-    videoUrl: 'common/public/videos/inverted-row.mp4',
+    videoUrl: 'https://www.youtube.com/embed/KOaCM1HMwU0',
     description: 'An exercise that targets the upper back muscles using a horizontal bar.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -478,7 +477,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/01/Lat-pull-down-resized.png',
-    videoUrl: 'common/public/videos/lat-pulldown.mp4',
+    videoUrl: 'https://www.youtube.com/embed/iKrKgWR9wbY',
     description: 'An exercise that targets the upper back muscles and biceps using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -491,7 +490,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/pull-up-2-resized.png',
-    videoUrl: 'common/public/videos/pull-up.mp4',
+    videoUrl: 'https://www.youtube.com/embed/XB_7En-zf_M',
     description: 'An exercise that targets the upper back muscles and biceps using bodyweight.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -504,7 +503,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2023/09/Straight-back-seated-cable-row-with-straight-bar.png',
-    videoUrl: 'common/public/videos/seated-cable-row.mp4',
+    videoUrl: 'https://www.youtube.com/embed/xQNrFHEMhI4',
     description: 'An exercise that targets the upper back muscles and biceps using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -517,7 +516,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/lever-t-bar-row-plate-loaded-resized.png',
-    videoUrl: 'common/public/videos/t-bar-row.mp4',
+    videoUrl: 'https://www.youtube.com/embed/KDEl3AmZbVE',
     description: 'An exercise that targets the upper back muscles and biceps using a T-bar row machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -526,13 +525,13 @@ export const exercises: IExercise[] = [
     ],
   },
 
-  // Chest exercises
+  // Chest exercises#
   {
     name: 'Bench Press',
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/04/Wide-reverse-grip-barbell-bench-press.png',
-    videoUrl: 'common/public/videos/bench-press.mp4',
+    videoUrl: 'https://www.youtube.com/embed/dGqI0Z5ul4k',
     description: 'A compound exercise that targets the chest using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -545,7 +544,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2022/12/Standing-high-to-low-cable-fly.png',
-    videoUrl: 'common/public/videos/cable-crossover.mp4',
+    videoUrl: 'https://www.youtube.com/embed/taI4XduLpTk',
     description: 'An exercise that targets the chest using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -558,7 +557,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/09/Chest-dip.png',
-    videoUrl: 'common/public/videos/chest-dip.mp4',
+    videoUrl: 'https://www.youtube.com/embed/4la6BkUBLgo',
     description: 'An exercise that targets the lower chest and triceps using parallel bars.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -571,7 +570,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2018/02/Incline-dumbbell-fly-resized.png',
-    videoUrl: 'common/public/videos/chest-fly-dumbbell.mp4',
+    videoUrl: 'https://www.youtube.com/embed/Nhvz9EzdJ4U',
     description: 'An exercise that targets the chest using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -584,7 +583,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/11/incline-dumbbell-bench-press-resized.png',
-    videoUrl: 'common/public/videos/incline-bench-press.mp4',
+    videoUrl: 'https://www.youtube.com/embed/8nNi8jbbUPE',
     description: 'A variation of the bench press that targets the upper chest using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -597,7 +596,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/08/Decline-Dumbbell-Bench-Press-resized.png',
-    videoUrl: 'common/public/videos/decline-bench-press.mp4',
+    videoUrl: 'https://www.youtube.com/embed/Pf1nDoqx_1A',
     description: 'A variation of the bench press that targets the lower chest using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -610,7 +609,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Chest',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/push-up-tall-resized.png',
-    videoUrl: 'common/public/videos/push-up.mp4',
+    videoUrl: 'https://www.youtube.com/embed/JyCG_5l3XLk',
     description: 'An exercise that targets the chest and triceps using bodyweight.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -625,7 +624,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/barbell-squat-resized-FIXED-2.png',
-    videoUrl: 'common/public/videos/barbell-back-squat.mp4',
+    videoUrl: 'https://www.youtube.com/embed/R2dMsNhN3DE',
     description: 'A compound exercise that targets the quads, hamstrings, and glutes using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -638,7 +637,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/10/Bulgarian-split-squat.png',
-    videoUrl: 'common/public/videos/bulgarian-split-squat.mp4',
+    videoUrl: 'https://www.youtube.com/embed/TEXl2b3__S4',
     description: 'An exercise that targets the quads and glutes using a split stance.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -651,7 +650,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Lever-Standing-Calf-Raise-resized.png',
-    videoUrl: 'common/public/videos/calf-raise.mp4',
+    videoUrl: 'https://www.youtube.com/embed/eMTy3qylqnE',
     description: 'An exercise that targets the calf muscles using a calf raise machine or bodyweight.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -664,7 +663,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/08/barbell-glute-bridge.png',
-    videoUrl: 'common/public/videos/glute-bridge.mp4',
+    videoUrl: 'https://www.youtube.com/embed/cruqsnAyU6A',
     description: 'An exercise that targets the glutes and hamstrings.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -676,8 +675,8 @@ export const exercises: IExercise[] = [
     name: 'Leg Press',
     muscleGroup: 'Legs',
     synonyms: [],
-    imageUrl: '',
-    videoUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Sled-45-degree-Leg-Press-resized.png',
+    imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Sled-45-degree-Leg-Press-resized.png',
+    videoUrl: 'https://www.youtube.com/embed/qCR9bN3G1t4',
     description: 'An exercise that targets the quads, hamstrings, and glutes using a leg press machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -690,7 +689,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2018/11/Lunge-resized.png',
-    videoUrl: 'common/public/videos/lunge.mp4',
+    videoUrl: 'https://www.youtube.com/embed/9gglI77Kzq8',
     description: 'An exercise that targets the quads, hamstrings, and glutes using bodyweight or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -703,7 +702,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Barbell-Romanian-Deadlift.png',
-    videoUrl: 'common/public/videos/romanian-deadlift.mp4',
+    videoUrl: 'https://www.youtube.com/embed/-m45n1_x32E',
     description: 'An exercise that targets the hamstrings and glutes using a barbell or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -716,7 +715,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/03/Step-up.png',
-    videoUrl: 'common/public/videos/step-up.mp4',
+    videoUrl: 'https://www.youtube.com/embed/wfhXnLILqdk',
     description: 'An exercise that targets the quads, hamstrings, and glutes using a step or box.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -731,7 +730,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Arnold-press-resized.png',
-    videoUrl: 'common/public/videos/arnold-press.mp4',
+    videoUrl: 'https://www.youtube.com/embed/jeJttN2EWCo',
     description: 'An exercise that targets the shoulders using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -744,7 +743,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2022/04/Standing-wide-grip-barbell-overhead-press.png',
-    videoUrl: 'common/public/videos/barbell-overhead-press.mp4',
+    videoUrl: 'https://www.youtube.com/embed/j7ULT6dznNc',
     description: 'An exercise that targets the shoulders using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -757,7 +756,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Face-pull-resized.png',
-    videoUrl: 'common/public/videos/face-pull.mp4',
+    videoUrl: 'https://www.youtube.com/embed/0Po47vvj9g4',
     description: 'An exercise that targets the rear delts and upper back using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -770,7 +769,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Dumbbell-Standing-Alternate-Front-Raise-resized.png',
-    videoUrl: 'common/public/videos/front-dumbbell-raise.mp4',
+    videoUrl: 'https://www.youtube.com/embed/hRJ6tR5-if0',
     description: 'An exercise that targets the front delts using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -783,7 +782,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/dumbbell-lateral-raise-resized.png',
-    videoUrl: 'common/public/videos/lateral-dumbbell-raise.mp4',
+    videoUrl: 'https://www.youtube.com/embed/XPPfnSEATJA',
     description: 'An exercise that targets the side delts using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -796,7 +795,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/12/Machine-Fly-resized.png',
-    videoUrl: 'common/public/videos/reverse-pec-deck-fly.mp4',
+    videoUrl: 'https://www.youtube.com/embed/5YK4bgzXDp0',
     description: 'An exercise that targets the rear delts using a pec deck machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -809,7 +808,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Dumbbell-Shoulder-Press-resized.png',
-    videoUrl: 'common/public/videos/seated-dumbbell-shoulder-press.mp4',
+    videoUrl: 'https://www.youtube.com/embed/FRxZ6wr5bpA',
     description: 'An exercise that targets the shoulders using dumbbells while seated.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -822,7 +821,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Barbell-Shrug-resized.png',
-    videoUrl: 'common/public/videos/shrug.mp4',
+    videoUrl: 'https://www.youtube.com/embed/_t3lrPI6Ns4',
     description: 'An exercise that targets the trapezius muscles using a barbell or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -835,7 +834,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Shoulders',
     synonyms: [], 
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2022/11/EZ-bar-wide-grip-upright-row.png',
-    videoUrl: 'common/public/videos/upright-row.mp4',
+    videoUrl: 'https://www.youtube.com/embed/um3VVzqunPU',
     description: 'An exercise that targets the shoulders and upper traps using a barbell or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
