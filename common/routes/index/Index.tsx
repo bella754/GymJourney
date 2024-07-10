@@ -4,17 +4,17 @@ import { Progressbarstats } from './components/Progressbarstats.tsx'
 import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
-import {
-  getConsistency,
-  getConsistencyMilestone,
-  getEndurance,
-  getEnduranceMilestone,
-  getStrength,
-  getStrengthMilestone,
-  getUserXp,
-  getLevelMilestone,
-  getLevel,
-} from '../../../backend/data/bar_management.ts'
+// import {
+//   getConsistency,
+//   getConsistencyMilestone,
+//   getEndurance,
+//   getEnduranceMilestone,
+//   getStrength,
+//   getStrengthMilestone,
+//   getUserXp,
+//   getLevelMilestone,
+//   getLevel,
+// } from '../../../backend/data/bar_management.ts'
 import { Achievements } from './components/Achievements.tsx'
 
 
@@ -26,11 +26,9 @@ let consistencyVal = (user.progress.consistency / user.progress.consistencyMiles
 
 let strengthVal = (user.progress.strength / user.progress.strengthMilestone) * 100
 
-let newLevel = user.level + 1
-
 let levelVal = (user.xp / user.xpMilestone) * 100
 
-let text = 'Lvl.' + newLevel
+let text = 'Lvl.' + user.level
 
 type Props = {}
 
