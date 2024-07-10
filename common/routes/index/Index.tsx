@@ -7,38 +7,23 @@ import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
 import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone, getLevel } from "../../../backend/data/bar_management.ts"
 import { Achievements } from "./components/Achievements.tsx"
 
-let userEndurance = await getEndurance()
-let userEnduranceMilestone = await getEnduranceMilestone()
-let enduranceVal = (userEndurance / userEnduranceMilestone) * 100;
-// console.log("user endurance: ", userEndurance);
-// console.log("enduranceVal: ", enduranceVal);
+let user = await getUser();
 
+let enduranceVal = (user.progress.endurance / user.progress.enduranceMilestone) * 100;
 
-let userConsistency = await getConsistency()
-let userConsistencyMilestone = await getConsistencyMilestone()
-let consistencyVal = (userConsistency / userConsistencyMilestone) * 100;
-// console.log("user consistency Milestone: ", userConsistencyMilestone);
-// console.log("consistencyVal: ", consistencyVal);
+let consistencyVal = (user.progress.consistency / user.progress.consistencyMilestone) * 100;
 
-let userStrength = await getStrength()
-let userStrengthMilestone = await getStrengthMilestone()
-let strengthVal = (userStrength / userStrengthMilestone) * 100;
-// console.log("user strength: ", userStrength);
-// console.log("strengthVal: ", strengthVal);
+let strengthVal = (user.progress.strength / user.progress.strengthMilestone) * 100;
 
-let userLevel = await getLevel();
-let newLevel = userLevel + 1;
-// console.log("new level: ", newLevel);
+let newLevel = user.level + 1;
 
-let userXP = await getUserXp()
-let userLevelMilestone = await getLevelMilestone()
-let levelVal = (userXP / userLevelMilestone) * 100;
+let levelVal = (user.xp / user.xpMilestone) * 100;
 
 let text = "Lvl." + newLevel
 
 type Props = {}
 
-const user = await getUser()
+// const user = await getUser()
 
 @template<Props>(async () => (
   <div>
