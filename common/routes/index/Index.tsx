@@ -4,8 +4,9 @@ import { Progressbarstats } from './components/Progressbarstats.tsx'
 import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
-import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone, getLevel } from "../../../backend/data/bar_management.ts"
+// import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone, getLevel } from "../../../backend/data/bar_management.ts"
 import { Achievements } from "./components/Achievements.tsx"
+// import { exercises } from "../../../backend/api/training/training.data.ts"
 
 let user = await getUser();
 
@@ -78,6 +79,17 @@ type Props = {}
         </span>
         <h2>Achievements</h2>
         <Achievements /> 
+
+        {/* <h3>Test Exercises</h3>
+        <ul>
+          {exercises.map((exercise, index) => (
+            <li key={index}>
+              <h3>{exercise.name}</h3>
+              <p>{exercise.description}</p>
+              <img src={exercise.imageUrl} alt="" />
+            </li>
+          ))}
+        </ul> */}
       </div>
     </div>
     <BottomBar />
