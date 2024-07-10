@@ -4,23 +4,33 @@ import { Progressbarstats } from './components/Progressbarstats.tsx'
 import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
-// import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone, getLevel } from "../../../backend/data/bar_management.ts"
-import { Achievements } from "./components/Achievements.tsx"
-// import { exercises } from "../../../backend/api/training/training.data.ts"
+import {
+  getConsistency,
+  getConsistencyMilestone,
+  getEndurance,
+  getEnduranceMilestone,
+  getStrength,
+  getStrengthMilestone,
+  getUserXp,
+  getLevelMilestone,
+  getLevel,
+} from '../../../backend/data/bar_management.ts'
+import { Achievements } from './components/Achievements.tsx'
 
-let user = await getUser();
 
-let enduranceVal = (user.progress.endurance / user.progress.enduranceMilestone) * 100;
+let user = await getUser()
 
-let consistencyVal = (user.progress.consistency / user.progress.consistencyMilestone) * 100;
+let enduranceVal = (user.progress.endurance / user.progress.enduranceMilestone) * 100
 
-let strengthVal = (user.progress.strength / user.progress.strengthMilestone) * 100;
+let consistencyVal = (user.progress.consistency / user.progress.consistencyMilestone) * 100
 
-let newLevel = user.level + 1;
+let strengthVal = (user.progress.strength / user.progress.strengthMilestone) * 100
 
-let levelVal = (user.xp / user.xpMilestone) * 100;
+let newLevel = user.level + 1
 
-let text = "Lvl." + newLevel
+let levelVal = (user.xp / user.xpMilestone) * 100
+
+let text = 'Lvl.' + newLevel
 
 type Props = {}
 
@@ -54,7 +64,7 @@ type Props = {}
         </div>
       </div>
     </div>
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
       <div style="display: flex; flex-direction: column; align-items: center;">
         {/* <h1>Hey, {user.$.name}!</h1> */}
         <h2>My Stats</h2>
@@ -78,19 +88,7 @@ type Props = {}
           {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
         <h2>Achievements</h2>
-        <Achievements /> 
-
-        {/* <h3>Test Exercises</h3>
-        <ul>
-          {exercises.map((exercise, index) => (
-            <li key={index}>
-              <h3>{exercise.name}</h3>
-              <p>{exercise.description}</p>
-              <img src={exercise.imageUrl} alt="" />
-              <iframe src={exercise.videoUrl} frameborder="0"></iframe>
-            </li>
-          ))}
-        </ul> */}
+        <Achievements />
       </div>
     </div>
     <BottomBar />
@@ -107,6 +105,8 @@ type Props = {}
   h2{
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
     
   }
   h1{

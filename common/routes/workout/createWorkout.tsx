@@ -35,8 +35,8 @@ type Props = {
       <div>
       <div class={"topcontainer"}>
         <h2>Workout erstellen</h2>
-        <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
-        <select  value={category}>
+        <input class={"namefield"} type="text" placeholder="Name"  value={name} />
+        <select class={"category"} value={category}>
           <option value="" disabled>
             Kategorie auswählen
           </option>
@@ -48,6 +48,7 @@ type Props = {
       </div>
       {selectedWorkout?.exercises.map((exercise: any, index) => (
         <div class={'tablecontainer'}>
+          <div class={"workoutcard"}>
           <Card>
             <div>
               <h3>
@@ -88,6 +89,7 @@ type Props = {
               </table>
             </div>
           </Card>
+          </div>
         </div>
       ))}
         <div class={"container"}>
@@ -103,9 +105,34 @@ type Props = {
   )
 })
 @style(css`
+  .category{
+  border: 2px solid grey;
+  border-radius:4px;
+  padding: 10px;
+  width:100%;
+  margin: 10px 0px 10px;
+  }
+  .namefield{
+  border: 2px solid grey;
+  border-radius:4px;
+  padding:10px;
+  margin: 10px 0px 10px;
+  max-width:380px;
+  }
+  .workoutcard{
+  margin-bottom: 10px;
+  }
   h2{
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  }
+  .container{
+    margin: 15px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 400px;
   }
   .topcontainer{
     display: flex;
@@ -135,6 +162,7 @@ type Props = {
 
   .workoutid{
   font-size: 10px;
+  margin-bottom: 100px;
   }
   input,select {
     width: 100%;
@@ -161,6 +189,9 @@ type Props = {
   th, td {
     padding: 8px;
     text-align: center;
+  }
+  .bbar{
+  width: 100vh;
   }
 `)
 export class CreateWorkoutPage extends Component<Props> {}

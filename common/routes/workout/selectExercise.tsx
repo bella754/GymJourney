@@ -33,12 +33,12 @@ type Props = {
   return (
     <div>
       <AppBar />
-      <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
+      <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
           <h2>Übungen auswählen</h2>
           <input type="text" placeholder="Suche" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={search} />
           {always(() => allExercises
-            .filter((exercise) => exercise.name.includes(search))
+            .filter((exercise) => exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase()))
             .map((exercise) => (
               <div style="margin-bottom: 20px;">
                 <input type="checkbox" id={exercise.name} value={exercise.name} onchange={(e) => handleCheckboxChange(exercise, e.target.checked)} />
