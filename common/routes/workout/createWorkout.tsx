@@ -3,7 +3,9 @@ import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Button } from 'common/components/Button.tsx'
 import { getWorkoutById, updateSet, updateWorkout } from 'backend/api/training/training.crud.ts'
+import { exercises, workouts } from 'backend/api/training/training.data.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
+import { IWorkout } from "backend/api/training/training.interface.ts";
 
 type Props = {
   id: string
@@ -11,6 +13,8 @@ type Props = {
 
 @template<Props>(async (_, { id }) => {
   const selectedWorkout = await getWorkoutById(id)
+
+  const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)));
 
   const name = $$('')
   const category = $$('')
@@ -24,74 +28,69 @@ type Props = {
     window.location.href = `/selectExercise/${id}`
   }
 
-  const handleSetChange = async (sessionId: string, exerciseIndex: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {
-    await updateSet(sessionId, exerciseIndex, setIndex, field, value)
+  const handleSetChange = async (sessionId: string, exerciseName: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {
+    await updateSet(sessionId, exerciseName, setIndex, field, value)
   }
 
   return (
     <div>
       <AppBar />
       <div class={"bodycontainer"}>
-      <div>
-      <div class={"topcontainer"}>
-        <h2>Workout erstellen</h2>
-        <input class={"namefield"} type="text" placeholder="Name"  value={name} />
-        <select class={"category"} value={category}>
-          <option value="" disabled>
-            Kategorie auswählen
-          </option>
-          <option value="PPL">PPL</option>
-          <option value="Bro Split">Bro Split</option>
-          <option value="Upper/Lower">Upper/Lower</option>
-          <option value="Full Body">Full Body</option>
-        </select>
-      </div>
-      {selectedWorkout?.exercises.map((exercise: any, index) => (
-        <div class={'tablecontainer'}>
-          <div class={"workoutcard"}>
-          <Card>
-            <div>
-              <h3>
-                {index + 1}. {exercise.name}
-              </h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Set</th>
-                    <th>Reps</th>
-                    <th> </th>
-                    <th>Weight</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {exercise.sets.map((set: any, setIndex: number) => (
-                    <tr>
-                      <td>{setIndex + 1}</td>
-                      <input
-                        type="number"
-                        value={set.repetitions}
-                        /* @ts-ignore */
-                        onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
-                      />
-                      <td class={'color'}>x</td>
-                      <div style="display: flex; align-items: center;">
-                        <input
-                          type="number"
-                          value={set.weight}
-                          /* @ts-ignore */
-                          onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
-                        />
-                        <span>kg</span>
-                      </div>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Card>
+        <div>
+          <div class={"topcontainer"}>
+            <h2>Workout erstellen</h2>
+            <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
+            <input type="text" list="categories" value={category} placeholder="Category" required />
+            <datalist id="categories">
+            {categories.map((category: any) => (
+              <option>{category}</option>
+            ))}
+            </datalist>
           </div>
-        </div>
-      ))}
+          {selectedWorkout?.exercises.map((exercise: any, index) => (
+            <div class={'tablecontainer'}>
+              <Card>
+                <div>
+                  <h3>
+                    {index + 1}. {exercise.name}
+                  </h3>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Set</th>
+                        <th>Reps</th>
+                        <th> </th>
+                        <th>Weight</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {exercise.sets.map((set: any, setIndex: number) => (
+                        <tr>
+                          <td>{setIndex + 1}</td>
+                          <input
+                            type="number"
+                            value={set.repetitions}
+                            /* @ts-ignore */
+                            onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                          />
+                          <td class={'color'}>x</td>
+                          <div style="display: flex; align-items: center;">
+                            <input
+                              type="number"
+                              value={set.weight}
+                              /* @ts-ignore */
+                              onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
+                            />
+                            <span>kg</span>
+                          </div>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+            </div>
+          ))}
         <div class={"container"}>
           <Button onclick={() => window.history.back()}>Zurück</Button>
           <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
@@ -190,6 +189,12 @@ type Props = {
     padding: 8px;
     text-align: center;
   }
+
+  input {
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+
   .bbar{
   width: 100vh;
   }

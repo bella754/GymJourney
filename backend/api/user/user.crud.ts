@@ -15,17 +15,6 @@ export function createUser() {
     ethnicity: 'not specified',
     experience: 'not specified',
     gym: 'not specified',
-    progress: {
-      endurance: 0,
-      enduranceMilestone: 100,
-      consistency: 0,
-      consistencyMilestone: 1, // mind. 1x die woche muss man ja gehen
-      strength: 0,
-      strengthMilestone: 4,
-    },
-    level: 1,
-    xp: 0,
-    xpMilestone: 100,
     workouts: [],
   }
 
