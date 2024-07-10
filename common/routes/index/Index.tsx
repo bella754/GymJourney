@@ -17,6 +17,7 @@ import {
 } from '../../../backend/data/bar_management.ts'
 import { Achievements } from './components/Achievements.tsx'
 
+
 let user = await getUser()
 
 let enduranceVal = (user.progress.endurance / user.progress.enduranceMilestone) * 100
