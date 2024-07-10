@@ -1,4 +1,4 @@
-import { ITrainingSession, IWorkout } from "../training/training.interface.ts"
+import { ITrainingSession, IWorkout } from '../training/training.interface.ts'
 
 export interface IUser {
   name: string
@@ -10,24 +10,16 @@ export interface IUser {
   experience: 'beginner' | 'intermediate' | 'advanced' | 'expert' | 'not specified'
   gym: string
   progress: {
-    endurance: number,
-    enduranceMilestone: number,
-    consistency: number,
-    consistencyMilestone: number,
-    strength: number,
+    endurance: number
+    enduranceMilestone: number
+    consistency: number
+    consistencyMilestone: number
+    strength: number
     strengthMilestone: number
-  },
-  level: number,
-  xp: number,
-  xpMilestone: number,
-  trainingsHistory: ITrainingSession[],
-  workouts: IWorkout[],
-  achievements: IAchievement[]
+  }
+  level: number
+  xp: number
+  xpMilestone: number
+  workouts: IWorkout[]
   //avatarUrl: string
-}
-
-interface IAchievement {
-  title: string;
-  description: string;
-  icon: string; 
 }

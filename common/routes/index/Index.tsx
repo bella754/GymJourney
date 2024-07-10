@@ -4,22 +4,32 @@ import { Progressbarstats } from './components/Progressbarstats.tsx'
 import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
-import { getConsistency, getConsistencyMilestone, getEndurance, getEnduranceMilestone, getStrength, getStrengthMilestone, getUserXp, getLevelMilestone, getLevel } from "../../../backend/data/bar_management.ts"
-import { Achievements } from "./components/Achievements.tsx"
+import {
+  getConsistency,
+  getConsistencyMilestone,
+  getEndurance,
+  getEnduranceMilestone,
+  getStrength,
+  getStrengthMilestone,
+  getUserXp,
+  getLevelMilestone,
+  getLevel,
+} from '../../../backend/data/bar_management.ts'
+import { Achievements } from './components/Achievements.tsx'
 
-let user = await getUser();
+let user = await getUser()
 
-let enduranceVal = (user.progress.endurance / user.progress.enduranceMilestone) * 100;
+let enduranceVal = (user.progress.endurance / user.progress.enduranceMilestone) * 100
 
-let consistencyVal = (user.progress.consistency / user.progress.consistencyMilestone) * 100;
+let consistencyVal = (user.progress.consistency / user.progress.consistencyMilestone) * 100
 
-let strengthVal = (user.progress.strength / user.progress.strengthMilestone) * 100;
+let strengthVal = (user.progress.strength / user.progress.strengthMilestone) * 100
 
-let newLevel = user.level + 1;
+let newLevel = user.level + 1
 
-let levelVal = (user.xp / user.xpMilestone) * 100;
+let levelVal = (user.xp / user.xpMilestone) * 100
 
-let text = "Lvl." + newLevel
+let text = 'Lvl.' + newLevel
 
 type Props = {}
 
@@ -77,7 +87,7 @@ type Props = {}
           {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
         <h2>Achievements</h2>
-        <Achievements /> 
+        <Achievements />
       </div>
     </div>
     <BottomBar />
@@ -94,6 +104,8 @@ type Props = {}
   h2{
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
     
   }
   h1{
