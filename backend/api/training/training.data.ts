@@ -6,7 +6,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/03/standing-wheel-rollout-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/ab-rollout.mp4',
+    videoUrl: 'https://www.youtube.com/embed/vV_sKNCpiVM',
     description: 'An exercise that targets the abdominals using a roller.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -19,21 +19,8 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/11/bicycle-crunch-resized-1.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/bicycle-crunch.mp4',
+    videoUrl: 'https://www.youtube.com/embed/vV_sKNCpiVM',
     description: 'An exercise that targets the obliques and abdominals.',
-    sets: [
-      { repetitions: 10, weight: 20 },
-      { repetitions: 10, weight: 20 },
-      { repetitions: 10, weight: 20 },
-    ],
-  },
-  {
-    name: "Captain's Chair",
-    muscleGroup: 'Core',
-    synonyms: [],
-    imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/07/Captains-chair-straight-leg-raise.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/captains-chair.mp4',
-    description: "An exercise that targets the lower abs using a captain's chair.",
     sets: [
       { repetitions: 10, weight: 20 },
       { repetitions: 10, weight: 20 },
@@ -45,7 +32,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2022/12/Crunch-with-leg-raise.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/crunch.mp4',
+    videoUrl: 'https://www.youtube.com/embed/Plh1CyiPE_Y',
     description: 'An exercise that targets the abdominals.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -58,7 +45,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2019/05/Hanging-leg-raise-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/hanging-leg-raise.mp4',
+    videoUrl: 'https://www.youtube.com/embed/7FwGZ8qY5OU',
     description: 'An exercise that targets the lower abs and hip flexors using a hanging bar.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -68,10 +55,10 @@ export const exercises: IExercise[] = [
   },
   {
     name: 'Hip Thrust',
-    muscleGroup: 'Core',
+    muscleGroup: 'Legs',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/04/barbell-hip-thrust-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/hip-thrust.mp4',
+    videoUrl: 'https://www.youtube.com/embed/lAnqN0J_p5A',
     description: 'An exercise that targets the glutes and hamstrings.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -84,7 +71,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Cable-Kneeling-Crunch-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/kneeling-cable-crunch.mp4',
+    videoUrl: 'https://www.youtube.com/embed/6GMKPQVERzw',
     description: 'An exercise that targets the abdominals using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -97,7 +84,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/06/lying-straight-leg-raise-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/leg-raise.mp4',
+    videoUrl: 'https://www.youtube.com/embed/RD_A-Z15ER4',
     description: "An exercise that targets the lower abs using a captain's chair or lying leg raise station.",
     sets: [
       { repetitions: 10, weight: 20 },
@@ -110,7 +97,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Front-Plank-resized.png?ezimgfmt=ng:webp/ngcb4.png',
-    videoUrl: 'common/public/videos/plank.mp4',
+    videoUrl: 'https://www.youtube.com/embed/pvIjsG5Svck',
     description: 'An exercise that targets the core muscles and stabilizes the spine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -123,7 +110,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/11/weighted-russian-twist-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/russian-twist.mp4',
+    videoUrl: 'https://www.youtube.com/embed/VfWoNC-NMII',
     description: 'An exercise that targets the obliques using a medicine ball or dumbbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -136,7 +123,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/04/V2F-Sit-up.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/sit-up.mp4',
+    videoUrl: 'https://www.youtube.com/embed/ihYbPL4CLfo',
     description: 'An exercise that targets the abdominals using bodyweight.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -149,7 +136,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/08/weighted-crunch-on-stability-ball-resized.png?ezimgfmt=ng:webp/ngcb4.png',
-    videoUrl: 'common/public/videos/stability-ball-crunch.mp4',
+    videoUrl: 'https://www.youtube.com/embed/wKELecR_vFM',
     description: 'An exercise that targets the abdominals using a stability ball.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -162,7 +149,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Core',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/11/superman-exercise-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/superman.mp4',
+    videoUrl: 'https://www.youtube.com/embed/Vy6rSG4CKT0',
     description: 'An exercise that targets the lower back muscles.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -176,7 +163,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/08/Cable-curl-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/bicep-curl-cable.mp4',
+    videoUrl: 'https://www.youtube.com/embed/opFVuRi_3b8',
     description: 'An exercise that targets the biceps using a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -189,7 +176,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2023/07/Two-arm-supinated-dumbbell-curl.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/bicep-curl-dumbbell.mp4',
+    videoUrl: 'https://www.youtube.com/embed/JnLFSFurrqQ',
     description: 'An exercise that targets the biceps using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -202,7 +189,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/barbell-curl-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/bicep-curl-ez-bar.mp4',
+    videoUrl: 'https://www.youtube.com/embed/JnLFSFurrqQ',
     description: 'An exercise that targets the biceps using an EZ curl bar.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -215,7 +202,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2021/09/Chin-up.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/chin-up.mp4',
+    videoUrl: 'https://www.youtube.com/embed/9JC1EwqezGY',
     description: 'An exercise that targets the lats and biceps using bodyweight.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -228,7 +215,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Dumbbell-Concentration-Curl-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/concentration-curl.mp4',
+    videoUrl: 'https://www.youtube.com/embed/VMbDQ8PZazY',
     description: 'An exercise that targets the biceps using dumbbells or a cable machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -241,7 +228,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Triceps-Dip-resized.png?ezimgfmt=ngcb4/notWebP.png',
-    videoUrl: 'common/public/videos/dip.mp4',
+    videoUrl: 'https://www.youtube.com/embed/4LA1kF7yCGo',
     description: 'An exercise that targets the triceps and chest using parallel bars.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -254,7 +241,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/08/assisted-triceps-dip-resized-1.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/dip-machine.mp4',
+    videoUrl: 'https://www.youtube.com/embed/yZ83t4mrPrI',
     description: 'An exercise that targets the triceps and chest using a dip machine.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -267,7 +254,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/11/Dumbbell-Hammer-Curl-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/hammer-curl.mp4',
+    videoUrl: 'https://www.youtube.com/embed/WGTCVgCqLqM',
     description: 'An exercise that targets the biceps and forearms using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -280,7 +267,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2023/10/Lying-one-arm-cross-body-dumbbell-triceps-extension.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/lying-tricep-extension-dumbbell.mp4',
+    videoUrl: 'https://www.youtube.com/embed/ernSa92jYKc',
     description: 'An exercise that targets the triceps using dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -293,7 +280,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2018/04/Standing-overhead-one-arm-cable-triceps-extension-resized.png?ezimgfmt=ng:webp/ngcb4.png',
-    videoUrl: 'common/public/videos/overhead-tricep-extension.mp4',
+    videoUrl: 'https://www.youtube.com/embed/kqidUIf1eJE',
     description: 'An exercise that targets the triceps using a cable machine or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -306,7 +293,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2019/03/Machine-preacher-curl-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/preacher-curl.mp4',
+    videoUrl: 'https://www.youtube.com/embed/Ja6ZlIDONac',
     description: 'An exercise that targets the biceps using a preacher curl bench and barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -319,7 +306,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2017/09/EZ-bar-reverse-curl-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/reverse-curl.mp4',
+    videoUrl: 'https://www.youtube.com/embed/kPXvDlFNb3s',
     description: 'An exercise that targets the forearms and brachialis using a barbell or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -332,7 +319,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/05/Triceps-Rope-Pushdown-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/rope-tricep-pushdown.mp4',
+    videoUrl: 'https://www.youtube.com/embed/-xa-6cQaZKY',
     description: 'An exercise that targets the triceps using a cable machine and rope attachment.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -345,7 +332,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2018/11/Barbell-skull-crusher-resized.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/skull-crusher.mp4',
+    videoUrl: 'https://www.youtube.com/embed/l3rHYPtMUo8',
     description: 'An exercise that targets the triceps using a barbell or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -358,7 +345,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Arms',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2022/04/Dumbbell-wrist-curl-over-bench-1.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/wrist-curl.mp4',
+    videoUrl: 'https://www.youtube.com/embed/2wPpcJBe03o',
     description: 'An exercise that targets the forearms and wrist flexors using a barbell or dumbbells.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -373,7 +360,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/45-degree-hyperextension.png?ezimgfmt=ng:webp/ngcb4.png',
-    videoUrl: 'common/public/videos/back-extension.mp4',
+    videoUrl: 'https://www.youtube.com/embed/5_ejbGfdAQE',
     description: 'An exercise that targets the lower back muscles.',
     sets: [
       { repetitions: 10, weight: 20 },
@@ -386,7 +373,7 @@ export const exercises: IExercise[] = [
     muscleGroup: 'Back',
     synonyms: [],
     imageUrl: 'https://cdn-0.weighttraining.guide/wp-content/uploads/2016/10/Bent-over-barbell-row.png?ezimgfmt=ng%3Awebp%2Fngcb4.png',
-    videoUrl: 'common/public/videos/bent-over-barbell-row.mp4',
+    videoUrl: 'https://www.youtube.com/embed/6FZHJGzMFEc',
     description: 'An exercise that targets the upper back muscles and biceps using a barbell.',
     sets: [
       { repetitions: 10, weight: 20 },
