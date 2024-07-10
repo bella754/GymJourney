@@ -40,13 +40,43 @@ type Props = {}
         </div>
       </div>
     </div>
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Stats</h2>
+        <span class="stat-row">
+          
+          <Progressbarstats
+            class={"tooltipstrength"}
+            label="Strength"
+            /* progress={(userStrength / userStrengthMilestone) * 100} */
+            progress={strengthVal}>
+            <span class={"tooltipstrengttxt"}>this is strength</span>
+          </Progressbarstats>
+          
+          
+          <Progressbarstats class={"tooltipstrength"}
+            label="Endurance"
+            /* progress={(userEndurance / userEnduranceMilestone) * 100} */
+            progress={enduranceVal}>
+            <span class={"tooltipstrengttxt"}>this is endurance</span>
+            </Progressbarstats>
+
+          {/* <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar> */}
+          {/* <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar> */}
+        </span>
+        <span class="stat-row">
+          {/* <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar> */}
+          
+          <Progressbarstats class={"tooltipstrength"} label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */ progress={consistencyVal} >
+          <span class={"tooltipstrengttxt"}>this is consistency</span>
+          </Progressbarstats>
+          
+          {/* <Progressbarstats label="Level" progress={userLevel} /> */}
+        </span>
         <Progressbarstats label="Strength" progress={strength.progress} text={strength.level.toString()} />
         <Progressbarstats label="Endurance" progress={endurance.progress} text={endurance.level.toString()} />
         <h2>Achievements</h2>
-        <Achievements />
+        <Achievements/>
       </div>
     </div>
     <BottomBar />
@@ -64,8 +94,7 @@ type Props = {}
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    margin-top: 30px;
-    
+    margin-top: 30px
   }
   h1{
     margin-left: 10px;
@@ -80,11 +109,43 @@ type Props = {}
   span{
     display: flex;
     justify-content: center;
-   
+
   }
   img{
     margin-left: 10%;
     margin-right: 10%;
   }
+
+
+/* from here hover text and sign*/
+
+.tooltipstrength {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipstrength .tooltipstrengttxt {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  top: 85%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltipstrength:hover .tooltipstrengttxt {
+  visibility: visible;
+}
+
+
 `)
 export class IndexPage extends Component<Props> {}
