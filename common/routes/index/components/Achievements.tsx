@@ -1,11 +1,14 @@
 import { Component } from "uix/components/Component.ts";
 import { getUser } from "../../../../backend/api/user/user.crud.ts";
 
+let user = await getUser();
+let achievements = user.achievements;
+// console.log("user: ", user);
+// console.log("user achievements: ", user.achievements[0]);
+
 type Props = {};
 
 @template<Props>(({ props }) => {
-  let achievements = getUser().achievements;
-
   return (
     <ul>
       {achievements.map((achievement, index) => (
