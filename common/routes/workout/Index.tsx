@@ -9,6 +9,7 @@ import { IWorkout } from 'backend/api/training/training.interface.ts'
 type Props = {}
 
 const workouts = await getWorkouts()
+const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)));
 
 const handleCreateSession = async (workout: IWorkout) => {
   const sessionId = await createSession(workout)
@@ -22,28 +23,42 @@ const handleCreateWorkout = async () => {
   window.location.href = `/createWorkout/${workoutId}`
 }
 
+const CategorySection = ({ category }: { category: string }) => {
+  const filteredWorkouts = workouts.filter(workout => workout.category === category)
+
+  return (
+    <details>
+      <summary>{category}</summary>
+      {filteredWorkouts.map((workout: any) => (
+        <Card class="card" onclick={() => handleCreateSession(workout)}>
+          <h4 style="margin-bottom: 20px">
+            {workout.name}
+          </h4>
+          {workout.exercises.map((exercise: any) => (
+            <div style="margin-top: 20px;">
+              <p>
+                {exercise.name} - <b>{exercise.muscleGroup}</b>
+              </p>
+            </div>
+          ))}
+        </Card>
+      ))}
+      <Button class="button" onclick={() => handleCreateWorkout()}> New Workout </Button>
+    </details>
+  )
+}
+
 @template<Props>(() => (
   <div>
     <AppBar />
     <div class="container">
       <div class="content">
         <h2>Workouts</h2>
-        {workouts.map((workout: any) => (
-          <Card class="card" onclick={() => handleCreateSession(workout)}>
-            <h3 style="margin-bottom: 20px">
-              {workout.name} – {workout.category}
-            </h3>
-            {workout.exercises.map((exercise: any) => (
-              <div style="margin-top: 20px;">
-                <p>
-                  {exercise.name} - <b>{exercise.muscleGroup}</b>
-                </p>
-              </div>
-            ))}
-          </Card>
+        {categories.map((category: any) => (
+          <CategorySection category={category} />
         ))}
-        <Button class="button" onclick={() => handleCreateWorkout()}> New Workout </Button>
       </div>
+      <Button class="button" onclick={() => handleCreateWorkout()}> New Workout </Button>
     </div>
     <BottomBar />
   </div>
