@@ -4,33 +4,18 @@ import { Progressbarstats } from './components/Progressbarstats.tsx'
 import { LvlProgressbar } from './components/LvlProgressbar.tsx'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
+import { Achievements } from './components/Achievements.tsx'
+import { getEnduranceStats, getStrengthStats, getXp, getXpStats } from 'backend/api/lvl/lvl.crud.ts'
 
-/////////////////////////////////////////////////////////////////////////////////////////////
-// TODO: id von eingeloggten user in route params an nächste component übergeben           //
-// TODO: Levelbar einfügen, aber ich bin lost, wie ich die Funktionen aus der Klasse nutze //
-/////////////////////////////////////////////////////////////////////////////////////////////
-// let id = datex.meta.caller.main.toString();
-// console.log("user id: ", id);
+const user = await getUser()
 
-/* let userEndurance = getEndurance(id)
-let userEnduranceMilestone = getEnduranceMilestone(id)
-// console.log("userEndurance: ", userEndurance);
+const strength = await getStrengthStats()
 
-let userConsistency = getConsistency(id)
-let userConsistencyMilestone = getConsistencyMilestone(id)
-// console.log("userConsistency: ", userConsistency);
-
-let userStrength = getStrength(id)
-let userStrengthMilestone = getStrengthMilestone(id)
-// console.log("userStrength: ", userStrength);
-
-let userXP = getUserXp(id)
-let userLevelMilestone = getLevelMilestone(id) || 100 */
-// console.log("userLevel: ", userLevel);
+const endurance = await getEnduranceStats()
 
 type Props = {}
 
-const user = await getUser()
+// const user = await getUser()
 
 @template<Props>(async () => (
   <div>
@@ -51,40 +36,47 @@ const user = await getUser()
     <div class="container">
       <div class="content">
         <div>
-          <LvlProgressbar
-            borderRadius="0"
-            text="Lvl.100"
-            /* progress={(userXP / userLevelMilestone) * 100} */
-            progress={100}
-          />
+          <LvlProgressbar borderRadius="0" text={xp.level.toString()} progress={xp.progress} />
         </div>
       </div>
     </div>
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
       <div style="display: flex; flex-direction: column; align-items: center;">
-        {/* <h1>Hey, {user.$.name}!</h1> */}
         <h2>My Stats</h2>
         <span class="stat-row">
+          
           <Progressbarstats
+            class={"tooltipstrength"}
             label="Strength"
             /* progress={(userStrength / userStrengthMilestone) * 100} */
-            progress={100}
-          />
-          <Progressbarstats
+            progress={strengthVal}>
+            <span class={"tooltipstrengttxt"}>this is strength</span>
+          </Progressbarstats>
+          
+          
+          <Progressbarstats class={"tooltipstrength"}
             label="Endurance"
             /* progress={(userEndurance / userEnduranceMilestone) * 100} */
-            progress={100}
-          />
+            progress={enduranceVal}>
+            <span class={"tooltipstrengttxt"}>this is endurance</span>
+            </Progressbarstats>
+
           {/* <LvlProgressbar max={userEnduranceMilestone} value={userEndurance}></LvlProgressbar> */}
           {/* <LvlProgressbar max={userStrengthMilestone} value={userStrength}></LvlProgressbar> */}
         </span>
         <span class="stat-row">
           {/* <LvlProgressbar max={userConsistencyMilestone} value={userConsistency}></LvlProgressbar> */}
-          <Progressbarstats label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */ progress={100} />
+          
+          <Progressbarstats class={"tooltipstrength"} label="Consistency" /* progress={(userConsistency / userConsistencyMilestone) * 100} */ progress={consistencyVal} >
+          <span class={"tooltipstrengttxt"}>this is consistency</span>
+          </Progressbarstats>
+          
           {/* <Progressbarstats label="Level" progress={userLevel} /> */}
         </span>
+        <Progressbarstats label="Strength" progress={strength.progress} text={strength.level.toString()} />
+        <Progressbarstats label="Endurance" progress={endurance.progress} text={endurance.level.toString()} />
         <h2>Achievements</h2>
-        {/* <Achievements id={id} /> */}
+        <Achievements/>
       </div>
     </div>
     <BottomBar />
@@ -101,7 +93,8 @@ const user = await getUser()
   h2{
     display: flex;
     justify-content: center;
-    
+    margin-bottom: 10px;
+    margin-top: 30px
   }
   h1{
     margin-left: 10px;
@@ -116,11 +109,43 @@ const user = await getUser()
   span{
     display: flex;
     justify-content: center;
-   
+
   }
   img{
     margin-left: 10%;
     margin-right: 10%;
   }
+
+
+/* from here hover text and sign*/
+
+.tooltipstrength {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipstrength .tooltipstrengttxt {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 100;
+  top: 85%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltipstrength:hover .tooltipstrengttxt {
+  visibility: visible;
+}
+
+
 `)
 export class IndexPage extends Component<Props> {}

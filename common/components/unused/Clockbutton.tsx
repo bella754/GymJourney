@@ -5,9 +5,8 @@ type Props = {}
 @template<Props>((props) => (
   <div>
     <button>
-      <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
+    <svg width="800px" height="800px" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zm-4.581 3.324a1 1 0 0 0-.525-1.313L13 12.341V6.5a1 1 0 0 0-2 0v6.17c0 .6.357 1.143.909 1.379l4.197 1.8a1 1 0 0 0 1.313-.525z" fill="white"/></svg>
+
     </button>
   </div>
 ))
@@ -18,9 +17,9 @@ type Props = {}
     align-items: center;
   }
   svg {
-    width: 35px;
-    height: 35px;
-    stroke: black;
+    width: 30px;
+    height: 30px;
+    stroke: white;
   }
 `)
 export class Clockbutton extends Component<Props> {}

@@ -17,8 +17,8 @@ const items = [
 @template<Props>(() => (
   <ul class="container">
     {items.map((item) => (
-      <a href={item.href} class="bottom-bar-button">
-        <button>{item.icon}</button>
+      <a href={item.href} class="bottom-bar-button" >
+        <button style={{ backgroundColor: window.location.pathname === item.href ? '#0D9D9D' : 'black' }}>{item.icon}</button>
         {item.name}
       </a>
     ))}
@@ -26,19 +26,21 @@ const items = [
 ))
 @style(css`
   button {
-    border-radius: 4px;
-    padding: 2px 2px;
+    border-radius: 10px;
+    padding: 5px 5px;
     border: unset;
     color: white;
-    background-color: #0891b2;
+    background-color: transparent;
+    
   }
 
   button:hover {
-    background-color: #0891a5;
+    background-color: #0D9D9D;
+    color:#0D9D9D;
   }
 
   button:active {
-    background-color: #0891b2;
+    background-color: #0D9D9D;
     box-shadow: 0 3px lightgrey;
     transform: translateY(4px);
   }
@@ -53,6 +55,8 @@ const items = [
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    
+    border-radius: 10px;
   }
   .container {
     position: fixed;

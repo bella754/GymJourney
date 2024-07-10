@@ -1,36 +1,66 @@
-import { Component } from "uix/components/Component.ts";
-import { userData } from "../../../../backend/data/data.ts";
+import { Component } from 'uix/components/Component.ts'
+import { Card } from 'common/components/card/HistoryCard.tsx'
+import { achievements } from 'backend/api/achievements/achievements.data.ts'
+import { hasFirstWorkout, hasProfileCreated } from 'backend/api/achievements/achievements.crud.ts'
 
-type Props = {
-  id
-};
-// const achievements = [
-//   {
-//     title: "First Achievement",
-//     description: "You have reached level 1",
-//     icon: "🎉",
-//   },
-// ];
+type Props = {}
 
-@template<Props>(({ props }) => {
-  let achievements = userData.find(u => u.id === props.id).achievements;
+@template<Props>(async () => {
+  const profileCreated = await hasProfileCreated()
+  const firstWorkout = await hasFirstWorkout()
 
   return (
-    <ul>
-      {achievements.map((achievement, index) => (
-        <li key={index}>
-          <h3>{achievement.title}</h3>
-          <p>{achievement.description}</p>
-          <span>{achievement.icon}</span>
-        </li>
+    <div class="achievements">
+      {achievements.map((achievement) => (
+        <Card class={profileCreated && achievement.id === 'profileCreated' ? 'card' : firstWorkout && achievement.id === 'firstWorkout' ? 'card' : 'hidden'}>
+          <div class="card-content">
+            <img src={achievement.image} alt={achievement.title} width="80" height="80" />
+            <div class="card-text">
+              <h3>{achievement.title}</h3>
+              <p>{achievement.description}</p>
+            </div>
+          </div>
+        </Card>
       ))}
-    </ul>
-  );
+      {!profileCreated && !firstWorkout && <small>You have no achievements yet</small>}
+    </div>
+  )
 })
 @style(css`
-  ul {
-    list-style: none;
-    padding: 0;
+  .achievements {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+  }
+  h3 {
+    margin-bottom: 4px;
+  }
+  .card {
+    max-width: 300px;
+    width: 100%;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .card-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .hidden {
+    display: none;
+  }
+  .small {
+    font-size: 12px;
+    color: #666;
   }
 `)
 export class Achievements extends Component<Props> {}

@@ -2,6 +2,8 @@ import { Component } from 'uix/components/Component.ts'
 import { getTrainingById, updateSession, updateSet, updateSetOfSession } from 'backend/api/training/training.crud.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Button } from 'common/components/Button.tsx'
+import { StopWorkout } from "common/components/unused/StopWorkout.tsx"
+import { Weight } from "common/routes/history/components/Weight.tsx";
 
 type Props = {
   id: string
@@ -22,7 +24,7 @@ type Props = {
     const diff = end.getTime() - start.getTime()
     const minutes = Math.floor(diff / 60000)
     const seconds = Math.floor((diff % 60000) / 1000)
-    elapsedTimeVal.val = `${minutes}m ${seconds}s`
+    elapsedTimeVal.val = `${minutes} : ${seconds}`
   }
 
   const intervalId = setInterval(updateElapsedTime, 1000)
@@ -48,8 +50,8 @@ type Props = {
           <div style="display: flex; justify-content: space-between; width: 100%">
             <div class={"container"}>
             <div class={"time"}> {elapsedTimeVal} </div>
-            <h2>{session.training.name}</h2>
-            <Button class={"endbutton"} onclick={handleEndSession}>End session</Button>
+            <h2>{session.training.name.toUpperCase()}</h2>
+            <StopWorkout class={"endbutton"} onclick={handleEndSession}/>
             </div>
           </div>
           {session.training.$.exercises.$.map((exercise, index) => (
@@ -65,7 +67,7 @@ type Props = {
                         <th>Set</th>
                         <th>Reps</th>
                         <th></th>
-                        <th>Weight</th>
+                        <th>KG</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -83,12 +85,13 @@ type Props = {
                           <td class={'color'}>x</td>
                           <td>
                             <input
+                              
                               type="number"
                               value={set.weight}
                               /* @ts-ignore */
-                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
+                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'KG', e.target.value)}
                             />
-                            <span> kg</span>
+                            
                           </td>
                         </tr>
                       ))}
@@ -114,20 +117,30 @@ type Props = {
     max-width: 600px;
     justify-content: space-between;
   }
+  button{
+    background-color: transparent;
+    
+  }
   .endbutton{
   cursor: pointer;
+  margin-right: 5%;
   }
   h2{
-  font-size: 36px;
+    font-size: 30px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-style: italic;
+    font-weight: bold;
   }
   .time {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  border: 1px solid #0891b2; /* Example border style */
+  //border: 1px solid #0891b2; /* Example border style */
   border-radius: 4px;
+  background-color: #D9D9D9;
   width: 100px;
   height: 36px;
+  margin-left: 5%;
  
   text-align: center; /* Center text inside div */
 }
@@ -148,12 +161,20 @@ type Props = {
 
   td {
     text-align: center;
+    color: lightgrey;
+  }
+  .Weight{
+    margin-right: 20%;
   }
 
   th,td {
     padding: 8px;
     text-align: center;
+    color: grey;
+    font-size: 15px;
+    font-weight: 100;
   }
+  
 
   details {
     overflow: hidden;
@@ -187,6 +208,10 @@ type Props = {
     color: #333; /* Dark gray text */
   }
 
+  .tablecontainer {
+    margin-right: 5%;
+  }
+
   details[open] summary {
     border: 1px solid #003eff;
     background: #007fff;
@@ -195,6 +220,10 @@ type Props = {
 
   details main {
     padding: 1em 2.2em;
+  }
+  img{
+    margin-left: 10%;
+    margin-right: 10%;
   }
 `)
 export class StartSession extends Component<Props> {}

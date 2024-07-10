@@ -1,3 +1,5 @@
+import { IWorkout } from '../training/training.interface.ts'
+
 export interface IUser {
   name: string
   gender: 'm' | 'f' | 'd' | 'not specified'
@@ -7,5 +9,6 @@ export interface IUser {
   ethnicity: 'Asian' | 'Black' | 'Hispanic' | 'White' | 'Native American' | 'Other' | 'not specified'
   experience: 'beginner' | 'intermediate' | 'advanced' | 'expert' | 'not specified'
   gym: string
+  workouts: IWorkout[]
   //avatarUrl: string
 }
