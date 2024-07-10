@@ -1,2 +1,4 @@
 name: "GymJourney",
 description: "A simple UIX app project"
+
+experimental_features: ["frontend-navigation", "view-transitions"]
