@@ -835,19 +835,19 @@ export const workouts: IWorkout[] = [
   {
     id: 'workout1',
     name: 'Chest',
-    category: 'Category1',
+    category: "PLL",
     exercises: [exercises[0], exercises[1], exercises[2]],
   },
   {
     id: 'workout2',
     name: 'Back',
-    category: 'Category2',
+    category: "Body",
     exercises: [exercises[3], exercises[4], exercises[5]],
   },
   {
     id: 'workout3',
     name: 'Legs',
-    category: 'Category3',
+    category: "Hardcore",
     exercises: [exercises[6], exercises[7], exercises[8]],
   },
 ]
