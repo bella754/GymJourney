@@ -13,8 +13,6 @@ const strength = await getStrengthStats()
 
 const endurance = await getEnduranceStats()
 
-const xp = await getXpStats()
-
 type Props = {}
 
 // const user = await getUser()
@@ -42,7 +40,7 @@ type Props = {}
         </div>
       </div>
     </div>
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Stats</h2>
         <Progressbarstats label="Strength" progress={strength.progress} text={strength.level.toString()} />
