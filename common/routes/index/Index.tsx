@@ -6,6 +6,7 @@ import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { BottomBar } from '../../components/bottombar/BottomBar.tsx'
 import { Achievements } from './components/Achievements.tsx'
 import { getEnduranceStats, getStrengthStats, getXp, getXpStats } from 'backend/api/lvl/lvl.crud.ts'
+import { Hero } from 'common/routes/index/components/Hero.tsx'
 
 const user = await getUser()
 
@@ -22,19 +23,8 @@ type Props = {}
 @template<Props>(async () => (
   <div>
     <AppBar />
+    <Hero userName={user.name} />
 
-    <div class="container">
-      <h1 class="box">{user.name}</h1>
-      <img
-        class="box"
-        src="/@uix/src/common/public/Character.png"
-        style={{
-          width: '150px',
-          height: '180px',
-          marginLeft: '70%',
-        }}
-      />
-    </div>
     <div class="container">
       <div class="content">
         <div>
@@ -83,11 +73,6 @@ type Props = {}
     justify-content: center;
 
   }
-  img{
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-
 
 /* from here hover text and sign*/
 
