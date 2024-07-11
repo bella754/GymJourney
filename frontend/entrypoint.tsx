@@ -14,7 +14,6 @@ import { AdminPage } from 'common/routes/admin/Index.tsx'
 import { HistoryDetailPage } from 'common/routes/history/HistoryDetailPage.tsx'
 import { StartSession } from 'common/routes/workout/StartSession.tsx'
 import { IndexPage } from 'common/routes/index/Index.tsx'
-import { Entrypoint } from 'uix/html/entrypoints.ts'
 
 UIX.Theme.registerTheme({
   name: 'blank',
@@ -35,8 +34,8 @@ export default {
   '/history/:id': (_, { id }: { _: any; id: string }) => <HistoryDetailPage id={id} />,
   '/workouts': () => <WorkoutsPage />,
   '/workouts/:id': (_, { id }: { _: any; id: string }) => <StartSession id={id} />,
-  '/createWorkout/:id': (_, { id }: { _: any; id: string }) => <CreateWorkoutPage id={id} />,
+  '/createWorkout/:id': (ctx, { id }: { ctx: any; id: string }) => <CreateWorkoutPage id={id} ctx={ctx} />,
   '/selectExercise/:id': (_, { id }: { _: any; id: string }) => <SelectExercisePage id={id} />,
   '/settings': () => <SettingsPage />,
   '/admin': () => <AdminPage />,
-} satisfies Entrypoint
+}

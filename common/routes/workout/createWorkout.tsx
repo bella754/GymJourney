@@ -3,21 +3,22 @@ import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Button } from 'common/components/Button.tsx'
 import { getWorkoutById, updateSet, updateWorkout } from 'backend/api/training/training.crud.ts'
-import { exercises, workouts } from 'backend/api/training/training.data.ts'
+import { workouts } from 'backend/api/training/training.data.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
-import { IWorkout } from "backend/api/training/training.interface.ts";
+import { IWorkout } from 'backend/api/training/training.interface.ts'
 
 type Props = {
   id: string
+  ctx: any
 }
 
-@template<Props>(async (_, { id }) => {
+@template<Props>(async ({ ctx, id }) => {
   const selectedWorkout = await getWorkoutById(id)
 
-  const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)));
+  const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)))
 
   const name = $$('')
-  const category = $$('')
+  const category = $$(ctx?.searchParams?.get('category') || '')
 
   const saveWorkout = async () => {
     await updateWorkout(id, name, category)
@@ -35,16 +36,16 @@ type Props = {
   return (
     <div>
       <AppBar />
-      <div class={"bodycontainer"}>
+      <div class={'bodycontainer'}>
         <div>
-          <div class={"topcontainer"}>
+          <div class={'topcontainer'}>
             <h2>Workout erstellen</h2>
             <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
             <input type="text" list="categories" value={category} placeholder="Category" required />
             <datalist id="categories">
-            {categories.map((category: any) => (
-              <option>{category}</option>
-            ))}
+              {categories.map((category: any) => (
+                <option>{category}</option>
+              ))}
             </datalist>
           </div>
           {selectedWorkout?.exercises.map((exercise: any, index) => (
@@ -91,41 +92,41 @@ type Props = {
               </Card>
             </div>
           ))}
-        <div class={"container"}>
-          <Button onclick={() => window.history.back()}>Zurück</Button>
-          <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
-          <Button onclick={saveWorkout}>Speichern</Button>
+          <div class={'container'}>
+            <Button onclick={() => window.history.back()}>Zurück</Button>
+            <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
+            <Button onclick={saveWorkout}>Speichern</Button>
+          </div>
+          <p class={'workoutid'}>Workout id: {selectedWorkout?.id}</p>
         </div>
-      <p class={"workoutid"}>Workout id: {selectedWorkout?.id}</p>
       </div>
-    </div>
-    <BottomBar/>
+      <BottomBar />
     </div>
   )
 })
 @style(css`
-  .category{
-  border: 2px solid grey;
-  border-radius:4px;
-  padding: 10px;
-  width:100%;
-  margin: 10px 0px 10px;
+  .category {
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0px 10px;
   }
-  .namefield{
-  border: 2px solid grey;
-  border-radius:4px;
-  padding:10px;
-  margin: 10px 0px 10px;
-  max-width:380px;
+  .namefield {
+    border: 2px solid grey;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0px 10px;
+    max-width: 380px;
   }
-  .workoutcard{
-  margin-bottom: 10px;
+  .workoutcard {
+    margin-bottom: 10px;
   }
-  h2{
-  font-size: 20px;
-  margin-bottom: 15px;
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
   }
-  .container{
+  .container {
     margin: 15px auto;
     display: flex;
     justify-content: space-between;
@@ -133,25 +134,25 @@ type Props = {
     width: 100%;
     min-width: 400px;
   }
-  .topcontainer{
+  .topcontainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
-  .tablecontainer{
+  .tablecontainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
-  .bodycontainer{
+  .bodycontainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
   }
-  .body{
+  .body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,16 +160,18 @@ type Props = {
     width: 600px;
   }
 
-  .workoutid{
-  font-size: 10px;
-  margin-bottom: 100px;
+  .workoutid {
+    font-size: 10px;
+    margin-bottom: 100px;
   }
-  input,select {
+  input,
+  select {
     width: 100%;
     padding: 10px;
   }
 
-  tr.firstrow td, tr.firstrow th {
+  tr.firstrow td,
+  tr.firstrow th {
     border-bottom: 2px solid lightgrey;
   }
 
@@ -185,7 +188,8 @@ type Props = {
     text-align: center;
   }
 
-  th, td {
+  th,
+  td {
     padding: 8px;
     text-align: center;
   }
@@ -195,8 +199,8 @@ type Props = {
     border-radius: 8px;
   }
 
-  .bbar{
-  width: 100vh;
+  .bbar {
+    width: 100vh;
   }
 `)
 export class CreateWorkoutPage extends Component<Props> {}
