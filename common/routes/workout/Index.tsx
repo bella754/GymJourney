@@ -51,33 +51,25 @@ const CategorySection = ({ category }: { category: string }) => {
 @template<Props>(() => (
   <div>
     <AppBar />
-    <div class="container">
-      <div class="content">
-        <h2>Workouts</h2>
-        {categories.map((category: any) => (
-          <CategorySection category={category} />
-        ))}
-      </div>
+    <div class="workout">
+      <h2>Workouts</h2>
+      {categories.map((category: any) => (
+        <CategorySection category={category} />
+      ))}
       <Button class="button" onclick={() => handleCreateWorkout()}>
-        New Workout
+        Create a new workout
       </Button>
     </div>
     <BottomBar />
   </div>
 ))
 @style(css`
-  .container {
+  .workout {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .content {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
-    max-width: 600px;
-    width: 100%;
   }
   h2 {
     font-size: 20px;
