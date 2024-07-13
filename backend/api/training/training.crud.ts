@@ -51,6 +51,29 @@ export function addExercisesToWorkout(workoutId: string, newExercises: IExercise
   workout.exercises.push(...newExercises)
 }
 
+export function deleteWorkout(id: string) {
+  const index = workouts.findIndex((workout) => workout.id === id)
+  if (index === -1) {
+    throw new Error('Workout nicht gefunden')
+  }
+  
+  workouts.splice(index, 1)
+}
+
+export function deleteExerciseFromWorkout(workoutId: string, exerciseName: string) {
+  const workout = workouts.find((workout) => workout.id === workoutId)
+  if (!workout) {
+    throw new Error('Workout nicht gefunden')
+  }
+  
+  const exerciseIndex = workout.exercises.findIndex((exercise) => exercise.name === exerciseName)
+  if (exerciseIndex === -1) {
+    throw new Error('Übung nicht gefunden')
+  }
+  
+  workout.exercises.splice(exerciseIndex, 1)
+}
+
 export function createSession(workout: IWorkout) {
   const user = datex.meta.caller.main.toString()
   console.log(`Creating workout databse entry for ${user}.`)

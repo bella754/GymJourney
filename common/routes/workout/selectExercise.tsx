@@ -29,25 +29,50 @@ type Props = {
     await addExercisesToWorkout(id, selectedExercises)
     window.location.href = `/createWorkout/${id}`
   }
+  
+  const groupedExercises = () => {
+    return allExercises.reduce((groups, exercise) => {
+      const muscleGroup = exercise.muscleGroup
+      if (!groups[muscleGroup]) {
+        groups[muscleGroup] = []
+      }
+      groups[muscleGroup].push(exercise)
+      return groups
+    }, {})
+  }
 
   return (
     <div>
       <AppBar />
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
-          <h2>Übungen auswählen</h2>
+          <h2>Select exercises</h2>
           <input type="text" placeholder="Suche" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={search} />
-          {always(() => allExercises
-            .filter((exercise) => exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase()))
-            .map((exercise) => (
-              <div style="margin-bottom: 20px;">
-                <input type="checkbox" id={exercise.name} value={exercise.name} onchange={(e) => handleCheckboxChange(exercise, e.target.checked)} />
-                <label for={exercise.name}>{exercise.name}</label>
-              </div>
-            )))}
-          <Button onclick={() => window.history.back()}>Zurück</Button>
+          {always(() => 
+            Object.entries(groupedExercises())
+              .filter(([muscleGroup, exercises]) => 
+                exercises.some((exercise) => 
+                  exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase())
+                )
+              )
+              .map(([muscleGroup, exercises]) => (
+                <details>
+                  <summary>{muscleGroup}</summary>
+                  {exercises
+                    .filter((exercise) => exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase()))
+                    .map((exercise) => (
+                      <div style="margin-bottom: 20px;">
+                        <input type="checkbox" id={exercise.name} value={exercise.name} onchange={(e) => handleCheckboxChange(exercise, e.target.checked)} />
+                        <label for={exercise.name}>{exercise.name}</label>
+                      </div>
+                    ))
+                  }
+                </details>
+              ))
+          )}
+          <Button onclick={() => window.history.back()}>Back</Button>
+          <Button onclick={saveExercises}>Save</Button>
         </div>
-        <Button onclick={saveExercises}>Speichern</Button>
       </div>
       <BottomBar />
     </div>
@@ -62,3 +87,4 @@ type Props = {
   }
 `)
 export class SelectExercisePage extends Component<Props> {}
+

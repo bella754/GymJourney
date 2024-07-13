@@ -3,7 +3,7 @@ import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Button } from 'common/components/Button.tsx'
 import { Card } from '../../components/card/HistoryCard.tsx'
-import { createSession, getWorkouts, createWorkout } from 'backend/api/training/training.crud.ts'
+import { createSession, getWorkouts, createWorkout, deleteWorkout } from 'backend/api/training/training.crud.ts'
 import { IWorkout } from 'backend/api/training/training.interface.ts'
 
 type Props = {}
@@ -13,14 +13,29 @@ const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => work
 
 const handleCreateSession = async (workout: IWorkout) => {
   const sessionId = await createSession(workout)
-
   window.location.href = `/workouts/${sessionId}`
 }
 
 const handleCreateWorkout = async (category?: string) => {
   const workoutId = await createWorkout()
-
   window.location.href = `/createWorkout/${workoutId}${category ? `?category=${category}` : ''}`
+}
+
+const handleDeleteWorkout = async (workoutId: string) => {
+  try {
+    await deleteWorkout(workoutId)
+    window.location.reload() // Seite neu laden, um die Änderungen anzuzeigen
+  } catch (error) {
+    console.error(error)
+    alert('Fehler beim Löschen des Workouts')
+  }
+}
+
+const handleEditWorkout = async (workoutId: string, name?: string, category?: string) => {
+  const params = new URLSearchParams()
+  if (name) params.append('name', name)
+  if (category) params.append('category', category)
+  window.location.href = `/createWorkout/${workoutId}?${params.toString()}`
 }
 
 const CategorySection = ({ category }: { category: string }) => {
@@ -31,12 +46,16 @@ const CategorySection = ({ category }: { category: string }) => {
       <summary>{category}</summary>
       {filteredWorkouts.map((workout: any) => (
         <Card class="card" onclick={() => handleCreateSession(workout)}>
-          <h4 style="margin-bottom: 20px">{workout.name}</h4>
+          <div class="card-header">
+            <h4 style="margin-bottom: 20px; flex-grow: 1;">{workout.name}</h4>
+            <div class="card-buttons">
+              <button class="edit-button" onclick={(e) => { e.stopPropagation(); handleEditWorkout(workout.id, workout.name, category) }}>✏️</button>
+              <button class="delete-button" onclick={(e) => { e.stopPropagation(); handleDeleteWorkout(workout.id) }}>🗑️</button>
+            </div>
+          </div>
           {workout.exercises.map((exercise: any) => (
             <div style="margin-top: 20px;">
-              <p>
-                {exercise.name} - <b>{exercise.muscleGroup}</b>
-              </p>
+              <p>{exercise.name} - <b>{exercise.muscleGroup}</b></p>
             </div>
           ))}
         </Card>
@@ -76,6 +95,27 @@ const CategorySection = ({ category }: { category: string }) => {
   }
   .card:hover {
     cursor: pointer;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  .edit-button, .delete-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .edit-button {
+    color: blue;
+  }
+  .delete-button {
+    color: red;
   }
   .button {
     margin-bottom: 100px;
