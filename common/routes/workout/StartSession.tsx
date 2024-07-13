@@ -3,7 +3,7 @@ import { getTrainingById, updateSession, updateSet, updateSetOfSession } from 'b
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Button } from 'common/components/Button.tsx'
 import { StopWorkout } from "common/components/unused/StopWorkout.tsx"
-import { Weight } from "common/routes/history/components/Weight.tsx";
+import { Weight } from "common/routes/history/components/Weight.tsx"
 
 type Props = {
   id: string
@@ -17,6 +17,8 @@ type Props = {
   }
 
   const elapsedTimeVal = $$('')
+  const popoverContent = $$<string | null>(null)
+  const popoverType = $$<"image" | "video" | null>(null)
 
   const updateElapsedTime = () => {
     const start = new Date(session.start)
@@ -43,24 +45,46 @@ type Props = {
     await updateSetOfSession(sessionId, exerciseIndex, setIndex, field, value)
   }
 
+  const showPopover = (type: "image" | "video", content: string) => {
+    popoverType.val = type
+    popoverContent.val = content
+    
+    let element = document.getElementById("popover")
+    element.style.visibility = "visible"
+  }
+
+  const closePopover = () => {
+    popoverType.val = null
+    popoverContent.val = null
+
+    let element = document.getElementById("popover")
+    element.style.visibility = "hidden"
+  }
+
   return (
     <div>
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
           <div style="display: flex; justify-content: space-between; width: 100%">
             <div class={"container"}>
-            <div class={"time"}> {elapsedTimeVal} </div>
-            <h2>{session.training.name.toUpperCase()}</h2>
-            <StopWorkout class={"endbutton"} onclick={handleEndSession}/>
+              <div class={"time"}> {elapsedTimeVal} </div>
+              <h2>{session.training.name.toUpperCase()}</h2>
+              <StopWorkout class={"endbutton"} onclick={handleEndSession}/>
             </div>
           </div>
           {session.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
               <Card>
                 <div>
-                  <h3>
-                    {index + 1}. {exercise.name}
-                  </h3>
+                  <div class="headline" style="display: flex; justify-content: space-between; align-items: center; min-width: 400px">
+                    <h3>
+                      {index + 1}. {exercise.name}
+                    </h3>
+                    <div class="buttons">
+                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopover('image', exercise.imageUrl)}>Image</Button>
+                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopover('video', exercise.videoUrl)}>Video</Button>
+                    </div>
+                  </div>
                   <table>
                     <thead>
                       <tr>
@@ -85,13 +109,11 @@ type Props = {
                           <td class={'color'}>x</td>
                           <td>
                             <input
-                              
                               type="number"
                               value={set.weight}
                               /* @ts-ignore */
-                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'KG', e.target.value)}
+                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
                             />
-                            
                           </td>
                         </tr>
                       ))}
@@ -103,6 +125,18 @@ type Props = {
           ))}
         </div>
       </div>
+      {popoverType && popoverContent && (
+        <div class="popover" id="popover">
+          <div class="popover-content">
+            {popoverType === 'image' ? (
+              <img src={popoverContent} alt="Exercise Image" />
+            ) : (
+              <iframe src={popoverContent} title="Exercise Video" frameBorder="0" allowFullScreen></iframe>
+            )}
+            <Button style="padding-top: 5px" onclick={closePopover}>Close</Button>
+          </div>
+        </div>
+      )}
     </div>
   )
 })
@@ -119,7 +153,6 @@ type Props = {
   }
   button{
     background-color: transparent;
-    
   }
   .endbutton{
   cursor: pointer;
@@ -135,13 +168,11 @@ type Props = {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  //border: 1px solid #0891b2; /* Example border style */
   border-radius: 4px;
   background-color: #D9D9D9;
   width: 100px;
   height: 36px;
   margin-left: 5%;
- 
   text-align: center; /* Center text inside div */
 }
 
@@ -175,7 +206,6 @@ type Props = {
     font-weight: 100;
   }
   
-
   details {
     overflow: hidden;
     margin-top: 0.125em;
@@ -224,6 +254,35 @@ type Props = {
   img{
     margin-left: 10%;
     margin-right: 10%;
+  }
+
+  .popover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+  }
+
+  .popover-content {
+    background: white;
+    padding: 20px 20px 10px 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  popover-content img {
+    object-fit: cover;
   }
 `)
 export class StartSession extends Component<Props> {}
