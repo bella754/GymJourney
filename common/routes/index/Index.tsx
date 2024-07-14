@@ -32,7 +32,7 @@ type Props = {}
         </div>
       </div>
     </div>
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; min-width: 300px; width: 90%; height: 100%; margin-bottom: 100px;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Stats</h2>
         <Progressbarstats label="Strength" progress={strength.progress} text={strength.level.toString()} />

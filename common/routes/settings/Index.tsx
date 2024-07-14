@@ -73,8 +73,13 @@ const userGym = $$(user.gym)
               <input type="text" placeholder="Name" value={userName} id="name" />
             </div>
             <div>
-              <label for="gender">Geschlecht</label>
-              <input type="text" placeholder="Gender" value={userGender} id="gender" />
+              <label for="gender">Gender</label>
+              <select class={"select"} value={userGender} id="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="diverse">diverse</option>
+                <option value="not specified">not specified</option>
+              </select>
             </div>
             <div>
               <label for="age">Age</label>
@@ -90,11 +95,25 @@ const userGym = $$(user.gym)
             </div>
             <div>
               <label for="ethnicity">Ethnicity</label>
-              <input type="text" placeholder="Ethnicity" value={userEthnicity} id="ethnicity" />
+              <select class={"select"} value={userEthnicity} id="ethnicity">
+                <option value="Asian">Asian</option>
+                <option value="Black">Black</option>
+                <option value="Hispanic">Hispanic</option>
+                <option value="White">White</option>
+                <option value="Native American">Native American</option>
+                <option value="Other">Other</option>
+                <option value="Not Specified">Not Specified</option>
+              </select>
             </div>
             <div>
               <label for="experience">Experience</label>
-              <input type="text" placeholder="Experience" value={userExperience} id="experience" />
+              <select class={"select"} value={userExperience} id="experience">
+                <option class={"opt"} value="beginner">beginner</option>
+                <option class={"opt"} value="intermediate">intermediate</option>
+                <option class={"opt"} value="advanced">advanced</option>
+                <option class={"opt"} value="expert">expert</option>
+                <option class={"opt"} value="not specified">not specified</option>
+              </select>
             </div>
             <div>
               <label for="gym">Gym</label>
@@ -126,7 +145,7 @@ const userGym = $$(user.gym)
   </div>
 ))
 @style(css`
-   h1 {
+  h1 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -156,10 +175,9 @@ const userGym = $$(user.gym)
   }
 
   .user-info table, .edit-user-info .form {
-    width: 100%px;
+    width: 100%;
     min-width: 350px;
   }
-
 
   .user-info th, .user-info td {
     padding: 12px;
@@ -183,13 +201,15 @@ const userGym = $$(user.gym)
     color: #666;
   }
 
-  .edit-user-info input {
+  .edit-user-info input, .edit-user-info select {
     border: 1px solid #0891b2;
     border-radius: 4px;
     padding: 8px;
     color: #333;
     font-size: 16px;
+    max-width: 400px;
   }
+
 
   .save-button {
     background-color: #0891b2;
@@ -201,7 +221,16 @@ const userGym = $$(user.gym)
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
-    margin-bottom:100px;
+    margin-bottom: 100px;
+  }
+   .save-button:hover {
+    background-color: #06748d;
+  }
+
+  .save-button:active {
+    background-color: #06748d;
+    box-shadow: 0 3px lightgrey;
+    transform: translateY(4px);
   }
 `)
 export class SettingsPage extends Component<Props> {}
