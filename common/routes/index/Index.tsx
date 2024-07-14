@@ -35,8 +35,15 @@ type Props = {}
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; min-width: 300px; width: 90%; height: 100%; margin-bottom: 100px;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Stats</h2>
-        <Progressbarstats label="Strength" progress={strength.progress} text={strength.level.toString()} />
-        <Progressbarstats label="Endurance" progress={endurance.progress} text={endurance.level.toString()} />
+
+        <Progressbarstats class={"tooltip"} label="Strength" progress={strength.progress} text={strength.level.toString()} >
+          <span class="tooltiptext">Your relativ progress in pushing weights in every workout</span>
+        </Progressbarstats>
+
+        <Progressbarstats class={"tooltip"} label="Endurance" progress={endurance.progress} text={endurance.level.toString()} >
+          <span class="tooltiptext">keep going to complete exercises to progress here</span>
+        </Progressbarstats>
+
         <h2>Achievements</h2>
         <Achievements />
       </div>
@@ -76,12 +83,12 @@ type Props = {}
 
 /* from here hover text and sign*/
 
-.tooltipstrength {
+.tooltip {
   position: relative;
   display: inline-block;
 }
 
-.tooltipstrength .tooltipstrengttxt {
+.tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
   background-color: black;
@@ -99,7 +106,7 @@ type Props = {}
   margin-left: -60px;
 }
 
-.tooltipstrength:hover .tooltipstrengttxt {
+.tooltip:hover .tooltiptext {
   visibility: visible;
 }
 

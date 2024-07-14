@@ -77,6 +77,9 @@ const CategorySection = ({ category }: { category: string }) => {
   .card:hover {
     cursor: pointer;
   }
+  .card{
+  border: 1px solid blue;
+  }
   .button {
     margin-bottom: 100px;
   }
