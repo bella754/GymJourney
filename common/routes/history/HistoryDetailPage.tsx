@@ -5,7 +5,6 @@ import { Card } from '../../components/card/HistoryCard.tsx'
 import { Backarrow } from './components/Backarrow.tsx'
 import { getTrainingById } from 'backend/api/training/training.crud.ts'
 import { IExercise } from 'backend/api/training/training.interface.ts'
-import { Trophy } from './components/Trophy.tsx'
 import { Weight } from './components/Weight.tsx'
 
 type Props = {
@@ -44,15 +43,9 @@ const formatWeight = (weight: number) => {
               {/* @ts-ignore */}
               <p>{new Date(training?.start).toLocaleDateString()}</p>
             </div>
-            <div class={'trophyweightcontainer'}>
-              <div class="trophy-container">
-                <p class="trophy-number">4 Prs</p>
-                <Trophy />
-              </div>
-              <div class="weight-container">
-                <p class="weight-number">{totalWeight}</p>
-                <Weight />
-              </div>
+            <div class="weight-container">
+              <p class="weight-number">{totalWeight}</p>
+              <Weight />
             </div>
           </div>
           {training?.training.$.exercises.$.map((exercise, index) => (
@@ -112,12 +105,6 @@ const formatWeight = (weight: number) => {
     align-items: center;
     text-align: center;
     padding: 10px;
-  }
-  .trophy-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 5px;
   }
   .weight-container {
     display: flex;

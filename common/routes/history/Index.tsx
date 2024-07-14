@@ -2,11 +2,9 @@ import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Card } from '../../components/card/HistoryCard.tsx'
-import { Trophy } from './components/Trophy.tsx'
 import { Weight } from './components/Weight.tsx'
 import { getTrainings } from 'backend/api/training/training.crud.ts'
 import { IExercise } from 'backend/api/training/training.interface.ts'
-import { Button } from 'common/components/Button.tsx'
 
 type Props = {}
 
@@ -46,16 +44,10 @@ const userTrainings = await getTrainings()
                   <div>
                     <div class={'topcard'}>
                       <h3>{session.training.name}</h3>
-
-                      <div class="trophy-container">
-                        <p class="trophy-number">4 Prs</p>
-                        <Trophy />
-                      </div>
                     </div>
                     <p class={'duration'}>{session.duration}h</p>
                     <div class={'bottomcard'}>
                       <p class={'date'}>{session.start.toLocaleDateString()}</p>
-                      <p class={'difficulty'}>difficulty:{session.difficulty}</p>
                       <div class="weight-container">
                         <p class="weight-number">{totalWeight}</p>
                         <Weight />
@@ -82,10 +74,6 @@ const userTrainings = await getTrainings()
     font-size: 20px;
     margin-right: 10px;
   }
-  .trophy-number {
-    font-size: 14px;
-    margin-right: 5px;
-  }
   .wholecard {
     margin-bottom: 20px;
   }
@@ -104,10 +92,6 @@ const userTrainings = await getTrainings()
   }
   .difficulty {
     font-size: 15px;
-  }
-  .trophy-container {
-    display: flex;
-    align-items: center;
   }
   .bottomcard {
     display: flex;
