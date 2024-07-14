@@ -10,5 +10,27 @@ export interface IUser {
   experience: 'beginner' | 'intermediate' | 'advanced' | 'expert' | 'not specified'
   gym: string
   workouts: IWorkout[]
-  //avatarUrl: string
+  avatar: string
+}
+
+export enum Gender {
+  male = 'male',
+  female = 'female',
+  diverse = 'diverse',
+}
+
+export enum SkinColor {
+  light = 'light',
+  dark = 'dark',
+}
+
+export type Avatar = {
+  name: string
+  url: string
+}
+
+export type IAvatar = {
+  [key in Gender]: {
+    [key in SkinColor]: Avatar[]
+  }
 }

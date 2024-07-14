@@ -23,7 +23,7 @@ type Props = {}
 @template<Props>(async () => (
   <div>
     <AppBar />
-    <Hero userName={user.name} />
+    <Hero userName={user.name} character={user.avatar} />
 
     <div class="container">
       <div class="content">
@@ -36,11 +36,11 @@ type Props = {}
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Stats</h2>
 
-        <Progressbarstats class={"tooltip"} label="Strength" progress={strength.progress} text={strength.level.toString()} >
+        <Progressbarstats class={'tooltip'} label="Strength" progress={strength.progress} text={strength.level.toString()}>
           <span class="tooltiptext">Your relativ progress in pushing weights in every workout</span>
         </Progressbarstats>
 
-        <Progressbarstats class={"tooltip"} label="Endurance" progress={endurance.progress} text={endurance.level.toString()} >
+        <Progressbarstats class={'tooltip'} label="Endurance" progress={endurance.progress} text={endurance.level.toString()}>
           <span class="tooltiptext">keep going to complete exercises to progress here</span>
         </Progressbarstats>
 

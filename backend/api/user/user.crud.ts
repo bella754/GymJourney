@@ -16,6 +16,7 @@ export function createUser() {
     experience: 'not specified',
     gym: 'not specified',
     workouts: [],
+    avatar: 'diverseLightAverage',
   }
 
   return users[user]
