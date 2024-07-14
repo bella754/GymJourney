@@ -19,14 +19,9 @@ type Props = {};
   }
 
   button:hover {
-    background-color: #0891a5;
+    background-color: #06748d;
   }
 
-  button:active {
-    background-color: #0891b2;
-    box-shadow: 0 3px lightgrey;
-    transform: translateY(4px);
-  }
 `)
 export class Button extends Component<Props> {}
 

@@ -73,8 +73,8 @@ const userGym = $$(user.gym)
               <input type="text" placeholder="Name" value={userName} id="name" />
             </div>
             <div>
-              <label class={"select"} for="gender">Gender</label>
-              <select value={userGender} id="gender">
+              <label for="gender">Gender</label>
+              <select class={"select"} value={userGender} id="gender">
                 <option value="male">male</option>
                 <option value="female">female</option>
                 <option value="diverse">diverse</option>
@@ -94,26 +94,25 @@ const userGym = $$(user.gym)
               <input type="text" placeholder="Weight" value={userWeight} id="weight" />
             </div>
             <div>
-              <label class={"select"} for="ethnicity">Ethnicity</label>
-              <select value={userEthnicity} id="ethnicity">
+              <label for="ethnicity">Ethnicity</label>
+              <select class={"select"} value={userEthnicity} id="ethnicity">
                 <option value="Asian">Asian</option>
                 <option value="Black">Black</option>
                 <option value="Hispanic">Hispanic</option>
                 <option value="White">White</option>
-                <option value="Nativ American">Nativ American</option>
+                <option value="Native American">Native American</option>
                 <option value="Other">Other</option>
                 <option value="Not Specified">Not Specified</option>
               </select>
             </div>
             <div>
               <label for="experience">Experience</label>
-              <select class={"select"} value={userEthnicity} id="ethnicity">
-                <option value="beginer">beginer</option>
-                <option value="intermediat">intermediat</option>
-                <option value="advanced">advanced</option>
-                <option value="expert">expert</option>
-                <option value="not specified">not specified</option>
-
+              <select class={"select"} value={userExperience} id="experience">
+                <option class={"opt"} value="beginner">beginner</option>
+                <option class={"opt"} value="intermediate">intermediate</option>
+                <option class={"opt"} value="advanced">advanced</option>
+                <option class={"opt"} value="expert">expert</option>
+                <option class={"opt"} value="not specified">not specified</option>
               </select>
             </div>
             <div>
@@ -146,7 +145,7 @@ const userGym = $$(user.gym)
   </div>
 ))
 @style(css`
-   h1 {
+  h1 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
@@ -176,10 +175,9 @@ const userGym = $$(user.gym)
   }
 
   .user-info table, .edit-user-info .form {
-    width: 100%px;
+    width: 100%;
     min-width: 350px;
   }
-
 
   .user-info th, .user-info td {
     padding: 12px;
@@ -209,7 +207,9 @@ const userGym = $$(user.gym)
     padding: 8px;
     color: #333;
     font-size: 16px;
+    max-width: 400px;
   }
+
 
   .save-button {
     background-color: #0891b2;
@@ -221,7 +221,16 @@ const userGym = $$(user.gym)
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
-    margin-bottom:100px;
+    margin-bottom: 100px;
+  }
+   .save-button:hover {
+    background-color: #06748d;
+  }
+
+  .save-button:active {
+    background-color: #06748d;
+    box-shadow: 0 3px lightgrey;
+    transform: translateY(4px);
   }
 `)
 export class SettingsPage extends Component<Props> {}
