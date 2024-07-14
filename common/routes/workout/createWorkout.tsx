@@ -21,6 +21,11 @@ type Props = {
   const category = $$(ctx?.searchParams?.get('category') || '')
 
   const saveWorkout = async () => {
+    if (!name.val || !category.val) {
+      alert('Please fill in all fields')
+      return
+    }
+
     await updateWorkout(id, name, category)
     window.location.href = '/workouts'
   }
@@ -65,7 +70,9 @@ type Props = {
                   <h3>
                     {index + 1}. {exercise.name}
                   </h3>
-                  <button class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)}>🗑️</button>
+                  <button class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)}>
+                    🗑️
+                  </button>
                 </div>
                 <table>
                   <thead>
@@ -104,9 +111,9 @@ type Props = {
             </div>
           ))}
           <div class={'container'}>
-          <Button onclick={() => window.location.href = '/workouts'}>Back</Button>
-          <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
-          <Button onclick={saveWorkout}>Save</Button>
+            <Button onclick={() => (window.location.href = '/workouts')}>Back</Button>
+            <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
+            <Button onclick={saveWorkout}>Save</Button>
           </div>
           <p class={'workoutid'}>Workout id: {selectedWorkout?.id}</p>
         </div>
