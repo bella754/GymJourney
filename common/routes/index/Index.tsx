@@ -63,7 +63,7 @@ type Props = {}
         </div>
       </div>
     </div>
-    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
+    <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; min-width: 300px; width: 90%; height: 100%; margin-bottom: 100px;">
       <div style="display: flex; flex-direction: column; align-items: center;">
         {/* <h1>Hey, {user.$.name}!</h1> */}
         <h2>My Stats</h2>

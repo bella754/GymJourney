@@ -73,8 +73,13 @@ const userGym = $$(user.gym)
               <input type="text" placeholder="Name" value={userName} id="name" />
             </div>
             <div>
-              <label for="gender">Geschlecht</label>
-              <input type="text" placeholder="Gender" value={userGender} id="gender" />
+              <label class={"select"} for="gender">Gender</label>
+              <select value={userGender} id="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="diverse">diverse</option>
+                <option value="not specified">not specified</option>
+              </select>
             </div>
             <div>
               <label for="age">Age</label>
@@ -89,12 +94,27 @@ const userGym = $$(user.gym)
               <input type="text" placeholder="Weight" value={userWeight} id="weight" />
             </div>
             <div>
-              <label for="ethnicity">Ethnicity</label>
-              <input type="text" placeholder="Ethnicity" value={userEthnicity} id="ethnicity" />
+              <label class={"select"} for="ethnicity">Ethnicity</label>
+              <select value={userEthnicity} id="ethnicity">
+                <option value="Asian">Asian</option>
+                <option value="Black">Black</option>
+                <option value="Hispanic">Hispanic</option>
+                <option value="White">White</option>
+                <option value="Nativ American">Nativ American</option>
+                <option value="Other">Other</option>
+                <option value="Not Specified">Not Specified</option>
+              </select>
             </div>
             <div>
               <label for="experience">Experience</label>
-              <input type="text" placeholder="Experience" value={userExperience} id="experience" />
+              <select class={"select"} value={userEthnicity} id="ethnicity">
+                <option value="beginer">beginer</option>
+                <option value="intermediat">intermediat</option>
+                <option value="advanced">advanced</option>
+                <option value="expert">expert</option>
+                <option value="not specified">not specified</option>
+
+              </select>
             </div>
             <div>
               <label for="gym">Gym</label>
@@ -183,7 +203,7 @@ const userGym = $$(user.gym)
     color: #666;
   }
 
-  .edit-user-info input {
+  .edit-user-info input, .edit-user-info select {
     border: 1px solid #0891b2;
     border-radius: 4px;
     padding: 8px;
