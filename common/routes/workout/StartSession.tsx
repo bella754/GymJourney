@@ -18,7 +18,6 @@ type Props = {
 
   const elapsedTimeVal = $$('')
   const popoverContent = $$<string | null>(null)
-  const popoverType = $$<"image" | "video" | null>(null)
 
   const updateElapsedTime = () => {
     const start = new Date(session.start)
@@ -45,20 +44,27 @@ type Props = {
     await updateSetOfSession(sessionId, exerciseIndex, setIndex, field, value)
   }
 
-  const showPopover = (type: "image" | "video", content: string) => {
-    popoverType.val = type
+  const showPopoverImage = (content: string) => {
     popoverContent.val = content
-    
-    let element = document.getElementById("popover")
+
+    let element = document.getElementById("popoverImage")
+    element.style.visibility = "visible"
+  }
+
+  const showPopoverVideo = (content: string) => {
+    popoverContent.val = content
+
+    let element = document.getElementById("popoverVideo")
     element.style.visibility = "visible"
   }
 
   const closePopover = () => {
-    popoverType.val = null
     popoverContent.val = null
 
-    let element = document.getElementById("popover")
-    element.style.visibility = "hidden"
+    let imagePopover = document.getElementById("popoverImage")
+    let videoPopover = document.getElementById("popoverVideo")
+    imagePopover.style.visibility = "hidden"
+    videoPopover.style.visibility = "hidden"
   }
 
   return (
@@ -81,8 +87,8 @@ type Props = {
                       {index + 1}. {exercise.name}
                     </h3>
                     <div class="buttons">
-                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopover('image', exercise.imageUrl)}>Image</Button>
-                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopover('video', exercise.videoUrl)}>Video</Button>
+                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverImage(exercise.imageUrl)}>Image</Button>
+                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverVideo(exercise.videoUrl)}>Video</Button>
                     </div>
                   </div>
                   <table>
@@ -125,24 +131,24 @@ type Props = {
           ))}
         </div>
       </div>
-      {popoverType && popoverContent && (
-        <div class="popover" id="popover">
-          <div class="popover-content">
-            {popoverType === 'image' ? (
-              <img src={popoverContent} alt="Exercise Image" />
-            ) : (
-              <iframe src={popoverContent} title="Exercise Video" frameBorder="0" allowFullScreen></iframe>
-            )}
-            <Button style="padding-top: 5px" onclick={closePopover}>Close</Button>
-          </div>
+      <div class="popoverImage" id="popoverImage">
+        <div class="popover-content-image">
+          <img class="popover-image" src={popoverContent} alt="Exercise Image" />
+          <Button style="padding-top: 5px" onclick={closePopover}>Close</Button>
         </div>
-      )}
+      </div>
+      <div class="popoverVideo" id="popoverVideo">
+        <div class="popover-content-video">
+          <iframe src={popoverContent} title="Exercise Video" frameBorder="0" allowFullScreen></iframe>
+          <Button style="position: absolute; z-index: 1; padding-bottom: 20px;" onclick={closePopover}>Close</Button>
+        </div>
+      </div>
     </div>
   )
 })
 @style(css`
-  .container{
-   margin: 15px auto;
+  .container {
+    margin: 15px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -151,61 +157,56 @@ type Props = {
     max-width: 600px;
     justify-content: space-between;
   }
-  button{
+  button {
     background-color: transparent;
   }
-  .endbutton{
-  cursor: pointer;
-  margin-right: 5%;
+  .endbutton {
+    cursor: pointer;
+    margin-right: 5%;
   }
-  h2{
+  h2 {
     font-size: 30px;
     font-family: 'Arial Black', Gadget, sans-serif;
     font-style: italic;
     font-weight: bold;
   }
   .time {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  border-radius: 4px;
-  background-color: #D9D9D9;
-  width: 100px;
-  height: 36px;
-  margin-left: 5%;
-  text-align: center; /* Center text inside div */
-}
-
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border-radius: 4px;
+    background-color: #d9d9d9;
+    width: 100px;
+    height: 36px;
+    margin-left: 5%;
+    text-align: center; /* Center text inside div */
+  }
   tr.firstrow td,
   tr.firstrow th {
     border-bottom: 2px solid lightgrey;
   }
-
   table {
     width: 290px;
     margin: auto;
   }
-
   .color {
     color: #0891b2;
   }
-
   td {
     text-align: center;
     color: lightgrey;
   }
-  .Weight{
+  .Weight {
     margin-right: 20%;
   }
-
-  th,td {
+  th,
+  td {
     padding: 8px;
     text-align: center;
     color: grey;
     font-size: 15px;
     font-weight: 100;
   }
-  
   details {
     overflow: hidden;
     margin-top: 0.125em;
@@ -214,7 +215,6 @@ type Props = {
     color: #333333;
     border-radius: 3px;
   }
-
   details summary {
     display: block;
     cursor: pointer;
@@ -223,7 +223,6 @@ type Props = {
     color: #2b2b2b;
     border-radius: 3px 3px 0 0;
   }
-
   details:not([open]) summary:hover,
   details:not([open]) summary:focus {
     background: #f6f6f6;
@@ -237,26 +236,22 @@ type Props = {
     border-radius: 4px;
     color: #333; /* Dark gray text */
   }
-
   .tablecontainer {
     margin-right: 5%;
   }
-
   details[open] summary {
     border: 1px solid #003eff;
     background: #007fff;
     color: #ffffff;
   }
-
   details main {
     padding: 1em 2.2em;
   }
-  img{
+  img {
     margin-left: 10%;
     margin-right: 10%;
   }
-
-  .popover {
+  .popoverImage {
     position: fixed;
     top: 0;
     left: 0;
@@ -268,21 +263,49 @@ type Props = {
     background: rgba(0, 0, 0, 0.5);
     visibility: hidden;
   }
-
-  .popover-content {
+  .popoverVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+  }
+  .popover-content-image {
     background: white;
     padding: 20px 20px 10px 20px;
     border-radius: 8px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
+    max-width: 70%;
+    max-height: 70%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
-  popover-content img {
-    object-fit: cover;
+  .popover-content-video {
+    position: relative;
+    width: 80%;
+    padding-top: 56%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .popover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .popover-content-video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 `)
 export class StartSession extends Component<Props> {}
