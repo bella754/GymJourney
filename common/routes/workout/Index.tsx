@@ -5,6 +5,9 @@ import { Button } from 'common/components/Button.tsx'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { createSession, getWorkouts, createWorkout, deleteWorkout } from 'backend/api/training/training.crud.ts'
 import { IWorkout } from 'backend/api/training/training.interface.ts'
+import { Trash }  from 'common/components/unused/Trash.tsx'
+import { Editpen } from 'common/components/unused/Editpen.tsx'
+import { Buttonextended } from "common/components/unused/Buttonextended.tsx";
 
 type Props = {}
 
@@ -42,15 +45,15 @@ const CategorySection = ({ category }: { category: string }) => {
   const filteredWorkouts = workouts.filter((workout) => workout.category === category)
 
   return (
-    <details>
-      <summary>{category}</summary>
+    <details style="gap: 10px;">
+      <summary class={"cat"}>{category}</summary>
       {filteredWorkouts.map((workout: any) => (
         <Card class="card" onclick={() => handleCreateSession(workout)}>
           <div class="card-header">
-            <h4 style="margin-bottom: 20px; flex-grow: 1;">{workout.name}</h4>
+          <h4 style="flex-grow: 1;">{workout.name}</h4>
             <div class="card-buttons">
-              <button class="edit-button" onclick={(e) => { e.stopPropagation(); handleEditWorkout(workout.id, workout.name, category) }}>✏️</button>
-              <button class="delete-button" onclick={(e) => { e.stopPropagation(); handleDeleteWorkout(workout.id) }}>🗑️</button>
+              <Editpen class="edit-button" onclick={(e) => { e.stopPropagation(); handleEditWorkout(workout.id, workout.name, category) }}></Editpen>
+              <Trash class="delete-button" onclick={(e) => { e.stopPropagation(); handleDeleteWorkout(workout.id) }}></Trash>
             </div>
           </div>
           {workout.exercises.map((exercise: any) => (
@@ -60,9 +63,7 @@ const CategorySection = ({ category }: { category: string }) => {
           ))}
         </Card>
       ))}
-      <Button class="button" onclick={() => handleCreateWorkout(category)}>
-        New Workout
-      </Button>
+      <Buttonextended class="catbutton" onclick={() => handleCreateWorkout(category)}> New Workout </Buttonextended>
     </details>
   )
 }
@@ -88,10 +89,19 @@ const CategorySection = ({ category }: { category: string }) => {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  .cat{
+    border: 1px solid #0891b2;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    min-width: 300px;
+    margin-bottom: 10px;
   }
   h2 {
-    font-size: 20px;
+    font-size: 25px;
   }
   .card:hover {
     cursor: pointer;
@@ -105,20 +115,15 @@ const CategorySection = ({ category }: { category: string }) => {
     display: flex;
     gap: 10px;
   }
+  .button{
+    margin-bottom: 100px;
+  }
   .edit-button, .delete-button {
     background: none;
     border: none;
     font-size: 18px;
-    cursor: pointer;
+    cursor: grab;
   }
-  .edit-button {
-    color: blue;
-  }
-  .delete-button {
-    color: red;
-  }
-  .button {
-    margin-bottom: 100px;
-  }
+
 `)
 export class WorkoutsPage extends Component<Props> {}
