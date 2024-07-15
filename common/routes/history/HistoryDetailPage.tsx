@@ -3,9 +3,11 @@ import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Backarrow } from './components/Backarrow.tsx'
-import { getTrainingById } from 'backend/api/training/training.crud.ts'
-import { IExercise } from 'backend/api/training/training.interface.ts'
+import { getTrainingById, createSession } from 'backend/api/training/training.crud.ts'
+import { IExercise, ITrainingSession } from 'backend/api/training/training.interface.ts'
+import { Trophy } from './components/Trophy.tsx'
 import { Weight } from './components/Weight.tsx'
+import { Button } from 'common/components/Button.tsx'
 
 type Props = {
   id: string
@@ -28,9 +30,15 @@ const formatWeight = (weight: number) => {
   return weight + ' kg'
 }
 
+const handleCreateSession = async (workout: ITrainingSession) => {
+  const sessionId = await createSession(workout.training)
+  window.location.href = `/workouts/${sessionId}`
+}
+
 @template<Props>(async (_, { id }) => {
   const training = await getTrainingById(id)
   const totalWeight = formatWeight(calculateTotalWeight(training?.training.exercises))
+  
   return (
     <div>
       <AppBar />
@@ -48,6 +56,7 @@ const formatWeight = (weight: number) => {
               <Weight />
             </div>
           </div>
+          <Button class="repeat-button" onclick={() => handleCreateSession(training)}>▶️ Wiederholen</Button>
           {training?.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
               <Card>
@@ -142,6 +151,15 @@ const formatWeight = (weight: number) => {
     padding-bottom: 10px;
     font-size: 20px;
     font-weight: 700;
+  }
+
+  .repeat-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: green;
+    margin-top: 20px;
   }
 `)
 export class HistoryDetailPage extends Component<Props> {}

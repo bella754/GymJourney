@@ -2,6 +2,7 @@ export interface ITrainingSession {
   id: string
   start: Date
   end: Date | undefined
+  duration: string | undefined
   training: IWorkout
   difficulty: number | undefined
 }

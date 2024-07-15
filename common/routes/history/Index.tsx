@@ -45,7 +45,7 @@ const userTrainings = await getTrainings()
                     <div class={'topcard'}>
                       <h3>{session.training.name}</h3>
                     </div>
-                    <p class={'duration'}>{session.duration}h</p>
+                    <p class={'duration'}>{session.duration}</p>
                     <div class={'bottomcard'}>
                       <p class={'date'}>{session.start.toLocaleDateString()}</p>
                       <div class="weight-container">

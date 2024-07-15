@@ -2,10 +2,11 @@ import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Button } from 'common/components/Button.tsx'
-import { getWorkoutById, updateSet, updateWorkout } from 'backend/api/training/training.crud.ts'
+import { getWorkoutById, updateSet, updateWorkout, deleteExerciseFromWorkout } from 'backend/api/training/training.crud.ts'
 import { workouts } from 'backend/api/training/training.data.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { IWorkout } from 'backend/api/training/training.interface.ts'
+import { Trash } from "common/components/unused/Trash.tsx";
 
 type Props = {
   id: string
@@ -17,10 +18,15 @@ type Props = {
 
   const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)))
 
-  const name = $$('')
+  const name = $$(ctx?.searchParams?.get('name') || '')
   const category = $$(ctx?.searchParams?.get('category') || '')
 
   const saveWorkout = async () => {
+    if (!name.val || !category.val) {
+      alert('Please fill in all fields')
+      return
+    }
+
     await updateWorkout(id, name, category)
     window.location.href = '/workouts'
   }
@@ -33,14 +39,24 @@ type Props = {
     await updateSet(sessionId, exerciseName, setIndex, field, value)
   }
 
+  const handleDeleteExercise = async (workoutId: string, exerciseName: string) => {
+    try {
+      await deleteExerciseFromWorkout(workoutId, exerciseName)
+      window.location.reload() // Seite neu laden, um die Änderungen anzuzeigen
+    } catch (error) {
+      console.error(error)
+      alert('Fehler beim Löschen der Übung')
+    }
+  }
+
   return (
     <div>
       <AppBar />
       <div class={'bodycontainer'}>
         <div>
           <div class={'topcontainer'}>
-            <h2>Workout erstellen</h2>
-            <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
+            <h2>Create Workout</h2>
+            <input type="text" placeholder="Name" style="margin-bottom: 15px; padding: 10px; width: 100%;" value={name} />
             <input type="text" list="categories" value={category} placeholder="Category" required />
             <datalist id="categories">
               {categories.map((category: any) => (
@@ -51,51 +67,52 @@ type Props = {
           {selectedWorkout?.exercises.map((exercise: any, index) => (
             <div class={'tablecontainer'}>
               <Card>
-                <div>
+                <div class="exercise-header">
                   <h3>
                     {index + 1}. {exercise.name}
                   </h3>
-                  <table>
-                    <thead>
+                  <Trash class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)}> </Trash>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Set</th>
+                      <th>Reps</th>
+                      <th> </th>
+                      <th>Weight</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {exercise.sets.map((set: any, setIndex: number) => (
                       <tr>
-                        <th>Set</th>
-                        <th>Reps</th>
-                        <th> </th>
-                        <th>Weight</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {exercise.sets.map((set: any, setIndex: number) => (
-                        <tr>
-                          <td>{setIndex + 1}</td>
+                        <td>{setIndex + 1}</td>
+                        <input
+                          type="number"
+                          value={set.repetitions}
+                          /* @ts-ignore */
+                          onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                        />
+                        <td class={'color'}>x</td>
+                        <div style="display: flex; align-items: center;">
                           <input
                             type="number"
-                            value={set.repetitions}
+                            value={set.weight}
                             /* @ts-ignore */
-                            onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                            onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
                           />
-                          <td class={'color'}>x</td>
-                          <div style="display: flex; align-items: center;">
-                            <input
-                              type="number"
-                              value={set.weight}
-                              /* @ts-ignore */
-                              onchange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
-                            />
-                            <span>kg</span>
-                          </div>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                          <span>kg</span>
+                        </div>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </Card>
             </div>
           ))}
           <div class={'container'}>
-            <Button onclick={() => window.history.back()}>Zurück</Button>
+            <Button onclick={() => (window.location.href = '/workouts')}>Back</Button>
             <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
-            <Button onclick={saveWorkout}>Speichern</Button>
+            <Button onclick={saveWorkout}>Save</Button>
           </div>
           <p class={'workoutid'}>Workout id: {selectedWorkout?.id}</p>
         </div>
@@ -145,6 +162,7 @@ type Props = {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 15px;
   }
   .bodycontainer {
     display: flex;
@@ -168,8 +186,12 @@ type Props = {
   select {
     width: 100%;
     padding: 10px;
+    margin-bottom: 15px;
   }
-
+  .delete-button{
+    margin-right: 5px;
+    margin-top: 5px;
+  }
   tr.firstrow td,
   tr.firstrow th {
     border-bottom: 2px solid lightgrey;
@@ -201,6 +223,22 @@ type Props = {
 
   .bbar {
     width: 100vh;
+  }
+
+  .delete-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: red;
+    position: relative;
+    top: -10px;
+    right: -10px;
+  }
+  .exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 `)
 export class CreateWorkoutPage extends Component<Props> {}
