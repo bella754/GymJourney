@@ -5,6 +5,25 @@ import { Button } from 'common/components/Button.tsx'
 import { StopWorkout } from "common/components/unused/StopWorkout.tsx"
 import { Weight } from "common/routes/history/components/Weight.tsx";
 
+const calculateDuration = (start: Date, end: Date) => {
+  const diff = end.getTime() - start.getTime()
+  let hours = Math.floor(diff / 3600000)
+  let minutes = Math.ceil((diff % 3600000) / 60000) // Rundet auf die nächste volle Minute auf
+
+  if (minutes === 60) {
+    hours += 1
+    minutes = 0
+  }
+
+  let duration = ''
+  if (hours > 0) {
+    duration += `${hours}h `
+  }
+  duration += `${minutes}m`
+
+  return duration
+}
+
 type Props = {
   id: string
 }
@@ -32,11 +51,12 @@ type Props = {
   const handleEndSession = async () => {
     clearInterval(intervalId)
 
+    const endTime = new Date()
     await updateSession(session.id, {
-      end: new Date(),
+      end: endTime,
     })
-
-    window.location.href = '/history'
+    session.duration = calculateDuration(new Date(session.start), endTime)
+    window.location.href = `/history`
   }
 
   const handleSetChange = async (sessionId: string, exerciseIndex: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {

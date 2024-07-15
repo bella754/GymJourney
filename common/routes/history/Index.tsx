@@ -52,7 +52,7 @@ const userTrainings = await getTrainings()
                         <Trophy />
                       </div>
                     </div>
-                    <p class={'duration'}>{session.duration}h</p>
+                    <p class={'duration'}>{session.duration}</p>
                     <div class={'bottomcard'}>
                       <p class={'date'}>{session.start.toLocaleDateString()}</p>
                       <p class={'difficulty'}>difficulty:{session.difficulty}</p>

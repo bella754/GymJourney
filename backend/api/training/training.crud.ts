@@ -88,6 +88,7 @@ export function createSession(workout: IWorkout) {
     id: sessionId,
     start: new Date(),
     end: undefined,
+    duration: undefined,
     training: workout,
     difficulty: undefined,
   })
