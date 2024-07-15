@@ -51,15 +51,9 @@ const handleCreateSession = async (workout: ITrainingSession) => {
               {/* @ts-ignore */}
               <p>{new Date(training?.start).toLocaleDateString()}</p>
             </div>
-            <div class={'trophyweightcontainer'}>
-              <div class="trophy-container">
-                <p class="trophy-number">4 Prs</p>
-                <Trophy />
-              </div>
-              <div class="weight-container">
-                <p class="weight-number">{totalWeight}</p>
-                <Weight />
-              </div>
+            <div class="weight-container">
+              <p class="weight-number">{totalWeight}</p>
+              <Weight />
             </div>
           </div>
           <Button class="repeat-button" onclick={() => handleCreateSession(training)}>▶️ Wiederholen</Button>
@@ -120,12 +114,6 @@ const handleCreateSession = async (workout: ITrainingSession) => {
     align-items: center;
     text-align: center;
     padding: 10px;
-  }
-  .trophy-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 5px;
   }
   .weight-container {
     display: flex;

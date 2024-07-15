@@ -5,13 +5,13 @@ export function hasProfileCreated() {
   const user = getUser()
 
   if (
-    user.name === 'Anonymous' &&
-    user.gender === 'not specified' &&
-    user.age === 0 &&
-    user.height === 0 &&
-    user.weight === 0 &&
-    user.ethnicity === 'not specified' &&
-    user.experience === 'not specified' &&
+    user.name === 'Anonymous' ||
+    user.gender === 'not specified' ||
+    user.age === 0 ||
+    user.height === 0 ||
+    user.weight === 0 ||
+    user.ethnicity === 'not specified' ||
+    user.experience === 'not specified' ||
     user.gym === 'not specified'
   ) {
     return false

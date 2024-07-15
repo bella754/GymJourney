@@ -1,18 +1,24 @@
 import { Component } from 'uix/components/Component.ts'
+import { avatars } from 'backend/api/user/user.data.ts'
 
 type Props = {
   userName: string
+  character: any
 }
 
-@template<Props>(({ userName }) => (
+@template<Props>(({ userName, character }) => (
   <div class="container">
     <div class="hero">
       <h1>{userName}</h1>
       <img
-        src="/@uix/src/common/public/Character.png"
+        src={
+          Object.values(avatars)
+            .flatMap((gender) => Object.values(gender).flat())
+            .find((avatar) => avatar.name === character)?.url
+        }
         style={{
           width: '180px',
-          height: '216px',
+          height: '220px',
         }}
       />
     </div>
