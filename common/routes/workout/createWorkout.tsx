@@ -6,6 +6,7 @@ import { getWorkoutById, updateSet, updateWorkout, deleteExerciseFromWorkout } f
 import { workouts } from 'backend/api/training/training.data.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { IWorkout } from 'backend/api/training/training.interface.ts'
+import { Trash } from "common/components/unused/Trash.tsx";
 
 type Props = {
   id: string
@@ -55,7 +56,7 @@ type Props = {
         <div>
           <div class={'topcontainer'}>
             <h2>Create Workout</h2>
-            <input type="text" placeholder="Name" style="margin-bottom: 20px; padding: 10px; width: 100%;" value={name} />
+            <input type="text" placeholder="Name" style="margin-bottom: 15px; padding: 10px; width: 100%;" value={name} />
             <input type="text" list="categories" value={category} placeholder="Category" required />
             <datalist id="categories">
               {categories.map((category: any) => (
@@ -70,9 +71,7 @@ type Props = {
                   <h3>
                     {index + 1}. {exercise.name}
                   </h3>
-                  <button class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)}>
-                    🗑️
-                  </button>
+                  <Trash class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)}> </Trash>
                 </div>
                 <table>
                   <thead>
@@ -163,6 +162,7 @@ type Props = {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 15px;
   }
   .bodycontainer {
     display: flex;
@@ -186,8 +186,12 @@ type Props = {
   select {
     width: 100%;
     padding: 10px;
+    margin-bottom: 15px;
   }
-
+  .delete-button{
+    margin-right: 5px;
+    margin-top: 5px;
+  }
   tr.firstrow td,
   tr.firstrow th {
     border-bottom: 2px solid lightgrey;
