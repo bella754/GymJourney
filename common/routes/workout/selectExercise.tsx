@@ -11,6 +11,8 @@ type Props = {
 @template<Props>(async (_, { id }) => {
   const allExercises = await getExercises()
   const selectedExercises = $$([])
+  const openGroups = $$(new Set())
+  const popoverContent = $$<string | null>(null)
 
   const search = $$('')
 
@@ -27,10 +29,35 @@ type Props = {
     return selectedExercises.some((e) => e.name === exercise.name)
   }
 
+  const toggleGroup = (muscleGroup) => {
+    if (openGroups.has(muscleGroup)) {
+      openGroups.delete(muscleGroup)
+    } else {
+      openGroups.add(muscleGroup)
+    }
+  }
+
+  const isOpen = (muscleGroup) => {
+    return openGroups.has(muscleGroup)
+  }
 
   const saveExercises = async () => {
     await addExercisesToWorkout(id, selectedExercises)
     window.history.back()
+  }
+
+  const showPopoverVideo = (content: string) => {
+    popoverContent.val = content
+
+    let element = document.getElementById("popoverVideo")
+    element.style.visibility = "visible"
+  }
+
+  const closePopover = () => {
+    popoverContent.val = null
+
+    let videoPopover = document.getElementById("popoverVideo")
+    videoPopover.style.visibility = "hidden"
   }
 
   const groupedExercises = () => {
@@ -60,12 +87,12 @@ type Props = {
                   )
                 )
                 .map(([muscleGroup, exercises]) => (
-                  <details>
+                  <details open={isOpen(muscleGroup)} ontoggle={() => toggleGroup(muscleGroup)}>
                     <summary class={"group"}>{muscleGroup}</summary>
                     {exercises
                       .filter((exercise) => exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase()))
                       .map((exercise) => (
-                        <div key={exercise.id} class="exercise-card" style="margin-bottom: 20px;">
+                        <div class="exercise-card" style="margin-bottom: 20px;">
                           <label for={exercise.name}>{exercise.name}</label>
                           <img 
                             src={exercise.imageUrl} 
@@ -74,7 +101,7 @@ type Props = {
                             onclick={() => handleImageClick(exercise)} 
                           />
                           {exercise.videoUrl && (
-                            <a href={exercise.videoUrl} target="_blank" class="exercise-link">Watch Video</a>
+                            <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverVideo(exercise.videoUrl)}>Video</Button>
                           )}
                         </div>
                       ))
@@ -90,6 +117,12 @@ type Props = {
         </div>
       </div>
       <BottomBar />
+      <div class="popoverVideo" id="popoverVideo">
+        <div class="popover-content-video">
+          <iframe src={popoverContent} title="Exercise Video" frameBorder="0" allowFullScreen></iframe>
+          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>Close</Button>
+        </div>
+      </div>
     </div>
   )
 })
@@ -130,20 +163,42 @@ type Props = {
     align-items: center;
   }
   .exercise-image {
-    width: 100px;
-    height: 100px;
+    width: 150px; /* Größere Breite */
+    height: 150px; /* Größere Höhe */
     object-fit: cover;
     margin-top: 10px;
     cursor: pointer;
-    border: 2px solid transparent; /* Default border */
+    border: 2px solid transparent; /* Standard-Umrandung */
   }
   .exercise-image.selected {
-    border: 2px solid #0891b2; /* Highlighted border for selected exercise */
+    border: 3px solid #0891b2; /* Dickere Umrandung für ausgewählte Übung */
   }
-  .exercise-video {
-    width: 200px;
-    height: 150px;
-    margin-top: 10px;
+  .popoverVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+  }
+  .popover-content-video {
+    position: relative;
+    width: 80%;
+    padding-top: 45%;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .popover-content-video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 `)
 export class SelectExercisePage extends Component<Props> {}

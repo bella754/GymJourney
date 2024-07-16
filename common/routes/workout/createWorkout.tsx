@@ -19,7 +19,7 @@ type Props = {
   const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)))
 
   const name = $$(selectedWorkout?.name || '')
-  const category = $$(ctx?.searchParams?.get('category') || selectedWorkout?.name || '')
+  const category = $$(ctx?.searchParams?.get('category') || '')
 
   const saveWorkout = async () => {
     if (!name.val || !category.val) {
