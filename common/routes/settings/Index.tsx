@@ -22,7 +22,7 @@ const userAvatar = $$(user.avatar)
 @template<Props>(async () => (
   <div>
     <AppBar />
-    <div class={'Body'}>
+    <div style="margin-bottom: 140px; margin-top: 20px;">
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; gap: 20px;">
           <h1>Settings</h1>
@@ -149,7 +149,7 @@ const userAvatar = $$(user.avatar)
           </div>
 
           <Button
-            class={'save-button'}
+            variant={'big'}
             onclick={() =>
               updateUser({
                 name: userName,
@@ -186,13 +186,6 @@ const userAvatar = $$(user.avatar)
     color: #555;
     border-bottom: 2px solid #0891b2;
     padding-bottom: 5px;
-  }
-
-  .body {
-    display: flex;
-    width: 100%;
-    min-width: 500px;
-    flex-direction: center;
   }
 
   .user-info,
@@ -240,30 +233,6 @@ const userAvatar = $$(user.avatar)
     color: #333;
     font-size: 16px;
     max-width: 400px;
-  }
-
-  .save-button {
-    display: flex;
-    justify-content: center;
-    background-color: #0891b2;
-    color: white;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 100px;
-  }
-  .save-button:hover {
-    background-color: #06748d;
-  }
-
-  .save-button:active {
-    background-color: #06748d;
-    box-shadow: 0 3px lightgrey;
-    transform: translateY(4px);
   }
 `)
 export class SettingsPage extends Component<Props> {}
