@@ -1,3 +1,4 @@
+import { frontendRouter } from 'uix/routing/frontend-routing-new.ts'
 import { Component } from 'uix/components/Component.ts'
 import { getTrainingById, updateSession, updateSet, updateSetOfSession } from 'backend/api/training/training.crud.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
@@ -56,7 +57,7 @@ type Props = {
       end: endTime,
     })
     session.duration = calculateDuration(new Date(session.start), endTime)
-    window.location.href = `/history`
+    frontendRouter.navigateTo(`/history`)
   }
 
   const handleSetChange = async (sessionId: string, exerciseIndex: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {

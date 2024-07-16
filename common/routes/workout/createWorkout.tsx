@@ -1,3 +1,4 @@
+import { frontendRouter } from 'uix/routing/frontend-routing-new.ts'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
@@ -28,12 +29,12 @@ type Props = {
     }
 
     await updateWorkout(id, name, category)
-    window.location.href = '/workouts'
+    frontendRouter.navigateTo(`/workouts`)
   }
 
   const navigateToSelectExercisesPage = async () => {
     await updateWorkout(id, name, category)
-    window.location.href = `/selectExercise/${id}`
+    frontendRouter.navigateTo(`/selectExercise/${id}`)
   }
 
   const handleSetChange = async (sessionId: string, exerciseName: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {
@@ -111,7 +112,7 @@ type Props = {
             </div>
           ))}
           <div class={'container'}>
-            <Button onclick={() => (window.location.href = '/workouts')}>Back</Button>
+            <Button onclick={() => frontendRouter.navigateTo(`/workouts`)}>Back</Button>
             <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
             <Button onclick={saveWorkout}>Save</Button>
           </div>

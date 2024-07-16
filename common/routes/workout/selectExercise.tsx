@@ -1,3 +1,4 @@
+import { frontendRouter } from 'uix/routing/frontend-routing-new.ts'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
@@ -34,13 +35,13 @@ type Props = {
 
   const handleSave = async () => {
     await addExercisesToWorkout(id, selectedExercises)
-    window.history.back()
+    frontendRouter.navigateTo(`/createWorkout/${id}`)
   }
 
   return (
     <div>
       <AppBar />
-      <div class={"screen"}>
+      <div class={'screen'}>
         <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
             <h2 style="font-size: 25px; margin-top: 10px; margin-bottom: 10px;">Select exercises</h2>

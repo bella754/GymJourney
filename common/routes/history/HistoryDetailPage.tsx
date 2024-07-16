@@ -1,3 +1,4 @@
+import { frontendRouter } from 'uix/routing/frontend-routing-new.ts'
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
@@ -32,7 +33,7 @@ const formatWeight = (weight: number) => {
 
 const handleCreateSession = async (workout: ITrainingSession) => {
   const sessionId = await createSession(workout.training)
-  window.location.href = `/workouts/${sessionId}`
+  frontendRouter.navigateTo(`/workouts/${sessionId}`)
 }
 
 @template<Props>(async (_, { id }) => {
@@ -41,12 +42,12 @@ const handleCreateSession = async (workout: ITrainingSession) => {
   return (
     <div>
       <AppBar />
-      <div class={"page"}>
+      <div class={'page'}>
         <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 100px;">
           <div class="headercontainer">
-            <Backarrow class={"back"}/>
+            <Backarrow class={'back'} />
             <div class={'namedate-container'}>
-              <h2 style={"margin-bottom: 8px; font-size: 20px;"}>{training?.training.name}</h2>
+              <h2 style={'margin-bottom: 8px; font-size: 20px;'}>{training?.training.name}</h2>
               {/* @ts-ignore */}
               <p>{new Date(training?.start).toLocaleDateString()}</p>
             </div>
@@ -55,10 +56,12 @@ const handleCreateSession = async (workout: ITrainingSession) => {
               <Weight />
             </div>
           </div>
-          <Button class="repeat-button" onclick={() => handleCreateSession(training)}>Repeat Workout</Button>
+          <Button class="repeat-button" onclick={() => handleCreateSession(training)}>
+            Repeat Workout
+          </Button>
           {training?.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
-              <CardHistory class={"cardd"}>
+              <CardHistory class={'cardd'}>
                 <div>
                   <h3>
                     {index + 1}. {exercise.name}
@@ -94,17 +97,17 @@ const handleCreateSession = async (workout: ITrainingSession) => {
   )
 })
 @style(css`
-  .page{
+  .page {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 10px;
   }
-  .back:hover{
-   border: 1px solid #0891b2;
-   border-radius: 90px;
-   cursor: pointer;
+  .back:hover {
+    border: 1px solid #0891b2;
+    border-radius: 90px;
+    cursor: pointer;
   }
   .tablecontainer {
     margin-bottom: 15px;
