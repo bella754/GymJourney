@@ -144,7 +144,7 @@ export function createSession(workout: IWorkout) {
     start: new Date(),
     end: undefined,
     duration: undefined,
-    training: workout,
+    training: JSON.parse(JSON.stringify(workout)),
     difficulty: undefined,
   })
 
