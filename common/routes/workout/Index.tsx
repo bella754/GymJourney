@@ -57,7 +57,7 @@ const CategorySection = ({ category }: { category: string }) => {
             </div>
           </div>
           {workout.exercises.map((exercise: any) => (
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 10px;">
               <p>{exercise.name} - <b>{exercise.muscleGroup}</b></p>
             </div>
           ))}
@@ -95,6 +95,7 @@ const CategorySection = ({ category }: { category: string }) => {
   .cat{
     border: 1px solid #0891b2;
     border-radius: 5px;
+    cursor: pointer;
     padding: 10px;
     width: 100%;
     min-width: 300px;
