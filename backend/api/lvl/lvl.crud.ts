@@ -2,9 +2,14 @@ import { ILvl } from './lvl.interface.ts'
 
 const lvls = eternalVar('lvls') ?? $$({} as Record<string, ILvl>)
 
+/**
+ * Creates a new level entry for the current user.
+ * 
+ * @returns {ILvl} The newly created level entry.
+ */
 export function createLvl() {
   const user = datex.meta.caller.main.toString()
-  console.log(`Creating databse entry for ${user}.`)
+  console.log(`Creating database entry for ${user}.`)
   lvls[user] = {
     trainingVolume: 0,
     trainingDuration: 0,
@@ -14,6 +19,11 @@ export function createLvl() {
   return lvls[user]
 }
 
+/**
+ * Adds training volume to the current user's level entry.
+ * 
+ * @param trainingVolume - The amount of training volume to add.
+ */
 export function addTrainingVolume(trainingVolume: number) {
   const user = datex.meta.caller.main.toString()
 
@@ -26,6 +36,11 @@ export function addTrainingVolume(trainingVolume: number) {
   lvls[user].trainingVolume += trainingVolume
 }
 
+/**
+ * Adds training duration to the current user's level entry.
+ * 
+ * @param trainingDuration - The amount of training duration to add.
+ */
 export function addTrainingDuration(trainingDuration: number) {
   const user = datex.meta.caller.main.toString()
 
@@ -38,6 +53,11 @@ export function addTrainingDuration(trainingDuration: number) {
   lvls[user].trainingDuration += trainingDuration
 }
 
+/**
+ * Adds experience points (XP) to the current user's level entry.
+ * 
+ * @param xp - The amount of XP to add.
+ */
 export function addXp(xp: number) {
   const user = datex.meta.caller.main.toString()
 
@@ -50,6 +70,11 @@ export function addXp(xp: number) {
   lvls[user].xp += xp
 }
 
+/**
+ * Retrieves the training volume of the current user.
+ * 
+ * @returns {number} The training volume of the current user.
+ */
 export function getTrainingVolume() {
   const user = datex.meta.caller.main.toString()
 
@@ -60,6 +85,11 @@ export function getTrainingVolume() {
   return lvls[user].trainingVolume
 }
 
+/**
+ * Retrieves the training duration of the current user.
+ * 
+ * @returns {number} The training duration of the current user.
+ */
 export function getTrainingDuration() {
   const user = datex.meta.caller.main.toString()
 
@@ -70,10 +100,20 @@ export function getTrainingDuration() {
   return lvls[user].trainingDuration
 }
 
+/**
+ * Retrieves the training consistency.
+ * 
+ * @returns {number} A fixed value representing training consistency.
+ */
 export function getTrainingConsistency() {
   return 10
 }
 
+/**
+ * Retrieves the XP of the current user.
+ * 
+ * @returns {number} The XP of the current user.
+ */
 export function getXp() {
   const user = datex.meta.caller.main.toString()
 
@@ -84,6 +124,11 @@ export function getXp() {
   return lvls[user].xp
 }
 
+/**
+ * Retrieves the XP statistics of the current user.
+ * 
+ * @returns {Object} An object containing the XP level, progress, next level XP, current XP, and used XP of the user.
+ */
 export function getXpStats() {
   const user = datex.meta.caller.main.toString()
 
@@ -115,6 +160,11 @@ export function getXpStats() {
   }
 }
 
+/**
+ * Retrieves the strength statistics of the current user.
+ * 
+ * @returns {Object} An object containing the strength level, progress, next level volume, current volume, and used volume of the user.
+ */
 export function getStrengthStats() {
   const user = datex.meta.caller.main.toString()
 
@@ -146,6 +196,11 @@ export function getStrengthStats() {
   }
 }
 
+/**
+ * Retrieves the endurance statistics of the current user.
+ * 
+ * @returns {Object} An object containing the endurance level, progress, next level duration, current duration, and used duration of the user.
+ */
 export function getEnduranceStats() {
   const user = datex.meta.caller.main.toString()
 

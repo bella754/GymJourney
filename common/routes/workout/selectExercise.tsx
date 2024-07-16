@@ -74,10 +74,7 @@ type Props = {
                             onclick={() => handleImageClick(exercise)} 
                           />
                           {exercise.videoUrl && (
-                            <video controls class="exercise-video">
-                              <source src={exercise.videoUrl} type="video/mp4" />
-                              Your browser does not support the video tag.
-                            </video>
+                            <a href={exercise.videoUrl} target="_blank" class="exercise-link">Watch Video</a>
                           )}
                         </div>
                       ))
