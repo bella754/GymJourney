@@ -51,7 +51,7 @@ type Props = {
   }
 
   return (
-    <div>
+    <div style="margin-bottom: 100px">
       <AppBar />
       <div class={'bodycontainer'}>
         <div>
