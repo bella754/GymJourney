@@ -12,43 +12,38 @@ import { Buttonextended } from 'common/components/unused/Buttonextended.tsx'
 
 type Props = {}
 
-const workouts = await getWorkouts()
-const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)))
-
-const handleCreateSession = async (workout: IWorkout) => {
-  const sessionId = await createSession(workout)
-  frontendRouter.navigateTo(`/workouts/${sessionId}`)
-}
-
-const handleCreateWorkout = async (category?: string) => {
-  const workoutId = await createWorkout()
-  frontendRouter.navigateTo(`/createWorkout/${workoutId}${category ? `?category=${category}` : ''}`)
-}
-
-const handleDeleteWorkout = async (workoutId: string) => {
-  try {
-    await deleteWorkout(workoutId)
-    window.location.reload() // Seite neu laden, um die Änderungen anzuzeigen
-  } catch (error) {
-    console.error(error)
-    alert('Fehler beim Löschen des Workouts')
+const CategorySection = async ({ category, workouts }: { category: string; workouts: IWorkout[] }) => {
+  const handleCreateSession = async (workout: IWorkout) => {
+    const sessionId = await createSession(workout)
+    frontendRouter.navigateTo(`/workouts/${sessionId}`)
   }
-}
 
-const handleEditWorkout = async (workoutId: string, name?: string, category?: string) => {
-  const params = new URLSearchParams()
-  if (name) params.append('name', name)
-  if (category) params.append('category', category)
-  frontendRouter.navigateTo(`/createWorkout/${workoutId}?${params.toString()}`)
-}
+  const handleCreateWorkout = async (category?: string) => {
+    const workoutId = await createWorkout()
+    frontendRouter.navigateTo(`/createWorkout/${workoutId}${category ? `?category=${category}` : ''}`)
+  }
 
-const CategorySection = ({ category }: { category: string }) => {
-  const filteredWorkouts = workouts.filter((workout) => workout.category === category)
+  const handleDeleteWorkout = async (workoutId: string) => {
+    try {
+      await deleteWorkout(workoutId)
+      window.location.reload() // Seite neu laden, um die Änderungen anzuzeigen
+    } catch (error) {
+      console.error(error)
+      alert('Fehler beim Löschen des Workouts')
+    }
+  }
+
+  const handleEditWorkout = async (workoutId: string, name?: string, category?: string) => {
+    const params = new URLSearchParams()
+    if (name) params.append('name', name)
+    if (category) params.append('category', category)
+    frontendRouter.navigateTo(`/createWorkout/${workoutId}?${params.toString()}`)
+  }
 
   return (
     <details style="gap: 10px;">
       <summary class={'cat'}>{category}</summary>
-      {filteredWorkouts.map((workout: any) => (
+      {workouts.map((workout: any) => (
         <Card class="card" onclick={() => handleCreateSession(workout)}>
           <div class="card-header">
             <h4 style="flex-grow: 1;">{workout.name}</h4>
@@ -79,28 +74,38 @@ const CategorySection = ({ category }: { category: string }) => {
         </Card>
       ))}
       <Buttonextended class="catbutton" onclick={() => handleCreateWorkout(category)}>
-        {' '}
-        New Workout{' '}
+        New Workout
       </Buttonextended>
     </details>
   )
 }
 
-@template<Props>(() => (
-  <div>
-    <AppBar />
-    <div class="workout">
-      <h2>Workouts</h2>
-      {categories.map((category: any) => (
-        <CategorySection category={category} />
-      ))}
-      <Button class="button" onclick={() => handleCreateWorkout()}>
-        Create a new workout
-      </Button>
+@template<Props>(async () => {
+  const workouts = await getWorkouts()
+  const categories = always(() => [...new Set(workouts.map((workout) => workout.category))])
+
+  const handleCreateWorkout = async (category?: string) => {
+    const workoutId = await createWorkout()
+    frontendRouter.navigateTo(`/createWorkout/${workoutId}${category ? `?category=${category}` : ''}`)
+  }
+
+  return (
+    <div>
+      <AppBar />
+      <div class="workout">
+        <h2>Workouts</h2>
+        {always(() =>
+          categories.map((category: any) => <CategorySection category={category} workouts={workouts.filter((workout) => workout.category === category)} />)
+        )}
+
+        <Button class="button" onclick={() => handleCreateWorkout()}>
+          Create a new workout
+        </Button>
+      </div>
+      <BottomBar />
     </div>
-    <BottomBar />
-  </div>
-))
+  )
+})
 @style(css`
   .workout {
     display: flex;

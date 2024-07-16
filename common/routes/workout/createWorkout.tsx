@@ -29,7 +29,7 @@ type Props = {
     }
 
     await updateWorkout(id, name, category)
-    frontendRouter.navigateTo(`/workouts`)
+    window.location.href = '/workouts'
   }
 
   const navigateToSelectExercisesPage = async () => {
