@@ -2,8 +2,7 @@ import { Component } from 'uix/components/Component.ts'
 import { getTrainingById, updateSession, updateSet, updateSetOfSession } from 'backend/api/training/training.crud.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { Button } from 'common/components/Button.tsx'
-import { StopWorkout } from "common/components/unused/StopWorkout.tsx"
-import { Weight } from "common/routes/history/components/Weight.tsx"
+import { StopWorkout } from 'common/components/unused/StopWorkout.tsx'
 
 const calculateDuration = (start: Date, end: Date) => {
   const diff = end.getTime() - start.getTime()
@@ -67,24 +66,24 @@ type Props = {
   const showPopoverImage = (content: string) => {
     popoverContent.val = content
 
-    let element = document.getElementById("popoverImage")
-    element.style.visibility = "visible"
+    let element = document.getElementById('popoverImage')
+    element.style.visibility = 'visible'
   }
 
   const showPopoverVideo = (content: string) => {
     popoverContent.val = content
 
-    let element = document.getElementById("popoverVideo")
-    element.style.visibility = "visible"
+    let element = document.getElementById('popoverVideo')
+    element.style.visibility = 'visible'
   }
 
   const closePopover = () => {
     popoverContent.val = null
 
-    let imagePopover = document.getElementById("popoverImage")
-    let videoPopover = document.getElementById("popoverVideo")
-    imagePopover.style.visibility = "hidden"
-    videoPopover.style.visibility = "hidden"
+    let imagePopover = document.getElementById('popoverImage')
+    let videoPopover = document.getElementById('popoverVideo')
+    imagePopover.style.visibility = 'hidden'
+    videoPopover.style.visibility = 'hidden'
   }
 
   return (
@@ -92,10 +91,10 @@ type Props = {
       <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
           <div style="display: flex; justify-content: space-between; width: 100%">
-            <div class={"container"}>
-              <div class={"time"}> {elapsedTimeVal} </div>
+            <div class={'container'}>
+              <div class={'time'}> {elapsedTimeVal} </div>
               <h2>{session.training.name.toUpperCase()}</h2>
-              <StopWorkout class={"endbutton"} onclick={handleEndSession}/>
+              <StopWorkout class={'endbutton'} onclick={handleEndSession} />
             </div>
           </div>
           {session.training.$.exercises.$.map((exercise, index) => (
@@ -107,8 +106,12 @@ type Props = {
                       {index + 1}. {exercise.name}
                     </h3>
                     <div class="buttons">
-                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverImage(exercise.imageUrl)}>Image</Button>
-                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverVideo(exercise.videoUrl)}>Video</Button>
+                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverImage(exercise.imageUrl)}>
+                        Image
+                      </Button>
+                      <Button style="padding: 0 3px 0 3px" onclick={() => showPopoverVideo(exercise.videoUrl)}>
+                        Video
+                      </Button>
                     </div>
                   </div>
                   <table>
@@ -128,8 +131,7 @@ type Props = {
                             <input
                               type="number"
                               value={set.repetitions}
-                              /* @ts-ignore */
-                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
+                              onchange={(e: any) => handleSetChange(id, exercise.name, setIndex, 'repetitions', e.target.value)}
                             />
                           </td>
                           <td class={'color'}>x</td>
@@ -137,8 +139,7 @@ type Props = {
                             <input
                               type="number"
                               value={set.weight}
-                              /* @ts-ignore */
-                              onChange={(e) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
+                              onchange={(e: any) => handleSetChange(id, exercise.name, setIndex, 'weight', e.target.value)}
                             />
                           </td>
                         </tr>
@@ -154,13 +155,17 @@ type Props = {
       <div class="popoverImage" id="popoverImage">
         <div class="popover-content-image">
           <img class="popover-image" src={popoverContent} alt="Exercise Image" />
-          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>Close</Button>
+          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>
+            Close
+          </Button>
         </div>
       </div>
       <div class="popoverVideo" id="popoverVideo">
         <div class="popover-content-video">
           <iframe src={popoverContent} title="Exercise Video" frameBorder="0" allowFullScreen></iframe>
-          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>Close</Button>
+          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>
+            Close
+          </Button>
         </div>
       </div>
     </div>
