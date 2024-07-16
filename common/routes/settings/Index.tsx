@@ -244,9 +244,11 @@ const userAvatar = $$(user.avatar)
   }
 
   .save-button {
+    display: flex;
+    justify-content: center;
     background-color: #0891b2;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
     border-radius: 4px;
     font-size: 16px;
@@ -254,6 +256,7 @@ const userAvatar = $$(user.avatar)
     text-align: center;
     margin-top: 20px;
     margin-bottom: 100px;
+    
   }
   .save-button:hover {
     background-color: #06748d;

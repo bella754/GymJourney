@@ -15,11 +15,12 @@ type Props = {};
     padding: 10px 20px;
     border: unset;
     color: white;
-    background-color: #0891b2;
+    background-color: transparent;
   }
 
   button:hover {
-    background-color: #06748d;
+    background-color: transparent;
+	cursor: pointer;
   }
 
 `)
