@@ -48,7 +48,7 @@ type Props = {
     <div>
       <AppBar />
       <div class={"screen"}>
-        <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
+        <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
             <h2 style="font-size: 25px; margin-top: 10px; margin-bottom: 10px;">Select exercises</h2>
             <input class="search" type="text" style="border: 2px solid #0891b2;" placeholder="Search" value={search} /* @ts-ignore */ oninput={(e) => search(e.target.value)} />
