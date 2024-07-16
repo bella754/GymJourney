@@ -33,6 +33,7 @@ const userTrainings = await getTrainings()
     <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 20%">
       <div style="display: flex; flex-direction: column; align-items: center;">
         <h2>My Workout History</h2>
+        {userTrainings.length === 0 && <p>You have not completed any workouts yet.</p>}
         {userTrainings.$.map((session: any) => {
           // Berechnung des Gesamtgewichts für die aktuelle Trainingssession
           const totalWeight = formatWeight(calculateTotalWeight(session.training.exercises))
