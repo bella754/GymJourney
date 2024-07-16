@@ -58,7 +58,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
           <Button class="repeat-button" onclick={() => handleCreateSession(training)}>Repeat Workout</Button>
           {training?.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
-              <Card>
+              <Card class={"cardd"}>
                 <div>
                   <h3>
                     {index + 1}. {exercise.name}
@@ -102,7 +102,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
     padding: 10px;
   }
   .back:hover{
-   border: 1px solid black;
+   border: 1px solid #0891b2;
    border-radius: 90px;
    cursor: pointer;
   }
