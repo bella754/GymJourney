@@ -1,6 +1,5 @@
 import { Component } from 'uix/components/Component.ts'
 import { Logo } from './Logo.tsx'
-import { Streak } from './Streak.tsx'
 import { AuthIcon } from 'auth/AuthIcon.tsx'
 
 type Props = {}
@@ -9,10 +8,7 @@ type Props = {}
   <div class="app-bar">
     <div class="container">
       <Logo />
-      <div class="icons">
-        <Streak />
-        <AuthIcon />
-      </div>
+      <AuthIcon />
     </div>
   </div>
 ))
@@ -27,12 +23,6 @@ type Props = {}
     justify-content: space-between;
     align-items: center;
     max-width: 600px;
-  }
-
-  .icons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
   }
 `)
 export class AppBar extends Component<Props> {}
