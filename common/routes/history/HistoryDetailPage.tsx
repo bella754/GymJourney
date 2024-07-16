@@ -42,7 +42,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
     <div>
       <AppBar />
       <div class={"page"}>
-        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20%">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 100px;">
           <div class="headercontainer">
             <Backarrow class={"back"}/>
             <div class={'namedate-container'}>
