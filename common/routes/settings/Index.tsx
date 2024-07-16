@@ -133,7 +133,11 @@ const userAvatar = $$(user.avatar)
                       <div>
                         <div style="display: flex; gap: 20px;">
                           {avatars[gender][skinColor].map((avatar) => (
-                            <div style={userAvatar.val === avatar.name ? 'background-color: lightgrey; border: 1px solid black; border-radius: 4px;' : ''}>
+                            <div
+                              style={always(() =>
+                                userAvatar.val === avatar.name ? 'background-color: lightgrey; border: 1px solid black; border-radius: 4px;' : ''
+                              )}
+                            >
                               <img src={avatar.url} width="70" height="85" alt={`${avatar.name} avatar`} onclick={() => (userAvatar.val = avatar.name)} />
                             </div>
                           ))}

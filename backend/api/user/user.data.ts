@@ -27,14 +27,14 @@ export const avatars: IAvatar = {
   },
   diverse: {
     light: [
-      { name: 'diversePlusSize', url: '/@uix/src/common/public/character/diverse/light/plusSize.png' },
+      { name: 'diverseLightPlusSize', url: '/@uix/src/common/public/character/diverse/light/plusSize.png' },
       { name: 'diverseLightAverage', url: '/@uix/src/common/public/character/diverse/light/average.png' },
-      { name: 'diverseMuscular', url: '/@uix/src/common/public/character/diverse/light/muscular.png' },
+      { name: 'diverseLightMuscular', url: '/@uix/src/common/public/character/diverse/light/muscular.png' },
     ],
     dark: [
-      { name: 'diversePlusSize', url: '/@uix/src/common/public/character/diverse/dark/plusSize.png' },
-      { name: 'diverseAverage', url: '/@uix/src/common/public/character/diverse/dark/average.png' },
-      { name: 'diverseMuscular', url: '/@uix/src/common/public/character/diverse/dark/muscular.png' },
+      { name: 'diverseDarkPlusSize', url: '/@uix/src/common/public/character/diverse/dark/plusSize.png' },
+      { name: 'diverseDarkAverage', url: '/@uix/src/common/public/character/diverse/dark/average.png' },
+      { name: 'diverseDarkMuscular', url: '/@uix/src/common/public/character/diverse/dark/muscular.png' },
     ],
   },
 }
