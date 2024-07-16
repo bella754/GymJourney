@@ -3,19 +3,24 @@ import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { Button } from 'common/components/Button.tsx'
 import { getExercises, getWorkoutById, addExercisesToWorkout } from 'backend/api/training/training.crud.ts'
+import { IExercise } from 'backend/api/training/training.interface.ts'
 
 type Props = {
   id: string
 }
 
 @template<Props>(async (_, { id }) => {
-  const allExercises = await getExercises()
-  const selectedExercises = $$([])
+  const exercises = await getExercises()
+  const workout = await getWorkoutById(id)
+  const categories = [...new Set(exercises.map((exercise) => exercise.muscleGroup))]
+
+  const selectedExercises = $$<IExercise[]>(workout?.exercises || [])
+  const popoverContent = $$('')
 
   const search = $$('')
 
-  const handleImageClick = (exercise) => {
-    const index = selectedExercises.findIndex((e) => e.name === exercise.name)
+  const toggleExercise = (exercise: IExercise) => {
+    const index = selectedExercises.findIndex((item: IExercise) => item.name === exercise.name)
     if (index > -1) {
       selectedExercises.splice(index, 1)
     } else {
@@ -23,25 +28,13 @@ type Props = {
     }
   }
 
-  const isSelected = (exercise) => {
-    return selectedExercises.some((e) => e.name === exercise.name)
+  const isExerciseSelected = (exercise: IExercise) => {
+    return selectedExercises.some((item: IExercise) => item.name === exercise.name)
   }
 
-
-  const saveExercises = async () => {
+  const handleSave = async () => {
     await addExercisesToWorkout(id, selectedExercises)
     window.history.back()
-  }
-
-  const groupedExercises = () => {
-    return allExercises.reduce((groups, exercise) => {
-      const muscleGroup = exercise.muscleGroup
-      if (!groups[muscleGroup]) {
-        groups[muscleGroup] = []
-      }
-      groups[muscleGroup].push(exercise)
-      return groups
-    }, {})
   }
 
   return (
@@ -51,45 +44,88 @@ type Props = {
         <div style="margin: 10px auto; display: flex; justify-content: center; align-items: center; max-width: 600px; width: 100%; height: 100%; margin-bottom: 100px;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%">
             <h2 style="font-size: 25px; margin-top: 10px; margin-bottom: 10px;">Select exercises</h2>
-            <input class="search" type="text" style="border: 2px solid #0891b2;" placeholder="Search" value={search} /* @ts-ignore */ oninput={(e) => search(e.target.value)} />
-            {always(() =>
-              Object.entries(groupedExercises())
-                .filter(([muscleGroup, exercises]) => 
-                  exercises.some((exercise) => 
-                    exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase())
-                  )
-                )
-                .map(([muscleGroup, exercises]) => (
-                  <details>
-                    <summary class={"group"}>{muscleGroup}</summary>
-                    {exercises
-                      .filter((exercise) => exercise.name.toString().toLowerCase().includes(search.toString().toLowerCase()))
-                      .map((exercise) => (
-                        <div key={exercise.id} class="exercise-card" style="margin-bottom: 20px;">
+            <input
+              class="search"
+              type="text"
+              style="border: 2px solid #0891b2;"
+              placeholder="Search"
+              value={search}
+              oninput={(e: any) => (search.val = e.target.value)}
+            />
+            {categories.map((category) => (
+              <details style={always(() => (search.val ? 'display: none' : ''))}>
+                <summary class={'group'}>{category}</summary>
+                <div class="exercise-container">
+                  {exercises
+                    .filter((exercise) => exercise.muscleGroup === category)
+                    .map((exercise) => (
+                      <div class="exercise-card">
+                        <img
+                          src={exercise.imageUrl}
+                          alt={exercise.name}
+                          class={always(() => (isExerciseSelected(exercise) ? 'exercise-image selected' : 'exercise-image'))}
+                          onclick={() => toggleExercise(exercise)}
+                        />
+                        <div class="exercise-info">
                           <label for={exercise.name}>{exercise.name}</label>
-                          <img 
-                            src={exercise.imageUrl} 
-                            alt={exercise.name} 
-                            class={`exercise-image ${isSelected(exercise) ? 'selected' : ''}`} 
-                            onclick={() => handleImageClick(exercise)} 
-                          />
                           {exercise.videoUrl && (
-                            <a href={exercise.videoUrl} target="_blank" class="exercise-link">Watch Video</a>
+                            <Button style="padding: 0 3px 0 3px" onclick={() => (popoverContent.val = exercise.videoUrl)}>
+                              Video
+                            </Button>
                           )}
                         </div>
-                      ))
-                    }
-                  </details>
-                ))
+                      </div>
+                    ))}
+                </div>
+              </details>
+            ))}
+            {always(() =>
+              exercises.map((exercise) => (
+                <div
+                  class="exercise-card"
+                  style={always(() => (search.val && exercise.name.toLowerCase().includes(search.val.toLowerCase()) ? '' : 'display: none'))}
+                >
+                  <img
+                    src={exercise.imageUrl}
+                    alt={exercise.name}
+                    class={always(() => (isExerciseSelected(exercise) ? 'exercise-image selected' : 'exercise-image'))}
+                    onclick={() => toggleExercise(exercise)}
+                  />
+                  <div class="exercise-info">
+                    <label for={exercise.name}>{exercise.name}</label>
+                    {exercise.videoUrl && (
+                      <Button style="padding: 0 3px 0 3px" onclick={() => (popoverContent.val = exercise.videoUrl)}>
+                        Video
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              ))
             )}
-            <div class={"bottombut"}>
-              <Button style="margin-right: 180px;" onclick={() => window.history.back()}>Back</Button>
-              <Button onclick={saveExercises}>Save</Button>
+            <div class={'bottombut'}>
+              <Button style="margin-right: 180px;" onclick={() => window.history.back()}>
+                Back
+              </Button>
+              <Button onclick={handleSave}>Save</Button>
             </div>
           </div>
         </div>
       </div>
       <BottomBar />
+      {always(() =>
+        popoverContent.val ? (
+          <div class="popoverVideo">
+            <div class="popover-content-video">
+              <iframe src={popoverContent} title="Exercise Video"></iframe>
+              <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={() => (popoverContent.val = '')}>
+                Close
+              </Button>
+            </div>
+          </div>
+        ) : (
+          <>{popoverContent.val}</>
+        )
+      )}
     </div>
   )
 })
@@ -124,26 +160,59 @@ type Props = {
     width: 100%;
     bottom-margin: 100px;
   }
-  .exercise-card {
+  .exercise-container {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+  }
+  .exercise-card {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
   .exercise-image {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     margin-top: 10px;
     cursor: pointer;
-    border: 2px solid transparent; /* Default border */
   }
+  .exercise-info {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+  }
+
   .exercise-image.selected {
-    border: 2px solid #0891b2; /* Highlighted border for selected exercise */
+    border: 3px solid #0891b2; /* Dickere Umrandung für ausgewählte Übung */
   }
-  .exercise-video {
-    width: 200px;
-    height: 150px;
-    margin-top: 10px;
+  .popoverVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .popover-content-video {
+    position: relative;
+    width: 80%;
+    padding-top: 45%;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .popover-content-video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 `)
 export class SelectExercisePage extends Component<Props> {}
