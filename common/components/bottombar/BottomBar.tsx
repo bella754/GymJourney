@@ -15,9 +15,9 @@ const items = [
 ]
 
 @template<Props>(() => (
-  <ul class="container">
+  <ul class="bottom-bar-container">
     {items.map((item) => (
-      <a href={item.href} class="bottom-bar-button" >
+      <a href={item.href} class="bottom-bar-button">
         <button style={{ backgroundColor: window.location.pathname === item.href ? '#0D9D9D' : 'black' }}>{item.icon}</button>
         {item.name}
       </a>
@@ -31,16 +31,15 @@ const items = [
     border: unset;
     color: white;
     background-color: transparent;
-    
   }
 
   button:hover {
-    background-color: #0D9D9D;
-    color:#0D9D9D;
+    background-color: #0d9d9d;
+    color: #0d9d9d;
   }
 
   button:active {
-    background-color: #0D9D9D;
+    background-color: #0d9d9d;
     box-shadow: 0 3px lightgrey;
     transform: translateY(4px);
   }
@@ -55,10 +54,10 @@ const items = [
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    
+
     border-radius: 10px;
   }
-  .container {
+  .bottom-bar-container {
     position: fixed;
     display: flex;
     justify-content: space-around;
