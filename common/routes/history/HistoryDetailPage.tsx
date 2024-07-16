@@ -6,7 +6,6 @@ import { CardHistory } from '../../components/card/CardHistory.tsx'
 import { Backarrow } from './components/Backarrow.tsx'
 import { getTrainingById, createSession } from 'backend/api/training/training.crud.ts'
 import { IExercise, ITrainingSession } from 'backend/api/training/training.interface.ts'
-import { Trophy } from './components/Trophy.tsx'
 import { Weight } from './components/Weight.tsx'
 import { Button } from 'common/components/Button.tsx'
 
