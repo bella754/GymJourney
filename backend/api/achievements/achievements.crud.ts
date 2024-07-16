@@ -3,7 +3,7 @@ import { getUser } from '../user/user.crud.ts'
 
 /**
  * Checks if the user has created a complete profile.
- * 
+ *
  * @returns {boolean} True if the profile is complete, false otherwise.
  */
 export function hasProfileCreated() {
@@ -15,7 +15,6 @@ export function hasProfileCreated() {
     user.age === 0 ||
     user.height === 0 ||
     user.weight === 0 ||
-    user.ethnicity === 'not specified' ||
     user.experience === 'not specified' ||
     user.gym === 'not specified'
   ) {
@@ -27,7 +26,7 @@ export function hasProfileCreated() {
 
 /**
  * Checks if the user has completed their first workout.
- * 
+ *
  * @returns {boolean} True if the user has at least one training session, false otherwise.
  */
 export function hasFirstWorkout() {

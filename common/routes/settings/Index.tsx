@@ -15,7 +15,6 @@ const userGender = $$(user.gender)
 const userAge = $$(user.age)
 const userHeight = $$(user.height)
 const userWeight = $$(user.weight)
-const userEthnicity = $$(user.ethnicity)
 const userExperience = $$(user.experience)
 const userGym = $$(user.gym)
 const userAvatar = $$(user.avatar)
@@ -159,7 +158,6 @@ const userAvatar = $$(user.avatar)
                 age: userAge,
                 height: userHeight,
                 weight: userWeight,
-                ethnicity: userEthnicity,
                 experience: userExperience,
                 gym: userGym,
                 avatar: userAvatar,

@@ -4,7 +4,7 @@ const users = eternalVar('users') ?? $$({} as Record<string, IUser>)
 
 /**
  * Creates a new user entry.
- * 
+ *
  * @returns {IUser} The newly created user entry.
  */
 export function createUser() {
@@ -16,7 +16,6 @@ export function createUser() {
     age: 0,
     height: 0,
     weight: 0,
-    ethnicity: 'not specified',
     experience: 'not specified',
     gym: 'not specified',
     avatar: 'diverseLightAverage',
@@ -27,7 +26,7 @@ export function createUser() {
 
 /**
  * Retrieves the current user's information.
- * 
+ *
  * @returns {IUser} The current user's information.
  */
 export function getUser() {
@@ -42,7 +41,7 @@ export function getUser() {
 
 /**
  * Retrieves all users.
- * 
+ *
  * @returns {Record<string, IUser>} A record of all users.
  */
 export function getUsers() {
@@ -51,7 +50,7 @@ export function getUsers() {
 
 /**
  * Updates the current user's information.
- * 
+ *
  * @param data - The data to update in the user's entry.
  * @returns {IUser} The updated user entry.
  */

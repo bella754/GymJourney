@@ -14,7 +14,6 @@ const users = await getUsers()
         <th>Age</th>
         <th>Height</th>
         <th>Weight</th>
-        <th>Ethnicity</th>
         <th>Experience</th>
         <th>Gym</th>
       </tr>
@@ -27,7 +26,6 @@ const users = await getUsers()
           <td>{users[key].age}</td>
           <td>{users[key].height}</td>
           <td>{users[key].weight}</td>
-          <td>{users[key].ethnicity}</td>
           <td>{users[key].experience}</td>
           <td>{users[key].gym}</td>
         </tr>

@@ -4,7 +4,6 @@ export interface IUser {
   age: number
   height: number
   weight: number
-  ethnicity: 'Asian' | 'Black' | 'Hispanic' | 'White' | 'Native American' | 'Other' | 'not specified'
   experience: 'beginner' | 'intermediate' | 'advanced' | 'expert' | 'not specified'
   gym: string
   avatar: string
