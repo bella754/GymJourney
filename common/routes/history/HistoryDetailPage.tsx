@@ -160,6 +160,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
     cursor: pointer;
     color: green;
     margin-top: 20px;
+    margin-bottom: 25px;
   }
 `)
 export class HistoryDetailPage extends Component<Props> {}
