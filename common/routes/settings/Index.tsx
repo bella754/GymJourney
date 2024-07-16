@@ -4,7 +4,7 @@ import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
 import { getUser, updateUser } from '../../../backend/api/user/user.crud.ts'
 import { Button } from 'common/components/Button.tsx'
 import { avatars } from 'backend/api/user/user.data.ts'
-import { Gender, IAvatar, SkinColor } from 'backend/api/user/user.interface.ts'
+import { Gender, SkinColor } from 'backend/api/user/user.interface.ts'
 
 type Props = {}
 
@@ -120,12 +120,11 @@ const userAvatar = $$(user.avatar)
 
           <div class={'avatars'}>
             <h2>Avatar</h2>
-            {user.avatar}
             {Object.keys(avatars).map((genderKey) => {
               const gender = genderKey as Gender
               return (
-                <div>
-                  <h2>{gender}</h2>
+                <div style="margin-bottom: 20px;">
+                  <h3 style="margin-bottom: 10px;">{gender}</h3>
                   {Object.keys(avatars[gender]).map((skinColorKey) => {
                     const skinColor = skinColorKey as SkinColor
                     return (
@@ -256,7 +255,6 @@ const userAvatar = $$(user.avatar)
     text-align: center;
     margin-top: 20px;
     margin-bottom: 100px;
-    
   }
   .save-button:hover {
     background-color: #06748d;
