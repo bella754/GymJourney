@@ -6,7 +6,7 @@ import { getWorkoutById, updateSet, updateWorkout, deleteExerciseFromWorkout } f
 import { workouts } from 'backend/api/training/training.data.ts'
 import { Card } from '../../components/card/HistoryCard.tsx'
 import { IWorkout } from 'backend/api/training/training.interface.ts'
-import { Trash } from "common/components/unused/Trash.tsx";
+import { Trash } from 'common/components/unused/Trash.tsx'
 
 type Props = {
   id: string
@@ -18,8 +18,8 @@ type Props = {
 
   const categories = Array.from(new Set(workouts.$.map((workout: IWorkout) => workout.category)))
 
-  const name = $$(ctx?.searchParams?.get('name') || '')
-  const category = $$(ctx?.searchParams?.get('category') || '')
+  const name = $$(selectedWorkout?.name || '')
+  const category = $$(ctx?.searchParams?.get('category') || selectedWorkout?.name || '')
 
   const saveWorkout = async () => {
     if (!name.val || !category.val) {
@@ -31,7 +31,8 @@ type Props = {
     window.location.href = '/workouts'
   }
 
-  const navigateToSelectExercisesPage = () => {
+  const navigateToSelectExercisesPage = async () => {
+    await updateWorkout(id, name, category)
     window.location.href = `/selectExercise/${id}`
   }
 
@@ -71,7 +72,7 @@ type Props = {
                   <h3>
                     {index + 1}. {exercise.name}
                   </h3>
-                  <Trash class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)}> </Trash>
+                  <Trash class="delete-button" onclick={() => handleDeleteExercise(id, exercise.name)} />
                 </div>
                 <table>
                   <thead>
@@ -188,7 +189,7 @@ type Props = {
     padding: 10px;
     margin-bottom: 15px;
   }
-  .delete-button{
+  .delete-button {
     margin-right: 5px;
     margin-top: 5px;
   }

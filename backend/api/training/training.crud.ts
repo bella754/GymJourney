@@ -6,7 +6,7 @@ const trainings = eternalVar('trainings') ?? $$({} as Record<string, ITrainingSe
 
 /**
  * Retrieves all exercises.
- * 
+ *
  * @returns {IExercise[]} A list of all exercises.
  */
 export function getExercises() {
@@ -15,7 +15,7 @@ export function getExercises() {
 
 /**
  * Retrieves all workouts.
- * 
+ *
  * @returns {IWorkout[]} A list of all workouts.
  */
 export function getWorkouts() {
@@ -24,7 +24,7 @@ export function getWorkouts() {
 
 /**
  * Retrieves a workout by its ID.
- * 
+ *
  * @param id - The ID of the workout.
  * @returns {IWorkout | undefined} The workout with the given ID or undefined if not found.
  */
@@ -34,7 +34,7 @@ export function getWorkoutById(id: string) {
 
 /**
  * Creates a new workout by pushing in workouts.
- * 
+ *
  * @returns {string} The ID of the newly created workout.
  */
 export function createWorkout() {
@@ -52,28 +52,28 @@ export function createWorkout() {
 
 /**
  * Updates an existing workout.
- * 
- * @param id - The ID of the workout to update.
+ *
+ * @param workoutId - The ID of the workout to update.
  * @param name - The new name of the workout.
  * @param category - The new category of the workout.
  * @returns {IWorkout} The updated workout.
  * @throws {Error} If the workout is not found.
  */
-export function updateWorkout(id: string, name: string, category: string) {
-  const index = workouts.findIndex((workout) => workout.id === id)
-  if (index === -1) {
+export function updateWorkout(workoutId: string, name: string, category: string) {
+  const workout = workouts.find((workout) => workout.id === workoutId)
+  if (!workout) {
     throw new Error('Workout not found')
   }
 
-  workouts[index].name = name
-  workouts[index].category = category
+  workout.name = name
+  workout.category = category
 
-  return workouts[index]
+  return workout
 }
 
 /**
  * Adds exercises to a workout.
- * 
+ *
  * @param workoutId - The ID of the workout.
  * @param newExercises - The exercises to add.
  * @throws {Error} If the workout is not found.
@@ -89,7 +89,7 @@ export function addExercisesToWorkout(workoutId: string, newExercises: IExercise
 
 /**
  * Deletes a workout by its ID.
- * 
+ *
  * @param id - The ID of the workout to delete.
  * @throws {Error} If the workout is not found.
  */
@@ -98,13 +98,13 @@ export function deleteWorkout(id: string) {
   if (index === -1) {
     throw new Error('Workout not found')
   }
-  
+
   workouts.splice(index, 1)
 }
 
 /**
  * Deletes an exercise from a workout.
- * 
+ *
  * @param workoutId - The ID of the workout.
  * @param exerciseName - The name of the exercise to delete.
  * @throws {Error} If the workout or exercise is not found.
@@ -114,18 +114,18 @@ export function deleteExerciseFromWorkout(workoutId: string, exerciseName: strin
   if (!workout) {
     throw new Error('Workout not found')
   }
-  
+
   const exerciseIndex = workout.exercises.findIndex((exercise) => exercise.name === exerciseName)
   if (exerciseIndex === -1) {
     throw new Error('Exercise not found')
   }
-  
+
   workout.exercises.splice(exerciseIndex, 1)
 }
 
 /**
  * Creates a new training session for a workout.
- * 
+ *
  * @param workout - The workout for the session.
  * @returns {string} The ID of the newly created session.
  */
@@ -153,7 +153,7 @@ export function createSession(workout: IWorkout) {
 
 /**
  * Updates an existing training session.
- * 
+ *
  * @param id - The ID of the session to update.
  * @param data - The data to update in the session.
  * @returns {ITrainingSession} The updated session.
@@ -189,7 +189,7 @@ export function updateSession(id: string, data: Partial<ITrainingSession>) {
 
 /**
  * Updates a specific set in a workout.
- * 
+ *
  * @param workoutId - The ID of the workout.
  * @param exerciseName - The name of the exercise.
  * @param setNumber - The index of the set to update.
@@ -213,7 +213,7 @@ export function updateSet(workoutId: string, exerciseName: string, setNumber: nu
 
 /**
  * Updates reps and weight in specific set in a training session.
- * 
+ *
  * @param sessionId - The ID of the session.
  * @param exerciseName - The name of the exercise.
  * @param setIndex - The index of the set to update.
@@ -241,7 +241,7 @@ export function updateSetOfSession(sessionId: string, exerciseName: string, setI
 
 /**
  * Retrieves all training sessions for the current user.
- * 
+ *
  * @returns {ITrainingSession[]} A list of all training sessions for the current user.
  */
 export function getTrainings() {
@@ -256,7 +256,7 @@ export function getTrainings() {
 
 /**
  * Retrieves a training session by its ID.
- * 
+ *
  * @param id - The ID of the training session.
  * @returns {ITrainingSession | undefined} The training session with the given ID or undefined if not found.
  */
