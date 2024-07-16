@@ -115,7 +115,6 @@ type Props = {
             <Button onclick={navigateToSelectExercisesPage}>Add Exercise</Button>
             <Button onclick={saveWorkout}>Save</Button>
           </div>
-          <p class={'workoutid'}>Workout id: {selectedWorkout?.id}</p>
         </div>
       </div>
       <BottomBar />
