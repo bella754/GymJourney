@@ -1,6 +1,6 @@
 import { Component } from 'uix/components/Component.ts'
 import { Logo } from './Logo.tsx'
-import { AuthIcon } from 'auth/AuthIcon.tsx'
+import Auth from 'common/components/Auth.tsx'
 
 type Props = {}
 
@@ -8,7 +8,7 @@ type Props = {}
   <div class="app-bar">
     <div class="container">
       <Logo />
-      <AuthIcon />
+      {Auth}
     </div>
   </div>
 ))
