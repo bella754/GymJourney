@@ -1,0 +1,11 @@
+use stage from #public.uix;
+
+endpoint: stage {
+    dev:        @+gymjourney_dev,
+    staging:    @+gymjourney_stag,
+    prod:       @+gymjourney_prod
+},
+
+location: stage {
+    prod: @+unyt-host-1
+}

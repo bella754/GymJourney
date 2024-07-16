@@ -1,4 +1,11 @@
 name: "GymJourney",
 description: "A simple UIX app project"
 
-experimental_features: ["frontend-navigation", "view-transitions"]
+experimental_features: ["frontend-navigation", "view-transitions"];
+
+plugin git_deploy (
+	prod: {
+		branch: 'main',
+		on: 'push'
+	}
+)
