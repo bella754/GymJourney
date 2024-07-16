@@ -154,13 +154,13 @@ type Props = {
       <div class="popoverImage" id="popoverImage">
         <div class="popover-content-image">
           <img class="popover-image" src={popoverContent} alt="Exercise Image" />
-          <Button style="padding-top: 5px" onclick={closePopover}>Close</Button>
+          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>Close</Button>
         </div>
       </div>
       <div class="popoverVideo" id="popoverVideo">
         <div class="popover-content-video">
           <iframe src={popoverContent} title="Exercise Video" frameBorder="0" allowFullScreen></iframe>
-          <Button style="position: absolute; z-index: 1; padding-bottom: 20px;" onclick={closePopover}>Close</Button>
+          <Button style="position: absolute; z-index: 1; bottom: 0; padding-bottom: 8px;" onclick={closePopover}>Close</Button>
         </div>
       </div>
     </div>
@@ -296,6 +296,7 @@ type Props = {
     visibility: hidden;
   }
   .popover-content-image {
+    position: relative;
     background: white;
     padding: 20px 20px 10px 20px;
     border-radius: 8px;
@@ -309,14 +310,15 @@ type Props = {
   .popover-content-video {
     position: relative;
     width: 80%;
-    padding-top: 56%;
-    background: white;
+    padding-top: 45%;
+    // background: white;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
   }
+
   .popover-image {
     width: 100%;
     height: 100%;
