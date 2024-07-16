@@ -38,16 +38,15 @@ const handleCreateSession = async (workout: ITrainingSession) => {
 @template<Props>(async (_, { id }) => {
   const training = await getTrainingById(id)
   const totalWeight = formatWeight(calculateTotalWeight(training?.training.exercises))
-  
   return (
     <div>
       <AppBar />
-      <div>
+      <div class={"page"}>
         <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20%">
           <div class="headercontainer">
-            <Backarrow />
+            <Backarrow class={"back"}/>
             <div class={'namedate-container'}>
-              <h2>{training?.training.name}</h2>
+              <h2 style={"margin-bottom: 8px; font-size: 20px;"}>{training?.training.name}</h2>
               {/* @ts-ignore */}
               <p>{new Date(training?.start).toLocaleDateString()}</p>
             </div>
@@ -56,7 +55,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
               <Weight />
             </div>
           </div>
-          <Button class="repeat-button" onclick={() => handleCreateSession(training)}>▶️ Wiederholen</Button>
+          <Button class="repeat-button" onclick={() => handleCreateSession(training)}>Repeat Workout</Button>
           {training?.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
               <Card>
@@ -95,17 +94,27 @@ const handleCreateSession = async (workout: ITrainingSession) => {
   )
 })
 @style(css`
+  .page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+  .back:hover{
+   border: 1px solid black;
+   border-radius: 90px;
+   cursor: pointer;
+  }
   .tablecontainer {
     margin-bottom: 15px;
   }
   .headercontainer {
-    margin: 15px auto;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-width: 300px;
-    max-width: 600px;
     justify-content: space-between;
   }
   .namedate-container {
@@ -156,10 +165,9 @@ const handleCreateSession = async (workout: ITrainingSession) => {
   .repeat-button {
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
-    color: green;
-    margin-top: 20px;
+    margin-bottom: 15px;
   }
 `)
 export class HistoryDetailPage extends Component<Props> {}
