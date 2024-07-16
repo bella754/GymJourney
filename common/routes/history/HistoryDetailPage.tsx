@@ -1,7 +1,7 @@
 import { AppBar } from '../../components/appbar/AppBar.tsx'
 import { Component } from 'uix/components/Component.ts'
 import { BottomBar } from 'common/components/bottombar/BottomBar.tsx'
-import { Card } from '../../components/card/HistoryCard.tsx'
+import { CardHistory } from '../../components/card/CardHistory.tsx'
 import { Backarrow } from './components/Backarrow.tsx'
 import { getTrainingById, createSession } from 'backend/api/training/training.crud.ts'
 import { IExercise, ITrainingSession } from 'backend/api/training/training.interface.ts'
@@ -58,7 +58,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
           <Button class="repeat-button" onclick={() => handleCreateSession(training)}>Repeat Workout</Button>
           {training?.training.$.exercises.$.map((exercise, index) => (
             <div class={'tablecontainer'}>
-              <Card class={"cardd"}>
+              <CardHistory class={"cardd"}>
                 <div>
                   <h3>
                     {index + 1}. {exercise.name}
@@ -84,7 +84,7 @@ const handleCreateSession = async (workout: ITrainingSession) => {
                     </tbody>
                   </table>
                 </div>
-              </Card>
+              </CardHistory>
             </div>
           ))}
         </div>
