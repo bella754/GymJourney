@@ -48,20 +48,24 @@ const CategorySection = async ({ category, workouts }: { category: string; worko
           <div class="card-header">
             <h4 style="flex-grow: 1;">{workout.name}</h4>
             <div class="card-buttons">
-              <Editpen
-                class="edit-button"
+              <div
+                style="width: 30px; height: 30px;"
                 onclick={(e) => {
                   e.stopPropagation()
                   handleEditWorkout(workout.id, workout.name, category)
                 }}
-              ></Editpen>
-              <Trash
-                class="delete-button"
+              >
+                <Editpen class="edit-button"></Editpen>
+              </div>
+              <div
+                style="width: 30px; height: 30px;"
                 onclick={(e) => {
                   e.stopPropagation()
                   handleDeleteWorkout(workout.id)
                 }}
-              ></Trash>
+              >
+                <Trash class="delete-button"></Trash>
+              </div>
             </div>
           </div>
           {workout.exercises.map((exercise: any) => (
