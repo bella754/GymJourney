@@ -57,7 +57,7 @@ type Props = {
       end: endTime,
     })
     session.duration = calculateDuration(new Date(session.start), endTime)
-    frontendRouter.navigateTo(`/history`)
+    window.location.href = `/history`
   }
 
   const handleSetChange = async (sessionId: string, exerciseIndex: string, setIndex: number, field: 'repetitions' | 'weight', value: number) => {
