@@ -52,9 +52,9 @@ type Props = {
   }
 
   return (
-    <div style="margin-bottom: 100px">
+    <div style="margin-bottom: 100px;">
       <AppBar />
-      <div class={'bodycontainer'}>
+      <div class={'bodycontainer'} style="margin-top: 20px;">
         <div>
           <div class={'topcontainer'}>
             <h2>Create Workout</h2>

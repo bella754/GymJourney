@@ -6,7 +6,7 @@ type Props = {}
 
 @template<Props>(() => (
   <div class="app-bar">
-    <div class="container">
+    <div class="app-bar-container">
       <Logo />
       {Auth}
     </div>
@@ -17,7 +17,7 @@ type Props = {}
     padding: 20px 25px;
     border-bottom: 1px solid #ccc;
   }
-  .container {
+  .app-bar-container {
     margin: 0px auto;
     display: flex;
     justify-content: space-between;

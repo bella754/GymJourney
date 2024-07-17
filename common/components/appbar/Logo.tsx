@@ -1,14 +1,14 @@
-import { Component } from "uix/components/Component.ts";
+import { Component } from 'uix/components/Component.ts'
 
 @template(() => (
   <a href="/">
-    <div class="container">
+    <div class="logo-container">
       <img src="/@uix/src/common/public/Logowithtitle.jpg" />
     </div>
   </a>
 ))
 @style(css`
-  .container {
+  .logo-container {
     display: flex;
     gap: 10px;
   }
