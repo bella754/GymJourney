@@ -107,8 +107,5 @@ const userTrainings = await getTrainings()
     display: flex;
     align-items: center;
   }
-  .wholecard.active {
-    background-color: #f0f0f0;
-  }
 `)
 export class HistoryPage extends Component<Props> {}
