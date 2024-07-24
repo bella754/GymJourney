@@ -1,13 +1,19 @@
-# UIX Base Project
+# GymJourmey
 
-This repository provides a simple UIX setup, including backend, frontend and configuration files.
+![GymJourney](docs/screenshot.png)
 
-*[UIX Docs](https://docs.unyt.org/manual/uix/getting-started)*
+GymJourney is a web application that helps you track your gym progress. It allows you to create a workout plan, track your progress, and see your progress over time.
+
+Presentations:
+
+- [Vorstellung der Idee](docs/Vorstellung%20der%20Idee.pdf)
+- [Abschlusspräsentation](docs/Abschlusspräsentation.pdf)
 
 # Project Structure
 
 ## Directories
-The source code is split into three directories. 
+
+The source code is split into three directories.
 
 The `backend` directory contains the backend logic that runs on [Deno](https://deno.com/).
 
